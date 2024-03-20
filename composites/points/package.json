@@ -1,45 +1,42 @@
 {
-  "name": "@composesolutions/ceramic-utils",
+  "name": "@composesolutions/points-composite",
   "version": "0.1.0",
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
     "type": "git",
     "url": "https://github.com/ceramicstudio/solutions",
-    "directory": "utils/ceramic"
+    "directory": "composites/points"
   },
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.js",
+    "./composite.json": "./composite.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "composite.json"
   ],
   "engines": {
     "node": ">=20"
   },
   "sideEffects": false,
   "scripts": {
+    "composite:write": "tsx ./scripts/write-composite.ts",
     "build:clean": "del dist",
     "build:js": "swc src -d ./dist --config-file ../../.swcrc --strip-leading-paths",
-    "build:types": "tsc --emitDeclarationOnly --skipLibCheck",
+    "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly --skipLibCheck",
     "build": "pnpm build:clean && pnpm build:types && pnpm build:js",
     "lint": "eslint src --fix",
     "prepare": "pnpm build",
     "prepublishOnly": "package-check"
   },
-  "dependencies": {
-    "@ceramicnetwork/cli": "^5.3.0",
-    "@ceramicnetwork/core": "^5.3.0",
-    "@ceramicnetwork/ipfs-daemon": "^5.3.0",
-    "@composesolutions/did-utils": "workspace:^",
-    "tmp-promise": "^3.0.3"
-  },
   "devDependencies": {
-    "@ceramicnetwork/common": "^5.2.0",
+    "@composedb/types": "^0.7.1",
+    "@composesolutions/composite-utils": "workspace:^",
     "@types/node": "^20.11.30",
-    "dids": "^5.0.2"
+    "tsx": "^4.7.1"
   }
 }

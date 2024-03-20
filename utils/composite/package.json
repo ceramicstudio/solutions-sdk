@@ -1,12 +1,12 @@
 {
-  "name": "@composesolutions/ceramic-utils",
+  "name": "@composesolutions/composite-utils",
   "version": "0.1.0",
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
     "type": "git",
     "url": "https://github.com/ceramicstudio/solutions",
-    "directory": "utils/ceramic"
+    "directory": "utils/composite"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -31,15 +31,10 @@
     "prepublishOnly": "package-check"
   },
   "dependencies": {
-    "@ceramicnetwork/cli": "^5.3.0",
-    "@ceramicnetwork/core": "^5.3.0",
-    "@ceramicnetwork/ipfs-daemon": "^5.3.0",
-    "@composesolutions/did-utils": "workspace:^",
-    "tmp-promise": "^3.0.3"
+    "@composedb/devtools-node": "^0.7.1",
+    "@composesolutions/ceramic-utils": "workspace:^"
   },
   "devDependencies": {
-    "@ceramicnetwork/common": "^5.2.0",
-    "@types/node": "^20.11.30",
-    "dids": "^5.0.2"
+    "@types/node": "^20.11.30"
   }
 }

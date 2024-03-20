@@ -6,6 +6,7 @@ import { Ceramic } from '@ceramicnetwork/core'
 import { createIPFS } from '@ceramicnetwork/ipfs-daemon'
 import { getAuthenticatedDID } from '@composesolutions/did-utils'
 import type { DID } from 'dids'
+import { dir } from 'tmp-promise'
 
 export type CeramicParams = {
   adminSeed: Uint8Array
@@ -45,6 +46,16 @@ export async function getCeramic(params: CeramicParams): Promise<CeramicContext>
   }
 
   return { ceramic, did, ipfs, dispose }
+}
+
+export async function getEphemeralCeramic(): Promise<CeramicContext> {
+  const tmpFolder = await dir({ unsafeCleanup: true })
+  const ctx = await getCeramic({ adminSeed: new Uint8Array(32), dataPath: tmpFolder.path })
+  async function dispose() {
+    await ctx.dispose()
+    await tmpFolder.cleanup()
+  }
+  return { ...ctx, dispose }
 }
 
 export type CeramicDaemonParams = CeramicParams & {

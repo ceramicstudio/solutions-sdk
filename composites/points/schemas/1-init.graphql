@@ -1,0 +1,19 @@
+# Generic interface used by all point allocations
+interface GenericPointAllocation
+  @createModel(description: "Interface for a generic point allocation to an account") {
+  allocatedBy: DID! @documentAccount
+  allocatedTo: DID! @accountReference
+}
+
+# Interface specific to a single point allocation
+interface SinglePointAllocation implements GenericPointAllocation
+  @createModel(description: "Interface for the allocation of a single point to an account") {
+  allocatedBy: DID! @documentAccount
+  allocatedTo: DID! @accountReference
+}
+
+type SinglePoint implements SinglePointAllocation
+  @createModel(description: "Allocation of a single point to an account") {
+  allocatedBy: DID! @documentAccount
+  allocatedTo: DID! @accountReference
+}
