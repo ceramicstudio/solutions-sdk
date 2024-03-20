@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.build.json",
+  "include": [],
+  "compilerOptions": {
+    "jsx": "preserve",
+    "lib": ["DOM", "ES2020"],
+    "skipLibCheck": true
+  },
+  "typedocOptions": {
+    "name": "Solutions SDK",
+    "readme": "none",
+    "entryDocument": "index.md",
+    "entryPoints": [],
+    "excludeExternals": true,
+    "excludeInternal": true,
+    "excludePrivate": true,
+    "hideBreadcrumbs": true
+  }
+}
