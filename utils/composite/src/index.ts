@@ -1,17 +1,20 @@
 import {
+  type PathInput,
   createComposite,
+  readEncodedComposite,
   writeEncodedComposite,
   writeRuntimeDefinition,
   writeGraphQLSchema,
 } from '@composedb/devtools-node'
-import { getEphemeralCeramic } from '@composesolutions/ceramic-utils'
+import type { CeramicAPI } from '@composedb/types'
+import { getEphemeralCeramic } from '@composexp/ceramic-utils'
 
 export type WriteCompositeParams = {
-  schemaPath: string
-  compositeDefinitionPath: string
-  runtimeDefinitionPath: string
-  runtimeJSONPath?: string
-  runtimeGraphQLPath?: string
+  schemaPath: PathInput
+  compositeDefinitionPath: PathInput
+  runtimeDefinitionPath: PathInput
+  runtimeJSONPath?: PathInput
+  runtimeGraphQLPath?: PathInput
 }
 
 export async function writeComposite(params: WriteCompositeParams) {
@@ -33,4 +36,9 @@ export async function writeComposite(params: WriteCompositeParams) {
 
   await Promise.all(toWrite)
   await ctx.dispose()
+}
+
+export async function deployComposite(ceramic: CeramicAPI, path: PathInput): Promise<void> {
+  // @ts-ignore ceramic type
+  await readEncodedComposite(ceramic, path, true)
 }

@@ -1,6 +1,7 @@
 {
-  "name": "@composesolutions/composite-utils",
+  "name": "@composexp/composite-utils",
   "version": "0.1.0",
+  "private": true,
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
@@ -32,9 +33,10 @@
   },
   "dependencies": {
     "@composedb/devtools-node": "^0.7.1",
-    "@composesolutions/ceramic-utils": "workspace:^"
+    "@composexp/ceramic-utils": "workspace:^"
   },
   "devDependencies": {
+    "@composedb/types": "^0.7.1",
     "@types/node": "^20.11.30"
   }
 }

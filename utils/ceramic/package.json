@@ -1,6 +1,7 @@
 {
-  "name": "@composesolutions/ceramic-utils",
+  "name": "@composexp/ceramic-utils",
   "version": "0.1.0",
+  "private": true,
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
@@ -34,7 +35,7 @@
     "@ceramicnetwork/cli": "^5.3.0",
     "@ceramicnetwork/core": "^5.3.0",
     "@ceramicnetwork/ipfs-daemon": "^5.3.0",
-    "@composesolutions/did-utils": "workspace:^",
+    "@composexp/did-utils": "workspace:^",
     "tmp-promise": "^3.0.3"
   },
   "devDependencies": {

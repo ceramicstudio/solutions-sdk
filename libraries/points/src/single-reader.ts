@@ -2,7 +2,7 @@ import type { BaseQuery } from '@ceramicnetwork/common'
 import type { ModelInstanceDocument } from '@ceramicnetwork/stream-model-instance'
 import { DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI } from '@composedb/types'
-import { definition } from '@composesolutions/points-composite'
+import { definition } from '@composexp/points-composite'
 
 import { getCeramic } from './ceramic.js'
 
@@ -18,7 +18,7 @@ export type QueryDocumentsResult = {
 
 export type SinglePointReaderParams = {
   allocatedBy: string
-  ceramic: CeramicAPI
+  ceramic?: CeramicAPI | string
   loader?: DocumentLoader
   modelID?: string
 }
@@ -27,15 +27,16 @@ export class SinglePointReader {
   #baseQuery: BaseQuery
   #ceramic: CeramicAPI
   #loader: DocumentLoader
+  #modelID: string
 
   constructor(params: SinglePointReaderParams) {
-    this.#baseQuery = {
-      account: params.allocatedBy,
-      models: [params.modelID ?? definition.models.SinglePoint!.id],
-    }
     const ceramic = getCeramic(params.ceramic)
+    const modelID = params.modelID ?? definition.models.SinglePoint!.id
+
+    this.#baseQuery = { account: params.allocatedBy, models: [modelID] }
     this.#ceramic = ceramic
     this.#loader = params.loader ?? new DocumentLoader({ ceramic })
+    this.#modelID = modelID
   }
 
   get ceramic(): CeramicAPI {
@@ -44,6 +45,10 @@ export class SinglePointReader {
 
   get loader(): DocumentLoader {
     return this.#loader
+  }
+
+  get modelID(): string {
+    return this.#modelID
   }
 
   async loadPointDocument(id: string): Promise<ModelInstanceDocument | null> {

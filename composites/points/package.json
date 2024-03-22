@@ -1,5 +1,5 @@
 {
-  "name": "@composesolutions/points-composite",
+  "name": "@composexp/points-composite",
   "version": "0.1.0",
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@composedb/types": "^0.7.1",
-    "@composesolutions/composite-utils": "workspace:^",
+    "@composexp/composite-utils": "workspace:^",
     "@types/node": "^20.11.30",
     "tsx": "^4.7.1"
   }

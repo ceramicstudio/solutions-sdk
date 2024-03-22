@@ -1,6 +1,6 @@
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { writeComposite } from '@composesolutions/composite-utils'
+import { writeComposite } from '@composexp/composite-utils'
 
 const PACKAGE_PATH = fileURLToPath(new URL('..', import.meta.url))
 

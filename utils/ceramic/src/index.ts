@@ -4,7 +4,7 @@ import { CeramicDaemon, DaemonConfig } from '@ceramicnetwork/cli'
 import type { IpfsApi } from '@ceramicnetwork/common'
 import { Ceramic } from '@ceramicnetwork/core'
 import { createIPFS } from '@ceramicnetwork/ipfs-daemon'
-import { getAuthenticatedDID } from '@composesolutions/did-utils'
+import { getAuthenticatedDID } from '@composexp/did-utils'
 import type { DID } from 'dids'
 import { dir } from 'tmp-promise'
 
