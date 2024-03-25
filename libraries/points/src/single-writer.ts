@@ -4,7 +4,7 @@ import { CeramicAPI } from '@composedb/types'
 
 import { getCeramic } from './ceramic.js'
 import { getAuthenticatedDID } from './did.js'
-import { SinglePointReader } from './single-reader.js'
+import { type SinglePointContent, SinglePointReader } from './single-reader.js'
 
 export type FromSeedParams = {
   ceramic?: CeramicAPI | string
@@ -19,8 +19,12 @@ export type SinglePointWriterParams = {
   modelID?: string
 }
 
-export class SinglePointWriter extends SinglePointReader {
-  async fromSeed(params: FromSeedParams): Promise<SinglePointWriter> {
+export class SinglePointWriter<
+  Content extends SinglePointContent = SinglePointContent,
+> extends SinglePointReader<Content> {
+  async fromSeed<Content extends SinglePointContent = SinglePointContent>(
+    params: FromSeedParams,
+  ): Promise<SinglePointWriter<Content>> {
     const ceramic = getCeramic(params.ceramic)
     const did = await getAuthenticatedDID(params.seed)
     ceramic.did = did
@@ -31,14 +35,14 @@ export class SinglePointWriter extends SinglePointReader {
     if (!params.ceramic.did?.authenticated) {
       throw new Error(`An authenticated DID instance must be set on the Ceramic client`)
     }
-    super({ ...params, allocatedBy: params.ceramic.did.id })
+    super({ ...params, issuer: params.ceramic.did.id })
   }
 
   async addPointTo(
     did: string,
-    content: Record<string, unknown> = {},
-  ): Promise<ModelInstanceDocument> {
-    return await this.loader.create(this.modelID, { ...content, allocatedTo: did })
+    content: Partial<Content> = {},
+  ): Promise<ModelInstanceDocument<Content>> {
+    return await this.loader.create(this.modelID, { ...content, recipient: did } as Content)
   }
 
   async removePoint(id: string): Promise<void> {

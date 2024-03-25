@@ -6,24 +6,28 @@ import { definition } from '@composexp/points-composite'
 
 import { getCeramic } from './ceramic.js'
 
+export type SinglePointContent = {
+  recipient: string
+}
+
 export type QueryDocumentsOptions = {
   count?: number
   cursor?: string
 }
 
-export type QueryDocumentsResult = {
-  documents: Array<ModelInstanceDocument>
+export type QueryDocumentsResult<Content extends SinglePointContent = SinglePointContent> = {
+  documents: Array<ModelInstanceDocument<Content>>
   cursor: string | null
 }
 
 export type SinglePointReaderParams = {
-  allocatedBy: string
+  issuer: string
   ceramic?: CeramicAPI | string
   loader?: DocumentLoader
   modelID?: string
 }
 
-export class SinglePointReader {
+export class SinglePointReader<Content extends SinglePointContent = SinglePointContent> {
   #baseQuery: BaseQuery
   #ceramic: CeramicAPI
   #loader: DocumentLoader
@@ -33,7 +37,7 @@ export class SinglePointReader {
     const ceramic = getCeramic(params.ceramic)
     const modelID = params.modelID ?? definition.models.SinglePoint!.id
 
-    this.#baseQuery = { account: params.allocatedBy, models: [modelID] }
+    this.#baseQuery = { account: params.issuer, models: [modelID] }
     this.#ceramic = ceramic
     this.#loader = params.loader ?? new DocumentLoader({ ceramic })
     this.#modelID = modelID
@@ -51,7 +55,7 @@ export class SinglePointReader {
     return this.#modelID
   }
 
-  async loadPointDocument(id: string): Promise<ModelInstanceDocument | null> {
+  async loadPointDocument(id: string): Promise<ModelInstanceDocument<Content> | null> {
     return await this.#loader.load({ id })
   }
 
@@ -62,23 +66,23 @@ export class SinglePointReader {
   async queryPointDocumentsFor(
     did: string,
     options: QueryDocumentsOptions,
-  ): Promise<QueryDocumentsResult> {
+  ): Promise<QueryDocumentsResult<Content>> {
     const results = await this.#loader.queryConnection({
       ...this.#baseQuery,
-      queryFilters: { where: { allocatedTo: { equalTo: did } } },
+      queryFilters: { where: { recipient: { equalTo: did } } },
       last: options.count ?? 20,
       before: options.cursor,
     })
-    const documents = results.edges
-      .map((e) => e.node)
-      .filter((n) => n != null) as Array<ModelInstanceDocument>
+    const documents = results.edges.map((e) => e.node).filter((n) => n != null) as Array<
+      ModelInstanceDocument<Content>
+    >
     return { documents, cursor: results.pageInfo.endCursor }
   }
 
   async countPointsFor(did: string): Promise<number> {
     return await this.#ceramic.index.count({
       ...this.#baseQuery,
-      queryFilters: { where: { allocatedTo: { equalTo: did } } },
+      queryFilters: { where: { recipient: { equalTo: did } } },
     })
   }
 }

@@ -20,7 +20,7 @@ describe('points', () => {
   })
 
   test('write and read', async () => {
-    const reader = new SinglePointReader({ allocatedBy: context.did.id, ceramic: context.ceramic })
+    const reader = new SinglePointReader({ ceramic: context.ceramic, issuer: context.did.id })
     const writer = new SinglePointWriter({ ceramic: context.ceramic })
 
     await expect(reader.countTotalPoints()).resolves.toBe(0)
