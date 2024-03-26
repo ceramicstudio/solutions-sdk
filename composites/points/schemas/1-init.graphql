@@ -1,19 +1,66 @@
+#
 # Generic interface used by all point allocations
+#
+
 interface GenericPointAllocation
   @createModel(description: "Interface for a generic point allocation to an account") {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
 }
 
+#
 # Interface specific to a single point allocation
+#
+
 interface SinglePointAllocation implements GenericPointAllocation
   @createModel(description: "Interface for the allocation of a single point to an account") {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
 }
 
+#
+# Interfaces for multiple points allocation and aggregations
+#
+
+interface MultiplePointsAllocation implements GenericPointAllocation
+  @createModel(description: "Interface for the allocation of multiple points to an account") {
+  issuer: DID! @documentAccount
+  recipient: DID! @accountReference
+  points: Int! @int(min: 1)
+}
+
+interface PointsAggregation @createModel(description: "Interface for points aggregation") {
+  issuer: DID! @documentAccount
+  recipient: DID! @accountReference
+  points: Int! @int(min: 0)
+  date: DateTime!
+}
+
+#
+# Default models implementing the interfaces
+#
+
 type SinglePoint implements SinglePointAllocation
   @createModel(description: "Allocation of a single point to an account") {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
+}
+
+type MultiplePoints implements MultiplePointsAllocation
+  @createModel(description: "Allocation of multiple points to an account") {
+  issuer: DID! @documentAccount
+  recipient: DID! @accountReference
+  points: Int! @int(min: 1)
+}
+
+type TotalPoints implements PointsAggregation
+  @createModel(
+    description: "Points aggregation at a specific date"
+    accountRelation: SET
+    accountRelationFields: ["recipient"]
+  ) {
+  issuer: DID! @documentAccount
+  recipient: DID! @accountReference
+  points: Int! @int(min: 0)
+  date: DateTime!
 }

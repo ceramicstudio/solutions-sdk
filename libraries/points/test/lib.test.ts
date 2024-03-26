@@ -111,16 +111,16 @@ describe('points', () => {
       const firstPoint = await writer.addPointTo('did:test:123')
       const secondPoint = await writer.addPointTo('did:test:123')
       await expect(writer.countPointsFor('did:test:123')).resolves.toBe(2)
-      await writer.removePoint(firstPoint.id.toString())
+      await writer.remove(firstPoint.id.toString())
       await expect(writer.countPointsFor('did:test:123')).resolves.toBe(1)
-      await writer.removePoint(secondPoint.id.toString())
+      await writer.remove(secondPoint.id.toString())
       await expect(writer.countPointsFor('did:test:123')).resolves.toBe(0)
     })
 
-    test('load and query point documents', async () => {
+    test('query point documents', async () => {
       const writer = new SinglePointWriter({ ceramic: context.ceramic })
       const createdDoc = await writer.addPointTo('did:test:123')
-      const loadedDoc = await writer.loadPointDocument(createdDoc.id.toString())
+      const loadedDoc = await writer.loader.load({ id: createdDoc.id.toString() })
       expect(loadedDoc?.id.equals(createdDoc.id)).toBe(true)
       const createdDoc1 = await writer.addPointTo('did:test:123')
       const createdDoc2 = await writer.addPointTo('did:test:123')

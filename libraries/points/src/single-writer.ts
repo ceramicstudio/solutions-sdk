@@ -1,6 +1,5 @@
-import type { ModelInstanceDocument } from '@ceramicnetwork/stream-model-instance'
 import type { DocumentLoader } from '@composedb/loader'
-import { CeramicAPI } from '@composedb/types'
+import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
 
 import { getCeramic } from './ceramic.js'
 import { getAuthenticatedDID } from './did.js'
@@ -45,7 +44,7 @@ export class SinglePointWriter<
     return await this.loader.create(this.modelID, { ...content, recipient: did } as Content)
   }
 
-  async removePoint(id: string): Promise<void> {
+  async remove(id: string): Promise<void> {
     const doc = await this.loader.load({ id })
     await doc.shouldIndex(false)
   }
