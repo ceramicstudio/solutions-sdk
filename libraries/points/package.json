@@ -45,7 +45,8 @@
     "@ceramicnetwork/stream-model-instance": "^4.4.0",
     "@composedb/types": "^0.7.1",
     "@composexp/ceramic-utils": "workspace:^",
-    "@composexp/composite-utils": "workspace:^"
+    "@composexp/composite-utils": "workspace:^",
+    "@composexp/did-utils": "workspace:^"
   },
   "jest": {
     "extensionsToTreatAsEsm": [

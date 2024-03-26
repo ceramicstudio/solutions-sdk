@@ -22,7 +22,7 @@ export type SinglePointWriterParams = {
 export class SinglePointWriter<
   Content extends SinglePointContent = SinglePointContent,
 > extends SinglePointReader<Content> {
-  async fromSeed<Content extends SinglePointContent = SinglePointContent>(
+  static async fromSeed<Content extends SinglePointContent = SinglePointContent>(
     params: FromSeedParams,
   ): Promise<SinglePointWriter<Content>> {
     const ceramic = getCeramic(params.ceramic)

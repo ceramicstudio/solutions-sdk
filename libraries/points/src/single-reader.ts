@@ -1,6 +1,6 @@
-import type { BaseQuery } from '@ceramicnetwork/common'
+import type { BaseQuery, QueryFilters } from '@ceramicnetwork/common'
 import type { ModelInstanceDocument } from '@ceramicnetwork/stream-model-instance'
-import { DocumentLoader } from '@composedb/loader'
+import { type ConnectionQuery, DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI } from '@composedb/types'
 import { definition } from '@composexp/points-composite'
 
@@ -12,12 +12,16 @@ export type SinglePointContent = {
 
 export type QueryDocumentsOptions = {
   count?: number
-  cursor?: string
+  before?: string | null
+  after?: string | null
 }
 
 export type QueryDocumentsResult<Content extends SinglePointContent = SinglePointContent> = {
   documents: Array<ModelInstanceDocument<Content>>
-  cursor: string | null
+  startCursor: string | null
+  endCursor: string | null
+  hasPreviousPage: boolean
+  hasNextPage: boolean
 }
 
 export type SinglePointReaderParams = {
@@ -67,16 +71,18 @@ export class SinglePointReader<Content extends SinglePointContent = SinglePointC
     did: string,
     options: QueryDocumentsOptions,
   ): Promise<QueryDocumentsResult<Content>> {
-    const results = await this.#loader.queryConnection({
-      ...this.#baseQuery,
-      queryFilters: { where: { recipient: { equalTo: did } } },
-      last: options.count ?? 20,
-      before: options.cursor,
-    })
+    const count = options.count ?? 20
+    const queryFilters: QueryFilters = { where: { recipient: { equalTo: did } } }
+    const query: ConnectionQuery = options.after
+      ? // Query in chronological order if the `after` cursor is specified
+        { ...this.#baseQuery, queryFilters, first: count, after: options.after }
+      : // Query in reverse chronological order by default
+        { ...this.#baseQuery, queryFilters, last: count, before: options.before }
+    const results = await this.#loader.queryConnection(query)
     const documents = results.edges.map((e) => e.node).filter((n) => n != null) as Array<
       ModelInstanceDocument<Content>
     >
-    return { documents, cursor: results.pageInfo.endCursor }
+    return { ...results.pageInfo, documents }
   }
 
   async countPointsFor(did: string): Promise<number> {
