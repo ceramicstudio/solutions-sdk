@@ -5,6 +5,7 @@ import { type CeramicContext, getEphemeralCeramic } from '@composexp/ceramic-uti
 import { generatePrivateKey, getAuthenticatedDID } from '@composexp/did-utils'
 import { deployComposite } from '@composexp/composite-utils'
 import { definition } from '@composexp/points-composite'
+import { jest } from '@jest/globals'
 
 import { SinglePointReader, SinglePointWriter } from '../src'
 
@@ -54,6 +55,7 @@ describe('points', () => {
   })
 
   describe('interaction flows', () => {
+    jest.setTimeout(20000)
     let context: CeramicContext
 
     beforeEach(async () => {
@@ -111,9 +113,15 @@ describe('points', () => {
       const firstPoint = await writer.addPointTo('did:test:123')
       const secondPoint = await writer.addPointTo('did:test:123')
       await expect(writer.countPointsFor('did:test:123')).resolves.toBe(2)
-      await writer.remove(firstPoint.id.toString())
+      // Check point removal only applies to the specified model
+      const modelID = definition.models.SinglePoint!.id
+      await expect(writer.removePoint(modelID)).rejects.toThrow(
+        `Document ${modelID} is not using the expected model ${modelID}`,
+      )
+      // Remove added points
+      await writer.removePoint(firstPoint.id.toString())
       await expect(writer.countPointsFor('did:test:123')).resolves.toBe(1)
-      await writer.remove(secondPoint.id.toString())
+      await writer.removePoint(secondPoint.id.toString())
       await expect(writer.countPointsFor('did:test:123')).resolves.toBe(0)
     })
 

@@ -81,30 +81,30 @@ importers:
   libraries/points:
     dependencies:
       '@ceramicnetwork/http-client':
-        specifier: ^5.4.0
-        version: 5.4.0
+        specifier: ^5.5.0
+        version: 5.5.0(typescript@5.4.3)
       '@composedb/loader':
         specifier: ^0.7.1
-        version: 0.7.1
+        version: 0.7.1(typescript@5.4.3)
       '@composexp/points-composite':
         specifier: workspace:^
         version: link:../../composites/points
       dids:
         specifier: ^5.0.2
-        version: 5.0.2
+        version: 5.0.2(typescript@5.4.3)
       key-did-provider-ed25519:
         specifier: ^4.0.2
-        version: 4.0.2
+        version: 4.0.2(typescript@5.4.3)
       key-did-resolver:
         specifier: ^4.0.0
         version: 4.0.0
     devDependencies:
       '@ceramicnetwork/common':
-        specifier: ^5.3.0
-        version: 5.3.0
+        specifier: ^5.4.0
+        version: 5.4.0(typescript@5.4.3)
       '@composedb/types':
         specifier: ^0.7.1
-        version: 0.7.1(@polkadot/util@7.9.2)
+        version: 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
       '@composexp/ceramic-utils':
         specifier: workspace:^
         version: link:../../utils/ceramic
@@ -118,14 +118,14 @@ importers:
   utils/ceramic:
     dependencies:
       '@ceramicnetwork/cli':
-        specifier: ^5.4.0
-        version: 5.4.0(@polkadot/util@7.9.2)(@types/express@4.17.21)(pg@8.11.3)(typescript@5.4.3)
+        specifier: ^5.5.0
+        version: 5.5.0(@polkadot/util@7.9.2)(@types/express@4.17.21)(pg@8.11.3)(typescript@5.4.3)
       '@ceramicnetwork/core':
-        specifier: ^5.4.0
-        version: 5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3)
+        specifier: ^5.5.0
+        version: 5.5.0(@polkadot/util@7.9.2)(typescript@5.4.3)
       '@ceramicnetwork/ipfs-daemon':
-        specifier: ^5.4.0
-        version: 5.4.0(typescript@5.4.3)
+        specifier: ^5.5.0
+        version: 5.5.0(typescript@5.4.3)
       '@composexp/did-utils':
         specifier: workspace:^
         version: link:../did
@@ -134,8 +134,8 @@ importers:
         version: 3.0.3
     devDependencies:
       '@ceramicnetwork/common':
-        specifier: ^5.3.0
-        version: 5.3.0(typescript@5.4.3)
+        specifier: ^5.4.0
+        version: 5.4.0(typescript@5.4.3)
       '@types/node':
         specifier: ^20.11.30
         version: 20.11.30
@@ -545,11 +545,11 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@ceramicnetwork/3id-did-resolver@5.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-kUv5ia3sLq8NC2BWdsRKEq06ynmNx+MoBgUnGBm4cS/h1me6HEeB6yE9tMGXMMcrWkgNbGnTx3sViOr/Pcc/9w==}
+  /@ceramicnetwork/3id-did-resolver@5.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-KFcBlPig0fS8SqgmtGWp+6/OKagrcAfD6mdVbgcCKb7oQS6H9yTfKWgEe/V0z3nB4ibWznxFhjbN4OQSR/54hA==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-tile': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-tile': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       least-recent: 1.0.3
       multiformats: 13.1.0
@@ -562,24 +562,10 @@ packages:
       - zod
     dev: false
 
-  /@ceramicnetwork/anchor-listener@4.3.0:
-    resolution: {integrity: sha512-9kLg7YjHT6jn4DtlwkDMniZm0Ze98WDr7Md6xI4eEY5HCDk5yfL62oiIvt7+Al5gf4mIFT9lsP+IShCGgNEW0Q==}
+  /@ceramicnetwork/anchor-listener@4.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-/eaWXWTQGjHR4MeX0a3H3VwSC95sLTeKNVqasOvsZ9k+Jw/rNIajR9bkicLYuEjciMCUbcNx2q4ieYPY7qo9XQ==}
     dependencies:
-      '@ceramicnetwork/anchor-utils': 4.3.0
-      '@ethersproject/providers': 5.7.2
-      rxjs: 7.8.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/anchor-listener@4.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-9kLg7YjHT6jn4DtlwkDMniZm0Ze98WDr7Md6xI4eEY5HCDk5yfL62oiIvt7+Al5gf4mIFT9lsP+IShCGgNEW0Q==}
-    dependencies:
-      '@ceramicnetwork/anchor-utils': 4.3.0(typescript@5.4.3)
+      '@ceramicnetwork/anchor-utils': 4.4.0(typescript@5.4.3)
       '@ethersproject/providers': 5.7.2
       rxjs: 7.8.1
     transitivePeerDependencies:
@@ -589,10 +575,10 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/anchor-utils@4.3.0:
-    resolution: {integrity: sha512-dIuazx0WSnqxSMpaP6In2OjfdWpSsFbGCFRip9FO68kmm+GPh/EPpLzQsCNPBDGrO5XGmSTmkMoQUcu9UhFvOQ==}
+  /@ceramicnetwork/anchor-utils@4.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-1EIguHvDb5vQpfUFtoE3WA9p6B3SSd0+4ajLJInaZQKKon6+gJjBUE8oWHtrKcm7FAlMUJmu2fdiKfH6VxYXvw==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ethersproject/abi': 5.7.0
       multiformats: 13.1.0
       uint8arrays: 5.0.3
@@ -602,39 +588,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-    dev: true
-
-  /@ceramicnetwork/anchor-utils@4.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-dIuazx0WSnqxSMpaP6In2OjfdWpSsFbGCFRip9FO68kmm+GPh/EPpLzQsCNPBDGrO5XGmSTmkMoQUcu9UhFvOQ==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ethersproject/abi': 5.7.0
-      multiformats: 13.1.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/blockchain-utils-linking@5.0.0:
-    resolution: {integrity: sha512-9WzcRioVzbaxkA9+YTCa+UiOqJnprrK5r3BopPE7gDVk69vpdoEYjf3kP+gmHSQyFUFArwSO9vuYbJ8JQr1k0A==}
-    dependencies:
-      '@ceramicnetwork/streamid': 5.0.0
-      '@didtools/cacao': 3.0.1
-      '@stablelib/random': 1.0.2
-      '@stablelib/sha256': 1.0.1
-      caip: 1.1.1
-      near-api-js: 0.44.2
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
 
   /@ceramicnetwork/blockchain-utils-linking@5.0.0(typescript@5.4.3):
     resolution: {integrity: sha512-9WzcRioVzbaxkA9+YTCa+UiOqJnprrK5r3BopPE7gDVk69vpdoEYjf3kP+gmHSQyFUFArwSO9vuYbJ8JQr1k0A==}
@@ -653,38 +606,11 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/blockchain-utils-validation@5.3.0(@polkadot/util@7.9.2):
-    resolution: {integrity: sha512-7dUZVR9wezc4Fjml76FwicWrF2+ogBJ72XKNBjR4lHv5VXlEZRmeqntiw0ZpNQJInut4tvqJIex6Fu2AAHdjWw==}
-    dependencies:
-      '@ceramicnetwork/blockchain-utils-linking': 5.0.0
-      '@ceramicnetwork/common': 5.3.0
-      '@ethersproject/contracts': 5.7.0
-      '@ethersproject/providers': 5.7.2
-      '@ethersproject/wallet': 5.7.0
-      '@noble/curves': 1.4.0
-      '@polkadot/util-crypto': 7.9.2(@polkadot/util@7.9.2)
-      '@smontero/eosio-signing-tools': 0.0.6
-      '@taquito/utils': 11.2.0
-      '@tendermint/sig': 0.6.0
-      '@zondax/filecoin-signing-tools': 0.18.6
-      caip: 1.1.1
-      tweetnacl: 1.0.3
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - '@polkadot/util'
-      - bufferutil
-      - debug
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/blockchain-utils-validation@5.3.0(@polkadot/util@7.9.2)(typescript@5.4.3):
-    resolution: {integrity: sha512-7dUZVR9wezc4Fjml76FwicWrF2+ogBJ72XKNBjR4lHv5VXlEZRmeqntiw0ZpNQJInut4tvqJIex6Fu2AAHdjWw==}
+  /@ceramicnetwork/blockchain-utils-validation@5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3):
+    resolution: {integrity: sha512-AzzCzOb5zwOF9kA9lgzUSvn2EM+9gljOCCgLgLnmZ5vg1QzAM/1xpM07hGxuve4ud3s37q/C3IVrNCdGvMtIvw==}
     dependencies:
       '@ceramicnetwork/blockchain-utils-linking': 5.0.0(typescript@5.4.3)
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ethersproject/contracts': 5.7.0
       '@ethersproject/providers': 5.7.2
       '@ethersproject/wallet': 5.7.0
@@ -706,25 +632,25 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/cli@5.4.0(@polkadot/util@7.9.2)(@types/express@4.17.21)(pg@8.11.3)(typescript@5.4.3):
-    resolution: {integrity: sha512-+pAKwQAvd/bUEtQPa2D5RrgG1h1Jk2h/WRoXRdX0KjL6al7KS3RMr2OwPv8em1wFvF2IATgQcsESylPyo8MHPA==}
+  /@ceramicnetwork/cli@5.5.0(@polkadot/util@7.9.2)(@types/express@4.17.21)(pg@8.11.3)(typescript@5.4.3):
+    resolution: {integrity: sha512-LaSCJ/PJlBc7YY1mKIWysZpIhG+WPblegWdDBemCXMYmb/HnH2jXGv6QefWZ8NkZo/vET8fRtdEvgdlF4uXuyQ==}
     engines: {node: '>=20.8'}
     hasBin: true
     dependencies:
       '@awaitjs/express': 0.9.0(@types/express@4.17.21)(express@4.19.2)
-      '@ceramicnetwork/3id-did-resolver': 5.4.0(typescript@5.4.3)
-      '@ceramicnetwork/codecs': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/core': 5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3)
-      '@ceramicnetwork/http-client': 5.4.0(typescript@5.4.3)
-      '@ceramicnetwork/indexing': 4.4.0(pg@8.11.3)(sqlite3@5.1.7)(typescript@5.4.3)
-      '@ceramicnetwork/ipfs-daemon': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/3id-did-resolver': 5.5.0(typescript@5.4.3)
+      '@ceramicnetwork/codecs': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/core': 5.5.0(@polkadot/util@7.9.2)(typescript@5.4.3)
+      '@ceramicnetwork/http-client': 5.5.0(typescript@5.4.3)
+      '@ceramicnetwork/indexing': 4.5.0(pg@8.11.3)(sqlite3@5.1.7)(typescript@5.4.3)
+      '@ceramicnetwork/ipfs-daemon': 5.5.0(typescript@5.4.3)
       '@ceramicnetwork/logger': 5.0.0
       '@ceramicnetwork/observability': 1.4.4
-      '@ceramicnetwork/stream-tile': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-tile': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@stablelib/random': 1.0.2
-      aws-sdk: 2.1585.0
+      aws-sdk: 2.1587.0
       commander: 9.5.0
       cors: 2.8.5
       cross-eventsource: 1.0.0
@@ -742,7 +668,7 @@ packages:
       picocolors: 1.0.0
       pkh-did-resolver: 1.2.0
       reflect-metadata: 0.1.14
-      s3leveldown: 2.2.2(aws-sdk@2.1585.0)(levelup@5.1.1)
+      s3leveldown: 2.2.2(aws-sdk@2.1587.0)(levelup@5.1.1)
       stream-to-array: 2.3.0
       typedjson: 1.8.0
       uint8arrays: 5.0.3
@@ -766,10 +692,10 @@ packages:
       - zod
     dev: false
 
-  /@ceramicnetwork/codecs@4.3.0:
-    resolution: {integrity: sha512-FT+EoPis+F/E+nUGFi2osP5b1JpPaUKYWhkVX6J/s5A7PPpPxyNnfM0h3B+LIsaDef5jSTtNWI9L3AhrNAjPXg==}
+  /@ceramicnetwork/codecs@4.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-XAFLvNZnYs8m66v48lYOmpPn5DuJUsVhO2bhoFwQ0zbB7bO221ye9nrnjmGc+/o6TiJa8Zwg/GNIsDhBK/GlWQ==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       cartonne: 3.0.1
       codeco: 1.2.1
@@ -783,52 +709,8 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/codecs@4.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-FT+EoPis+F/E+nUGFi2osP5b1JpPaUKYWhkVX6J/s5A7PPpPxyNnfM0h3B+LIsaDef5jSTtNWI9L3AhrNAjPXg==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/streamid': 5.0.0
-      cartonne: 3.0.1
-      codeco: 1.2.1
-      dag-jose: 4.0.0
-      multiformats: 13.1.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/common@5.3.0:
-    resolution: {integrity: sha512-di+A+NaDg2lxgxNGv5yRTgCSK2zu9rU3HCjwpuS73FKikQSE01oZpXgdOIt1liDHxAzw8GWApaYAlSzc+7bLqg==}
-    dependencies:
-      '@ceramicnetwork/streamid': 5.0.0
-      '@didtools/cacao': 3.0.1
-      '@didtools/pkh-ethereum': 0.2.1
-      '@didtools/pkh-solana': 0.2.0
-      '@didtools/pkh-stacks': 0.2.0
-      '@didtools/pkh-tezos': 0.3.0
-      '@ipld/dag-cbor': 9.2.0
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-      flat: 5.0.2
-      it-first: 3.0.4
-      jet-logger: 1.2.2
-      lodash.clonedeep: 4.5.0
-      logfmt: 1.4.0
-      multiformats: 13.1.0
-      rxjs: 7.8.1
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/common@5.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-di+A+NaDg2lxgxNGv5yRTgCSK2zu9rU3HCjwpuS73FKikQSE01oZpXgdOIt1liDHxAzw8GWApaYAlSzc+7bLqg==}
+  /@ceramicnetwork/common@5.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-NqHGVTZPDcexRLrSajtLFXuLE/qOEHsCxEBHnFSkb1KpcHypydWC5dCXh71fwmOw4SGSgE2pI7M1JEUUOQg4Qg==}
     dependencies:
       '@ceramicnetwork/streamid': 5.0.0
       '@didtools/cacao': 3.0.1(typescript@5.4.3)
@@ -854,97 +736,28 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/core@5.4.0(@polkadot/util@7.9.2):
-    resolution: {integrity: sha512-P6SBwUnpYrZw2JCLwI/ywza21xQEIRGzMOoDZC+I3CP0bkI6F8nY6Sw1+J93ds54DjrliKdReCEiEdPNEfSmXQ==}
+  /@ceramicnetwork/core@5.5.0(@polkadot/util@7.9.2)(typescript@5.4.3):
+    resolution: {integrity: sha512-Tj/uZZ4pneSjSaEKhfp4RR6gMmzyqOIK3eqyepEObyEQUyggbQMxDqhGPRWqFFeUdB2GAnbaKuYuo/uz6a5ghg==}
     engines: {node: '>=20.8'}
     dependencies:
-      '@ceramicnetwork/anchor-listener': 4.3.0
-      '@ceramicnetwork/anchor-utils': 4.3.0
-      '@ceramicnetwork/codecs': 4.3.0
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/indexing': 4.4.0(pg@8.11.3)(sqlite3@5.1.7)
-      '@ceramicnetwork/ipfs-topology': 5.3.0
-      '@ceramicnetwork/job-queue': 4.4.0
+      '@ceramicnetwork/anchor-listener': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/anchor-utils': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/codecs': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/indexing': 4.5.0(pg@8.11.3)(sqlite3@5.1.7)(typescript@5.4.3)
+      '@ceramicnetwork/ipfs-topology': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/job-queue': 4.5.0(typescript@5.4.3)
       '@ceramicnetwork/observability': 1.4.4
-      '@ceramicnetwork/pinning-aggregation': 5.3.0
-      '@ceramicnetwork/pinning-ipfs-backend': 5.3.0
-      '@ceramicnetwork/stream-caip10-link': 5.3.0
-      '@ceramicnetwork/stream-caip10-link-handler': 5.4.0(@polkadot/util@7.9.2)
-      '@ceramicnetwork/stream-model': 4.3.0
-      '@ceramicnetwork/stream-model-handler': 4.4.0
-      '@ceramicnetwork/stream-model-instance': 4.4.0
-      '@ceramicnetwork/stream-model-instance-handler': 4.4.0
-      '@ceramicnetwork/stream-tile': 5.3.0
-      '@ceramicnetwork/stream-tile-handler': 5.4.0
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ceramicnetwork/wasm-bloom-filter': 0.1.0
-      '@datastructures-js/priority-queue': 6.3.1
-      '@ethersproject/providers': 5.7.2
-      '@ipld/dag-cbor': 7.0.3
-      '@scarf/scarf': 1.3.0
-      '@stablelib/random': 1.0.2
-      '@stablelib/sha256': 1.0.1
-      '@stablelib/uuid': 1.0.2
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      await-semaphore: 0.1.3
-      cartonne: 3.0.1
-      codeco: 1.2.1
-      dag-jose: 4.0.0
-      dids: 5.0.2
-      it-all: 3.0.4
-      it-batch: 3.0.4
-      it-first: 3.0.4
-      knex: 2.5.1(pg@8.11.3)(sqlite3@5.1.7)
-      least-recent: 1.0.3
-      level-ts: 2.1.0
-      lodash.clonedeep: 4.5.0
-      mapmoize: 1.2.1
-      multiformats: 13.1.0
-      p-queue: 8.0.1
-      pg: 8.11.3
-      rxjs: 7.8.1
-      sqlite3: 5.1.7
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - '@polkadot/util'
-      - better-sqlite3
-      - bluebird
-      - bufferutil
-      - debug
-      - encoding
-      - mysql
-      - mysql2
-      - pg-native
-      - supports-color
-      - tedious
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/core@5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3):
-    resolution: {integrity: sha512-P6SBwUnpYrZw2JCLwI/ywza21xQEIRGzMOoDZC+I3CP0bkI6F8nY6Sw1+J93ds54DjrliKdReCEiEdPNEfSmXQ==}
-    engines: {node: '>=20.8'}
-    dependencies:
-      '@ceramicnetwork/anchor-listener': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/anchor-utils': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/codecs': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/indexing': 4.4.0(pg@8.11.3)(sqlite3@5.1.7)(typescript@5.4.3)
-      '@ceramicnetwork/ipfs-topology': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/job-queue': 4.4.0(typescript@5.4.3)
-      '@ceramicnetwork/observability': 1.4.4
-      '@ceramicnetwork/pinning-aggregation': 5.3.0
-      '@ceramicnetwork/pinning-ipfs-backend': 5.3.0
-      '@ceramicnetwork/stream-caip10-link': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-caip10-link-handler': 5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-handler': 4.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-instance': 4.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-instance-handler': 4.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-tile': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-tile-handler': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/pinning-aggregation': 5.4.0
+      '@ceramicnetwork/pinning-ipfs-backend': 5.4.0
+      '@ceramicnetwork/stream-caip10-link': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-caip10-link-handler': 5.5.0(@polkadot/util@7.9.2)(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-handler': 4.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance': 4.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance-handler': 4.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-tile': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-tile-handler': 5.5.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@ceramicnetwork/wasm-bloom-filter': 0.1.0
       '@datastructures-js/priority-queue': 6.3.1
@@ -991,14 +804,14 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/http-client@5.4.0:
-    resolution: {integrity: sha512-ABG0OA3p/cOpV472gegFE7Xcuv4g7foWh/nLEuYnB+O9iPFym3/SkFDMJ4+F84T6eL2TkdjassYgY7saV8HlKA==}
+  /@ceramicnetwork/http-client@5.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-zTJV+2nI933T4py6tBgV3c6QZ3FNOCUWSUGBQyzHxuRyMf7GRA4KztDY8KzvA9GQw9RyHik2IyZrT9sOoIm8tw==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/stream-caip10-link': 5.3.0
-      '@ceramicnetwork/stream-model': 4.3.0
-      '@ceramicnetwork/stream-model-instance': 4.4.0
-      '@ceramicnetwork/stream-tile': 5.3.0
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-caip10-link': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance': 4.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-tile': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@scarf/scarf': 1.3.0
       query-string: 7.1.3
@@ -1010,66 +823,14 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/http-client@5.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-ABG0OA3p/cOpV472gegFE7Xcuv4g7foWh/nLEuYnB+O9iPFym3/SkFDMJ4+F84T6eL2TkdjassYgY7saV8HlKA==}
+  /@ceramicnetwork/indexing@4.5.0(pg@8.11.3)(sqlite3@5.1.7)(typescript@5.4.3):
+    resolution: {integrity: sha512-VJ8ucG4XltdX6zWN35Qhb02u3QYwfJ5COPKp+W2OVY2MDtUJkQk/38YioZ4a3HtQAARYzvyVlkF41TResGX5HA==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-caip10-link': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-instance': 4.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-tile': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/streamid': 5.0.0
-      '@scarf/scarf': 1.3.0
-      query-string: 7.1.3
-      rxjs: 7.8.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/indexing@4.4.0(pg@8.11.3)(sqlite3@5.1.7):
-    resolution: {integrity: sha512-Nfaye7h9ZTPsA7AA3dRGiuqMMLJJy70DlsPmguwLaeZKCuLVFygP2n8Ylx7IpBwLdSyoBYM6ZQhoCEovmApXyg==}
-    dependencies:
-      '@ceramicnetwork/anchor-listener': 4.3.0
-      '@ceramicnetwork/anchor-utils': 4.3.0
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/job-queue': 4.4.0
-      '@ceramicnetwork/stream-model': 4.3.0
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ethersproject/providers': 5.7.2
-      knex: 2.5.1(pg@8.11.3)(sqlite3@5.1.7)
-      lodash.clonedeep: 4.5.0
-      multiformats: 13.1.0
-      p-queue: 8.0.1
-      pg-boss: 8.4.2
-      rxjs: 7.8.1
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - better-sqlite3
-      - bufferutil
-      - encoding
-      - mysql
-      - mysql2
-      - pg
-      - pg-native
-      - sqlite3
-      - supports-color
-      - tedious
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/indexing@4.4.0(pg@8.11.3)(sqlite3@5.1.7)(typescript@5.4.3):
-    resolution: {integrity: sha512-Nfaye7h9ZTPsA7AA3dRGiuqMMLJJy70DlsPmguwLaeZKCuLVFygP2n8Ylx7IpBwLdSyoBYM6ZQhoCEovmApXyg==}
-    dependencies:
-      '@ceramicnetwork/anchor-listener': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/anchor-utils': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/job-queue': 4.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
+      '@ceramicnetwork/anchor-listener': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/anchor-utils': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/job-queue': 4.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@ethersproject/providers': 5.7.2
       knex: 2.5.1(pg@8.11.3)(sqlite3@5.1.7)
@@ -1094,12 +855,12 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/ipfs-daemon@5.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-YAizYrT7G+BPGbA9TDo7Pjnb1N/DfuLgPjgrzGuWNbrx3zADlkYKMaIUkzbKln3o/2pnEZMW+olD1fMecEesbg==}
+  /@ceramicnetwork/ipfs-daemon@5.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-oWYI7k7Edblq8Ubp3t+eIjA8nQ5XsvyBLm/rw7c7gg3CTfA8gk95GH30THEZ8eUcqj7ZD6RX8UtUk3nvPrNs7g==}
     hasBin: true
     dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/ipfs-topology': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/ipfs-topology': 5.4.0(typescript@5.4.3)
       express: 4.19.2
       get-port: 7.1.0
       go-ipfs: 0.18.1
@@ -1117,22 +878,10 @@ packages:
       - zod
     dev: false
 
-  /@ceramicnetwork/ipfs-topology@5.3.0:
-    resolution: {integrity: sha512-augxF+jbd1uXKiOb9r1BzqaQ7783X9BWcneLLZRSWgfRrMK7NxVdZJXlH8xfyZPQi3BY7A0LGGvYzeBKOuYIbw==}
+  /@ceramicnetwork/ipfs-topology@5.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-5B+ydp8nKXmw+tryicgIS9XN8cGTnfhob4tGBxJAWBK8D/RFA5BpcTITQ82gc7hnQYr79rpOE5auoni/Pp2dUA==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/ipfs-topology@5.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-augxF+jbd1uXKiOb9r1BzqaQ7783X9BWcneLLZRSWgfRrMK7NxVdZJXlH8xfyZPQi3BY7A0LGGvYzeBKOuYIbw==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -1140,26 +889,10 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/job-queue@4.4.0:
-    resolution: {integrity: sha512-k0jn7qD+0t6uV8ogL1OPYHIb0hR0MG8HteVu2uqXgHdwJFBngnZrRaFTcLF6uSS5fKc7r1/+ugx1n8oqADSwOw==}
+  /@ceramicnetwork/job-queue@4.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-966ksYktWhsSVaF5ZmFKr0wcAvUZ6P1Bdjj4eX+tz/LQ4xQIuf5alxuSfaB8SMBGLM310RDmYGhrc2emUSVVPQ==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      pg: 8.11.3
-      pg-boss: 8.4.2
-      rxjs: 7.8.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - pg-native
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/job-queue@4.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-k0jn7qD+0t6uV8ogL1OPYHIb0hR0MG8HteVu2uqXgHdwJFBngnZrRaFTcLF6uSS5fKc7r1/+ugx1n8oqADSwOw==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       pg: 8.11.3
       pg-boss: 8.4.2
       rxjs: 7.8.1
@@ -1190,14 +923,14 @@ packages:
       '@opentelemetry/semantic-conventions': 1.15.0
       '@types/node': 20.11.30
 
-  /@ceramicnetwork/pinning-aggregation@5.3.0:
-    resolution: {integrity: sha512-zFzB08ds0VrKeIwtzuq19I3XDx8Z3FsoVQDUTP0dcNaTJHrYk31yd9kv2+YNtli/UKjZhWhSRyMDhsRnoEUv6A==}
+  /@ceramicnetwork/pinning-aggregation@5.4.0:
+    resolution: {integrity: sha512-JMhsPEOMZVgFESooe5FenmOg32HK2338mNGFuwPgThJLLZWgwX1qC12J5/MQyPIaMeMXgydwT0JE+mAMsZVQqw==}
     dependencies:
       '@stablelib/sha256': 1.0.1
       uint8arrays: 5.0.3
 
-  /@ceramicnetwork/pinning-ipfs-backend@5.3.0:
-    resolution: {integrity: sha512-7DO6i2kac1jFKeGOaJ6KbgF9Tp8LS7NvtLZilnvr5bH/UFnNFMLJZ9ycHj5ErRPREY7yXAB9RhVxK/xO4775nQ==}
+  /@ceramicnetwork/pinning-ipfs-backend@5.4.0:
+    resolution: {integrity: sha512-sBOEhr3P5oCR2m1hJnSI9dazVcQenOxeMvoExiTv4g4VN8VAHfiZsQuorxCB8uXr1z505W2K7UzL8p49zDjRPg==}
     dependencies:
       '@stablelib/sha256': 1.0.1
       ipfs-http-client: 60.0.1
@@ -1206,30 +939,13 @@ packages:
       - encoding
       - supports-color
 
-  /@ceramicnetwork/stream-caip10-link-handler@5.4.0(@polkadot/util@7.9.2):
-    resolution: {integrity: sha512-qCu4dlr0byfDIHhRDsW7rXQlQYUMkuxkzvVqYBVBk0OZ3a4RwzTicQ8unqbM4ZBN9HTKcwYtUJmOcb7+ncySrw==}
+  /@ceramicnetwork/stream-caip10-link-handler@5.5.0(@polkadot/util@7.9.2)(typescript@5.4.3):
+    resolution: {integrity: sha512-2GiFBSZrc8tmKBSWWh2ZjzWMtQG1fHQCCPhHXd91Si5cx+FTh2T0qEqpg5JtIXrDRe/yIP2sq4ZHODlVeuslSw==}
     dependencies:
-      '@ceramicnetwork/blockchain-utils-validation': 5.3.0(@polkadot/util@7.9.2)
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/stream-caip10-link': 5.3.0
-      '@ceramicnetwork/stream-handler-common': 4.3.0
-    transitivePeerDependencies:
-      - '@polkadot/util'
-      - bufferutil
-      - debug
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/stream-caip10-link-handler@5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3):
-    resolution: {integrity: sha512-qCu4dlr0byfDIHhRDsW7rXQlQYUMkuxkzvVqYBVBk0OZ3a4RwzTicQ8unqbM4ZBN9HTKcwYtUJmOcb7+ncySrw==}
-    dependencies:
-      '@ceramicnetwork/blockchain-utils-validation': 5.3.0(@polkadot/util@7.9.2)(typescript@5.4.3)
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-caip10-link': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-handler-common': 4.3.0(typescript@5.4.3)
+      '@ceramicnetwork/blockchain-utils-validation': 5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-caip10-link': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-handler-common': 4.4.0(typescript@5.4.3)
     transitivePeerDependencies:
       - '@polkadot/util'
       - bufferutil
@@ -1239,10 +955,10 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-caip10-link@5.3.0:
-    resolution: {integrity: sha512-/0WGIS3BtRO9VBRxdc2+aCpcGbRXiiWGb+dUk6iF18awfiFv8xzhBJahg8wAHtJiOHLUEdKMCh2vAT2muuRczA==}
+  /@ceramicnetwork/stream-caip10-link@5.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-SyrFi/MBX++jU0e8YyUs6o/Bz2jrB5JaVeIKSjbFURGHjfe61N3OLKvmQPiDpq/fCdRWU3Wgg1S9V6mjS2i+fw==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       caip: 1.1.1
       did-resolver: 4.1.0
@@ -1254,39 +970,10 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-caip10-link@5.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-/0WGIS3BtRO9VBRxdc2+aCpcGbRXiiWGb+dUk6iF18awfiFv8xzhBJahg8wAHtJiOHLUEdKMCh2vAT2muuRczA==}
+  /@ceramicnetwork/stream-handler-common@4.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-1tBmfWZ1f1ZLfvdfl0Bz0n2UGsyxF+khtn47h5KYF/PhMQmA/Rojivg7PamJSH1i20VEDmpM0JTPluTsgJHRzg==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/streamid': 5.0.0
-      caip: 1.1.1
-      did-resolver: 4.1.0
-      lodash.clonedeep: 4.5.0
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/stream-handler-common@4.3.0:
-    resolution: {integrity: sha512-7Hci2u+tEjeHxzTuHyiXpS4LpaIsMf5moI4yV2RrAlD4qzTyubtJM4V7e5UeTbz9AGRYk5zBwkantiI2WGgwhQ==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/streamid': 5.0.0
-      lodash.clonedeep: 4.5.0
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/stream-handler-common@4.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-7Hci2u+tEjeHxzTuHyiXpS4LpaIsMf5moI4yV2RrAlD4qzTyubtJM4V7e5UeTbz9AGRYk5zBwkantiI2WGgwhQ==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       lodash.clonedeep: 4.5.0
     transitivePeerDependencies:
@@ -1296,34 +983,12 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-model-handler@4.4.0:
-    resolution: {integrity: sha512-DUHee9CyVf+RVWLB40cnTtLZQt8Cn/CrBW/vrexr773B8y7wQcClZ2EsD3umgbJF2qBO/LM6DKOJLoWGYyoGAg==}
+  /@ceramicnetwork/stream-model-handler@4.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-bHB/+O1qSv0DZMmNdpNvu34JXRhLYVdS+52SAKSjlx4xX5YSQkO03JyvcehNC0hh4wF+mvopXZ9Ewvt2vRV+9w==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/stream-handler-common': 4.3.0
-      '@ceramicnetwork/stream-model': 4.3.0
-      '@ceramicnetwork/streamid': 5.0.0
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      fast-json-patch: 3.1.1
-      json-ptr: 3.1.1
-      lodash.clonedeep: 4.5.0
-      lodash.ismatch: 4.4.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/stream-model-handler@4.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-DUHee9CyVf+RVWLB40cnTtLZQt8Cn/CrBW/vrexr773B8y7wQcClZ2EsD3umgbJF2qBO/LM6DKOJLoWGYyoGAg==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-handler-common': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-handler-common': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       ajv: 8.12.0
       ajv-formats: 2.1.1(ajv@8.12.0)
@@ -1339,35 +1004,13 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-model-instance-handler@4.4.0:
-    resolution: {integrity: sha512-auvPWJrW4Z7ITTalLqsVc98/+Ah7/P9Ys3Mt8KmVWlcYF1Tkb1ZHEVR3yaA0negn3mA5ZN+jYDvudppZGBctAA==}
+  /@ceramicnetwork/stream-model-instance-handler@4.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-J5pMZHBFoMHVJePY0sIlowYCDmm40B4mONVsFQIHBokUW4y71S4mSz7dH0xKJgS67+VkZ0tvpFrKHlSAziAMIA==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/stream-handler-common': 4.3.0
-      '@ceramicnetwork/stream-model': 4.3.0
-      '@ceramicnetwork/stream-model-instance': 4.4.0
-      '@ceramicnetwork/streamid': 5.0.0
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      fast-json-patch: 3.1.1
-      least-recent: 1.0.3
-      lodash.clonedeep: 4.5.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/stream-model-instance-handler@4.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-auvPWJrW4Z7ITTalLqsVc98/+Ah7/P9Ys3Mt8KmVWlcYF1Tkb1ZHEVR3yaA0negn3mA5ZN+jYDvudppZGBctAA==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-handler-common': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-instance': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-handler-common': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance': 4.5.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       ajv: 8.12.0
       ajv-formats: 2.1.1(ajv@8.12.0)
@@ -1382,10 +1025,10 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-model-instance@4.4.0:
-    resolution: {integrity: sha512-GWk6Nb8JMUXuVTDxmfq3zvIbHuYVtCe/vqFXcEIMyzwwcqC+qaEfreIT3QdtLv38Pnc9TRxlG/H9uKmjZ1HRww==}
+  /@ceramicnetwork/stream-model-instance@4.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-m84XUzRK9D2kaa8jrqn7XS450jJPqYqlBmHkP+1qTtoRLQC5o1N6648PgkCqhb2FyvkhyBTvB12je86H3fkVsQ==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@ipld/dag-cbor': 7.0.3
       '@stablelib/random': 1.0.2
@@ -1399,28 +1042,11 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-model-instance@4.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-GWk6Nb8JMUXuVTDxmfq3zvIbHuYVtCe/vqFXcEIMyzwwcqC+qaEfreIT3QdtLv38Pnc9TRxlG/H9uKmjZ1HRww==}
+  /@ceramicnetwork/stream-model@4.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-S+ulDr6g3HMJO+D8CCqnfpoIKXr5LbZwT3GLmOtx2zgjBWpgEeZ1WnbZz+zTcd0gXoDr8/Z3CtMi5wnbk4nOiA==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ipld/dag-cbor': 7.0.3
-      '@stablelib/random': 1.0.2
-      fast-json-patch: 3.1.1
-      object-sizeof: 2.6.4
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/stream-model@4.3.0:
-    resolution: {integrity: sha512-geuPxSWiA4U8TgoL1FhV1bFcojRudDITwBRUlBm0/7azBZVfbF1BpEINUAXeEGWYNfzI1Rgz3gLnAzDCnOyTmA==}
-    dependencies:
-      '@ceramicnetwork/codecs': 4.3.0
-      '@ceramicnetwork/common': 5.3.0
+      '@ceramicnetwork/codecs': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@ipld/dag-cbor': 7.0.3
       '@stablelib/random': 1.0.2
@@ -1438,55 +1064,12 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-model@4.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-geuPxSWiA4U8TgoL1FhV1bFcojRudDITwBRUlBm0/7azBZVfbF1BpEINUAXeEGWYNfzI1Rgz3gLnAzDCnOyTmA==}
+  /@ceramicnetwork/stream-tile-handler@5.5.0(typescript@5.4.3):
+    resolution: {integrity: sha512-pMPwzo8GEQRq25iLCPJwyDrets0eq164BEqTbixkmx6Xl6X3T8Eion7F9AnEAU/3RtyVJwOWCwyg4QqWINeNgw==}
     dependencies:
-      '@ceramicnetwork/codecs': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ipld/dag-cbor': 7.0.3
-      '@stablelib/random': 1.0.2
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      codeco: 1.2.1
-      fast-json-patch: 3.1.1
-      json-schema-typed: 8.0.1
-      multiformats: 13.1.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/stream-tile-handler@5.4.0:
-    resolution: {integrity: sha512-JAReOVJjWV1btNkZ4/jybeFB5Y0aIM9R4hHQ19uArAEiTPVYp/bFREBZYnGvQquVSo0fuiPDqWY+zxQxuCXFiA==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/stream-handler-common': 4.3.0
-      '@ceramicnetwork/stream-tile': 5.3.0
-      '@ceramicnetwork/streamid': 5.0.0
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      fast-json-patch: 3.1.1
-      least-recent: 1.0.3
-      lodash.clonedeep: 4.5.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
-  /@ceramicnetwork/stream-tile-handler@5.4.0(typescript@5.4.3):
-    resolution: {integrity: sha512-JAReOVJjWV1btNkZ4/jybeFB5Y0aIM9R4hHQ19uArAEiTPVYp/bFREBZYnGvQquVSo0fuiPDqWY+zxQxuCXFiA==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-handler-common': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-tile': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-handler-common': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-tile': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       ajv: 8.12.0
       ajv-formats: 2.1.1(ajv@8.12.0)
@@ -1501,28 +1084,10 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-tile@5.3.0:
-    resolution: {integrity: sha512-vM7EpvUZLfz8p73fZBHVYGQ9rN+UbCX8z9PPX1aj7zSGoiwzqVGoskbzgpAqyKuaTAiFrX7rI/Z5eZaQ8NXi7g==}
+  /@ceramicnetwork/stream-tile@5.4.0(typescript@5.4.3):
+    resolution: {integrity: sha512-z9OQ1+S0TPkwqcSqV3HGXKqQADeS792aQRPzeWvRzpj8jY9lUHYZt++obvkMhXIwsvh1GOaRiGHa5xD6eTIxJQ==}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ipld/dag-cbor': 7.0.3
-      '@stablelib/random': 1.0.2
-      dids: 5.0.2
-      fast-json-patch: 3.1.1
-      lodash.clonedeep: 4.5.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@ceramicnetwork/stream-tile@5.3.0(typescript@5.4.3):
-    resolution: {integrity: sha512-vM7EpvUZLfz8p73fZBHVYGQ9rN+UbCX8z9PPX1aj7zSGoiwzqVGoskbzgpAqyKuaTAiFrX7rI/Z5eZaQ8NXi7g==}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@ipld/dag-cbor': 7.0.3
       '@stablelib/random': 1.0.2
@@ -1563,9 +1128,9 @@ packages:
     resolution: {integrity: sha512-LUMnaiNUbBLqqifxAybAigG+n7F+u8xhLOPsPR0F0KHPtJkJ8sXm0lpcHQPx6B4Tm5Tlb6F7Tu27WvGp+7wVCA==}
     engines: {node: '>=20'}
     dependencies:
-      '@ceramicnetwork/http-client': 5.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-instance': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/http-client': 5.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance': 4.5.0(typescript@5.4.3)
       '@composedb/constants': 0.7.1
       '@composedb/graphql-scalars': 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
       '@composedb/runtime': 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
@@ -1603,7 +1168,7 @@ packages:
     peerDependencies:
       '@composedb/devtools': ^0.7.1
     dependencies:
-      '@ceramicnetwork/http-client': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/http-client': 5.5.0(typescript@5.4.3)
       '@composedb/client': 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
       '@composedb/devtools': 0.7.1(@polkadot/util@7.9.2)(graphql@16.8.1)(typescript@5.4.3)
       '@composedb/runtime': 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
@@ -1630,8 +1195,8 @@ packages:
     resolution: {integrity: sha512-J9IFquEmJL/0gwl3BUerXUR3tOm9v8dd3oucrRbuYDbZXLN803mptOQqQEDxzncfkF80CjVh0qtWZ6dTaYGVHQ==}
     engines: {node: '>=20'}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@composedb/graphql-scalars': 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
       '@didtools/cacao': 3.0.1(typescript@5.4.3)
@@ -1689,26 +1254,11 @@ packages:
       - zod
     dev: false
 
-  /@composedb/loader@0.7.1:
-    resolution: {integrity: sha512-qmyWrNazJF/0Uc4rZqrttvbOnb0smjqTSF5i5aekThIWJtvBQ+a/GkoNjQvVQH3bWFfeRZS9TgNpD4SUpdFJpw==}
-    engines: {node: '>=20'}
-    dependencies:
-      '@ceramicnetwork/stream-model-instance': 4.4.0
-      '@ceramicnetwork/streamid': 5.0.0
-      dataloader: 2.2.2
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /@composedb/loader@0.7.1(typescript@5.4.3):
     resolution: {integrity: sha512-qmyWrNazJF/0Uc4rZqrttvbOnb0smjqTSF5i5aekThIWJtvBQ+a/GkoNjQvVQH3bWFfeRZS9TgNpD4SUpdFJpw==}
     engines: {node: '>=20'}
     dependencies:
-      '@ceramicnetwork/stream-model-instance': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance': 4.5.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       dataloader: 2.2.2
     transitivePeerDependencies:
@@ -1723,9 +1273,9 @@ packages:
     resolution: {integrity: sha512-ijv1/jNWYAwhsnJYJbyGT8MrQgZoIhDGDoD6ggF5VbcC8bYZcK88yNwASxT3s9NxQTelKznidvk9V14MxN8RUA==}
     engines: {node: '>=20'}
     dependencies:
-      '@ceramicnetwork/http-client': 5.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-instance': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/http-client': 5.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance': 4.5.0(typescript@5.4.3)
       '@ceramicnetwork/streamid': 5.0.0
       '@composedb/graphql-scalars': 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
       '@composedb/loader': 0.7.1(typescript@5.4.3)
@@ -1752,7 +1302,7 @@ packages:
     resolution: {integrity: sha512-5sq73SM2zJeCiVRpAWbHvI6au2lPq+IiHUVElqrzJ2dGZmDxAOV0BOvCip0xlrW4KThiFuLNyJyiYwwlEwUO1w==}
     engines: {node: '>=20'}
     dependencies:
-      '@ceramicnetwork/http-client': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/http-client': 5.5.0(typescript@5.4.3)
       '@composedb/constants': 0.7.1
       '@composedb/runtime': 0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3)
       get-port: 7.1.0
@@ -1775,43 +1325,15 @@ packages:
       - zod
     dev: false
 
-  /@composedb/types@0.7.1(@polkadot/util@7.9.2):
-    resolution: {integrity: sha512-GtS3R06x1eU1NbBn5ZqewHk1VpvYLk9dwKV8YEzEXxnZvJa2WA8F5YD/TRItIfHgJjLNZ5O7obAK1fgDoCJxnQ==}
-    engines: {node: '>=20'}
-    dependencies:
-      '@ceramicnetwork/common': 5.3.0
-      '@ceramicnetwork/core': 5.4.0(@polkadot/util@7.9.2)
-      '@ceramicnetwork/http-client': 5.4.0
-      '@ceramicnetwork/stream-model': 4.3.0
-      '@ceramicnetwork/stream-model-instance': 4.4.0
-      dids: 5.0.2
-      json-schema-typed: 8.0.1
-    transitivePeerDependencies:
-      - '@polkadot/util'
-      - better-sqlite3
-      - bluebird
-      - bufferutil
-      - debug
-      - encoding
-      - mysql
-      - mysql2
-      - pg-native
-      - supports-color
-      - tedious
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: true
-
   /@composedb/types@0.7.1(@polkadot/util@7.9.2)(typescript@5.4.3):
     resolution: {integrity: sha512-GtS3R06x1eU1NbBn5ZqewHk1VpvYLk9dwKV8YEzEXxnZvJa2WA8F5YD/TRItIfHgJjLNZ5O7obAK1fgDoCJxnQ==}
     engines: {node: '>=20'}
     dependencies:
-      '@ceramicnetwork/common': 5.3.0(typescript@5.4.3)
-      '@ceramicnetwork/core': 5.4.0(@polkadot/util@7.9.2)(typescript@5.4.3)
-      '@ceramicnetwork/http-client': 5.4.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model': 4.3.0(typescript@5.4.3)
-      '@ceramicnetwork/stream-model-instance': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/common': 5.4.0(typescript@5.4.3)
+      '@ceramicnetwork/core': 5.5.0(@polkadot/util@7.9.2)(typescript@5.4.3)
+      '@ceramicnetwork/http-client': 5.5.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model': 4.4.0(typescript@5.4.3)
+      '@ceramicnetwork/stream-model-instance': 4.5.0(typescript@5.4.3)
       dids: 5.0.2(typescript@5.4.3)
       json-schema-typed: 8.0.1
     transitivePeerDependencies:
@@ -1848,23 +1370,6 @@ packages:
       caip: 1.1.1
       multiformats: 11.0.2
       uint8arrays: 4.0.10
-
-  /@didtools/cacao@3.0.1:
-    resolution: {integrity: sha512-vV1JirxqVsBf2dqdvoS/msNN8fabvMfseZB0kf1FG8TbosrHd81+hgDOlQMZit7zJbTk5g3CGkZg3b7iYKkynw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/codecs': 3.0.0
-      '@didtools/siwx': 2.0.0
-      '@ipld/dag-cbor': 9.2.0
-      caip: 1.1.1
-      multiformats: 13.1.0
-      uint8arrays: 5.0.3
-      viem: 1.21.4
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
 
   /@didtools/cacao@3.0.1(typescript@5.4.3):
     resolution: {integrity: sha512-vV1JirxqVsBf2dqdvoS/msNN8fabvMfseZB0kf1FG8TbosrHd81+hgDOlQMZit7zJbTk5g3CGkZg3b7iYKkynw==}
@@ -1908,21 +1413,6 @@ packages:
       '@stablelib/random': 1.0.2
       caip: 1.1.1
 
-  /@didtools/pkh-ethereum@0.5.0:
-    resolution: {integrity: sha512-2S+TS/I2jVTNnkgyslxQvSjCzzLsCabjXD2UWjJnVkAoxeJgPE9GvY1JhTDgvVLfxLPnYwTIP/O1WR9wJcDkFg==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1
-      '@noble/curves': 1.4.0
-      '@noble/hashes': 1.4.0
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-
   /@didtools/pkh-ethereum@0.5.0(typescript@5.4.3):
     resolution: {integrity: sha512-2S+TS/I2jVTNnkgyslxQvSjCzzLsCabjXD2UWjJnVkAoxeJgPE9GvY1JhTDgvVLfxLPnYwTIP/O1WR9wJcDkFg==}
     engines: {node: '>=14.14'}
@@ -1932,21 +1422,6 @@ packages:
       '@noble/hashes': 1.4.0
       '@stablelib/random': 1.0.2
       caip: 1.1.1
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@didtools/pkh-solana@0.2.0:
-    resolution: {integrity: sha512-wOfa+hbWo1ok8YnR8tq2mZKbcyEv9qrxtTR5jXOuhOqCkz30/qu9e2Wib/byx7Kx5/ik/2z1nd2YPL0vrA+TxQ==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1
-      '@noble/curves': 1.4.0
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-      uint8arrays: 5.0.3
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -1968,24 +1443,6 @@ packages:
       - utf-8-validate
       - zod
 
-  /@didtools/pkh-stacks@0.2.0:
-    resolution: {integrity: sha512-lXe8ZURCYCDQXrjaM7A4p1RCKrVsQ+NbO7bI70pRfjven82BPLDiqEJbhRGnWKbjQD1CQe9MJXLy3AuStKc7qw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1
-      '@stablelib/random': 1.0.2
-      '@stacks/common': 6.13.0
-      '@stacks/encryption': 6.13.0
-      '@stacks/transactions': 6.13.0
-      caip: 1.1.1
-      jsontokens: 4.0.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
   /@didtools/pkh-stacks@0.2.0(typescript@5.4.3):
     resolution: {integrity: sha512-lXe8ZURCYCDQXrjaM7A4p1RCKrVsQ+NbO7bI70pRfjven82BPLDiqEJbhRGnWKbjQD1CQe9MJXLy3AuStKc7qw==}
     engines: {node: '>=14.14'}
@@ -2000,22 +1457,6 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-
-  /@didtools/pkh-tezos@0.3.0:
-    resolution: {integrity: sha512-AB8drOnBkDSE9KolsiSShPwVOVbRXM2G5T//b+GgX9potVRTcRsD0z59x/6mU1e9g2kxpScOhjRrZsC0c+SQNw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1
-      '@noble/curves': 1.4.0
-      '@noble/hashes': 1.4.0
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
       - typescript
       - utf-8-validate
       - zod
@@ -3294,8 +2735,8 @@ packages:
     resolution: {integrity: sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==}
     dev: false
 
-  /@leichtgewicht/ip-codec@2.0.4:
-    resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
+  /@leichtgewicht/ip-codec@2.0.5:
+    resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
   /@libp2p/crypto@1.0.17:
     resolution: {integrity: sha512-Oeg0Eb/EvAho0gVkOgemXEgrVxWaT3x/DpFgkBdZ9qGxwq75w/E/oPc7souqBz+l1swfz37GWnwV7bIb4Xv5Ag==}
@@ -4793,17 +4234,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /abitype@0.9.8:
-    resolution: {integrity: sha512-puLifILdm+8sjyss4S+fsUN09obiT1g2YW6CtcQF+QDzxR0euzgEB29MZujC6zMk2a6SVmtttq1fc6+YFA7WYQ==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-      zod: ^3 >=3.19.1
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-      zod:
-        optional: true
-
   /abitype@0.9.8(typescript@5.4.3):
     resolution: {integrity: sha512-puLifILdm+8sjyss4S+fsUN09obiT1g2YW6CtcQF+QDzxR0euzgEB29MZujC6zMk2a6SVmtttq1fc6+YFA7WYQ==}
     peerDependencies:
@@ -4951,7 +4381,6 @@ packages:
   /ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
-    requiresBuild: true
 
   /ansi-sequence-parser@1.1.1:
     resolution: {integrity: sha512-vJXt3yiaUL4UU546s3rPXlsry/RnM730G1+HkpKE012AN0sx1eOrxSu95oKDIonskeLTijMgqWZ3uDEe3NFvyg==}
@@ -5139,8 +4568,8 @@ packages:
   /await-semaphore@0.1.3:
     resolution: {integrity: sha512-d1W2aNSYcz/sxYO4pMGX9vq65qOTu0P800epMud+6cYYX0QcT7zyqcxec3VWzpgvdXo57UWmVbZpLMjX2m1I7Q==}
 
-  /aws-sdk@2.1585.0:
-    resolution: {integrity: sha512-zDJ76hivdnBLH2+hXTO0F5y3Sdx5RRSDCf4EqZILZCUkPLTwaVmKmaU6XO3pyhrMTcWk58m7UBgHFyARE5SCkQ==}
+  /aws-sdk@2.1587.0:
+    resolution: {integrity: sha512-C9RUBgAaKWe7t/DqQlkIVAd98FHtYVzywUGBJh0Wd/XpelX4mjNhb9yjGGPNCchk0lEufcEXIEW/fLZRA44grA==}
     engines: {node: '>= 10.0.0'}
     requiresBuild: true
     dependencies:
@@ -5444,7 +4873,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001600
-      electron-to-chromium: 1.4.717
+      electron-to-chromium: 1.4.719
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -6175,27 +5604,6 @@ packages:
   /did-resolver@4.1.0:
     resolution: {integrity: sha512-S6fWHvCXkZg2IhS4RcVHxwuyVejPR7c+a4Go0xbQ9ps5kILa8viiYQgrM4gfTyeTjJ0ekgJH9gk/BawTpmkbZA==}
 
-  /dids@5.0.2:
-    resolution: {integrity: sha512-sxTgrvJtatqdm7dukGbquk23BVvbiaxf3nTKywWaY9AUqwC2IYEo6FG0En2cMl3J1fqMMQXrGg9luh2xDmYOmw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1
-      '@didtools/codecs': 3.0.0
-      '@didtools/pkh-ethereum': 0.5.0
-      '@stablelib/random': 1.0.2
-      codeco: 1.2.1
-      dag-jose-utils: 4.0.0
-      did-jwt: 7.4.7
-      did-resolver: 4.1.0
-      multiformats: 13.1.0
-      rpc-utils: 0.6.2
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-
   /dids@5.0.2(typescript@5.4.3):
     resolution: {integrity: sha512-sxTgrvJtatqdm7dukGbquk23BVvbiaxf3nTKywWaY9AUqwC2IYEo6FG0En2cMl3J1fqMMQXrGg9luh2xDmYOmw==}
     engines: {node: '>=14.14'}
@@ -6243,7 +5651,7 @@ packages:
     resolution: {integrity: sha512-l4gcSouhcgIKRvyy99RNVOgxXiicE+2jZoNmaNmZ6JXiGajBOJAesk1OBlJuM5k2c+eudGdLxDqXuPCKIj6kpw==}
     engines: {node: '>=6'}
     dependencies:
-      '@leichtgewicht/ip-codec': 2.0.4
+      '@leichtgewicht/ip-codec': 2.0.5
 
   /doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
@@ -6293,8 +5701,8 @@ packages:
     dependencies:
       encoding: 0.1.13
 
-  /electron-to-chromium@1.4.717:
-    resolution: {integrity: sha512-6Fmg8QkkumNOwuZ/5mIbMU9WI3H2fmn5ajcVya64I5Yr5CcNmO7vcLt0Y7c96DCiMO5/9G+4sI2r6eEvdg1F7A==}
+  /electron-to-chromium@1.4.719:
+    resolution: {integrity: sha512-FbWy2Q2YgdFzkFUW/W5jBjE9dj+804+98E4Pup78JBPnbdb3pv6IneY2JCPKdeKLh3AOKHQeYf+KwLr7mxGh6Q==}
     dev: true
 
   /elliptic@6.5.4:
@@ -6326,7 +5734,6 @@ packages:
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
-    requiresBuild: true
 
   /encodeurl@1.0.2:
     resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
@@ -7321,7 +6728,6 @@ packages:
 
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
-    requiresBuild: true
 
   /fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -7447,7 +6853,6 @@ packages:
 
   /glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    requiresBuild: true
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -7536,7 +6941,6 @@ packages:
 
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
-    requiresBuild: true
 
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
@@ -7705,7 +7109,6 @@ packages:
 
   /http-cache-semantics@4.1.1:
     resolution: {integrity: sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==}
-    requiresBuild: true
 
   /http-errors@1.8.1:
     resolution: {integrity: sha512-Kpk9Sm7NmI+RHhnj6OIWDI1d6fIoFAtFt9RLaTMRlg/8w49juAStsrBgp0Dp4OdxdVbRIeKhtCUvoi/RuAhO4g==}
@@ -7830,7 +7233,6 @@ packages:
   /imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
-    requiresBuild: true
 
   /indent-string@4.0.0:
     resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
@@ -7848,7 +7250,6 @@ packages:
 
   /inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
-    requiresBuild: true
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
@@ -8127,7 +7528,6 @@ packages:
   /is-fullwidth-code-point@3.0.0:
     resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==}
     engines: {node: '>=8'}
-    requiresBuild: true
 
   /is-generator-fn@2.1.0:
     resolution: {integrity: sha512-cTIB4yPYL/Grw0EaSzASzg6bBy9gqCofvWN8okThAYIxKJZC+udlRAmGbM0XLeniEJSs8uEgHPGuHSe1XsOLSQ==}
@@ -8288,7 +7688,6 @@ packages:
 
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-    requiresBuild: true
 
   /iso-url@1.2.1:
     resolution: {integrity: sha512-9JPDgCN4B7QPkLtYAAOrEuAWvP9rWvR5offAr0/SeF046wIkglqH3VXgYYP6NcsKslH80UIVgmPqNe3j7tG2ng==}
@@ -8967,23 +8366,6 @@ packages:
       object.values: 1.2.0
     dev: true
 
-  /key-did-provider-ed25519@4.0.2:
-    resolution: {integrity: sha512-bnnRGuuUtylKGMVmgXVSoGccBg87roFi6xy5dQmTgNqnCmrxBBUatYoVimcnA+SGCFqi2qk6B9dD10Ed4rTZPg==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@noble/curves': 1.4.0
-      did-jwt: 7.4.7
-      dids: 5.0.2
-      fast-json-stable-stringify: 2.1.0
-      rpc-utils: 0.6.2
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /key-did-provider-ed25519@4.0.2(typescript@5.4.3):
     resolution: {integrity: sha512-bnnRGuuUtylKGMVmgXVSoGccBg87roFi6xy5dQmTgNqnCmrxBBUatYoVimcnA+SGCFqi2qk6B9dD10Ed4rTZPg==}
     engines: {node: '>=14.14'}
@@ -9371,7 +8753,6 @@ packages:
   /lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
-    requiresBuild: true
     dependencies:
       yallist: 4.0.0
 
@@ -9771,7 +9152,6 @@ packages:
   /negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
-    requiresBuild: true
 
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
@@ -10208,7 +9588,6 @@ packages:
   /path-is-absolute@1.0.1:
     resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
     engines: {node: '>=0.10.0'}
-    requiresBuild: true
 
   /path-key@2.0.1:
     resolution: {integrity: sha512-fEHGKCSmUSDPv4uoj8AlD+joPlq3peND+HRYyxFz4KPw4z926S/b8rIuFs2FYJg3BwsxJf6A9/3eIdLaYC+9Dw==}
@@ -10819,7 +10198,6 @@ packages:
   /rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
-    requiresBuild: true
     dependencies:
       glob: 7.2.3
 
@@ -10855,7 +10233,7 @@ packages:
     dependencies:
       tslib: 2.6.2
 
-  /s3leveldown@2.2.2(aws-sdk@2.1585.0)(levelup@5.1.1):
+  /s3leveldown@2.2.2(aws-sdk@2.1587.0)(levelup@5.1.1):
     resolution: {integrity: sha512-pTzJ8Pi5eTJGy8AsiNrdM0AltccbKSaIeaXvxXzAPqBED1JdmQDr2zkVn6rRYFYYgLQayysko2Es5DjL5TEOrw==}
     engines: {node: '>=6'}
     peerDependencies:
@@ -10864,7 +10242,7 @@ packages:
     dependencies:
       '@types/abstract-leveldown': 5.0.2
       abstract-leveldown: 6.3.0
-      aws-sdk: 2.1585.0
+      aws-sdk: 2.1587.0
       debug: 4.3.4
       inherits: 2.0.4
       levelup: 5.1.1
@@ -11070,7 +10448,6 @@ packages:
 
   /signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
-    requiresBuild: true
 
   /simple-concat@1.0.1:
     resolution: {integrity: sha512-cSFtAPtRhljv69IK0hTVZQ+OfE9nePi/rtJmw5UjHeVyVroEqJXP1sFztKUy1qU+xvz3u/sfYJLa947b7nAN2Q==}
@@ -11280,7 +10657,6 @@ packages:
   /string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
     engines: {node: '>=8'}
-    requiresBuild: true
     dependencies:
       emoji-regex: 8.0.0
       is-fullwidth-code-point: 3.0.0
@@ -11344,7 +10720,6 @@ packages:
   /strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
     engines: {node: '>=8'}
-    requiresBuild: true
     dependencies:
       ansi-regex: 5.0.1
 
@@ -12028,27 +11403,6 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /viem@1.21.4:
-    resolution: {integrity: sha512-BNVYdSaUjeS2zKQgPs+49e5JKocfo60Ib2yiXOWBT6LuVxY1I/6fFX3waEtpXvL1Xn4qu+BVitVtMh9lyThyhQ==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@adraffy/ens-normalize': 1.10.0
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.2
-      '@scure/bip32': 1.3.2
-      '@scure/bip39': 1.2.1
-      abitype: 0.9.8
-      isows: 1.0.3(ws@8.13.0)
-      ws: 8.13.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
-
   /viem@1.21.4(typescript@5.4.3):
     resolution: {integrity: sha512-BNVYdSaUjeS2zKQgPs+49e5JKocfo60Ib2yiXOWBT6LuVxY1I/6fFX3waEtpXvL1Xn4qu+BVitVtMh9lyThyhQ==}
     peerDependencies:
@@ -12160,7 +11514,6 @@ packages:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
     hasBin: true
-    requiresBuild: true
     dependencies:
       isexe: 2.0.0
 

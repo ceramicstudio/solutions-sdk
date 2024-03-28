@@ -27,13 +27,13 @@
     "build:types": "tsc --project tsconfig.build.json --emitDeclarationOnly --skipLibCheck",
     "build": "pnpm build:clean && pnpm build:types && pnpm build:js",
     "lint": "eslint src --fix",
-    "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --forceExit",
     "test:ci": "pnpm run test --ci --coverage",
     "prepare": "pnpm build",
     "prepublishOnly": "package-check"
   },
   "dependencies": {
-    "@ceramicnetwork/http-client": "^5.4.0",
+    "@ceramicnetwork/http-client": "^5.5.0",
     "@composedb/loader": "^0.7.1",
     "@composexp/points-composite": "workspace:^",
     "dids": "^5.0.2",
@@ -41,7 +41,7 @@
     "key-did-resolver": "^4.0.0"
   },
   "devDependencies": {
-    "@ceramicnetwork/common": "^5.3.0",
+    "@ceramicnetwork/common": "^5.4.0",
     "@composedb/types": "^0.7.1",
     "@composexp/ceramic-utils": "workspace:^",
     "@composexp/composite-utils": "workspace:^",

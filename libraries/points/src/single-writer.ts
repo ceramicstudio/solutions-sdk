@@ -5,7 +5,7 @@ import { getCeramic } from './ceramic.js'
 import { getAuthenticatedDID } from './did.js'
 import { type SinglePointContent, SinglePointReader } from './single-reader.js'
 
-export type FromSeedParams = {
+export type SinglePointWriterFromSeedParams = {
   ceramic?: CeramicAPI | string
   loader?: DocumentLoader
   modelID?: string
@@ -22,7 +22,7 @@ export class SinglePointWriter<
   Content extends SinglePointContent = SinglePointContent,
 > extends SinglePointReader<Content> {
   static async fromSeed<Content extends SinglePointContent = SinglePointContent>(
-    params: FromSeedParams,
+    params: SinglePointWriterFromSeedParams,
   ): Promise<SinglePointWriter<Content>> {
     const ceramic = getCeramic(params.ceramic)
     const did = await getAuthenticatedDID(params.seed)
@@ -44,8 +44,11 @@ export class SinglePointWriter<
     return await this.loader.create(this.modelID, { ...content, recipient: did } as Content)
   }
 
-  async remove(id: string): Promise<void> {
+  async removePoint(id: string): Promise<void> {
     const doc = await this.loader.load({ id })
+    if (doc.metadata.model.toString() !== this.modelID) {
+      throw new Error(`Document ${id} is not using the expected model ${this.modelID}`)
+    }
     await doc.shouldIndex(false)
   }
 }

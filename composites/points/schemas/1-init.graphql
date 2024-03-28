@@ -26,13 +26,13 @@ interface MultiplePointsAllocation implements GenericPointAllocation
   @createModel(description: "Interface for the allocation of multiple points to an account") {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
-  points: Int! @int(min: 1)
+  points: Int!
 }
 
 interface PointsAggregation @createModel(description: "Interface for points aggregation") {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
-  points: Int! @int(min: 0)
+  points: Int!
   date: DateTime!
 }
 
@@ -50,7 +50,7 @@ type MultiplePoints implements MultiplePointsAllocation
   @createModel(description: "Allocation of multiple points to an account") {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
-  points: Int! @int(min: 1)
+  points: Int!
 }
 
 type TotalPoints implements PointsAggregation
@@ -61,6 +61,6 @@ type TotalPoints implements PointsAggregation
   ) {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
-  points: Int! @int(min: 0)
+  points: Int!
   date: DateTime!
 }

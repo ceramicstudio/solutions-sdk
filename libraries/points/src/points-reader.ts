@@ -1,5 +1,5 @@
 import type { BaseQuery } from '@ceramicnetwork/common'
-import { DocumentLoader } from '@composedb/loader'
+import { type DeterministicLoadOptions, DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
 import { definition } from '@composexp/points-composite'
 
@@ -70,8 +70,9 @@ export class PointsReader<
 
   async loadAggregationDocumentFor(
     did: string,
+    options?: DeterministicLoadOptions,
   ): Promise<ModelInstanceDocument<AggregationContent> | null> {
-    return await this.#loader.loadSet(this.#issuer, this.#aggregationModelID, [did])
+    return await this.#loader.loadSet(this.#issuer, this.#aggregationModelID, [did], options)
   }
 
   async queryAggregationDocuments(
