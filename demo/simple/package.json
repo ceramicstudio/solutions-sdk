@@ -1,0 +1,8 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "dependencies": {
+    "@ceramicnetwork/http-client": "^5.5.0",
+    "@composexp/did-utils": "workspace:^"
+  }
+}
