@@ -24,7 +24,7 @@ const point_subject = process.argv[2];
   }
   const key = fromString(CERAMIC_PRIVATE_KEY, "base16");
 
-  const ceramic = new CeramicClient();
+  const ceramic = new CeramicClient(CERAMIC_URL);
   ceramic.did = await getAuthenticatedDID(key);
   const writer = new SinglePointWriter({ ceramic })
 
