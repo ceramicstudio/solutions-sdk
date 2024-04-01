@@ -28,8 +28,8 @@ const point_subject = process.argv[2];
   ceramic.did = await getAuthenticatedDID(key);
   const writer = new SinglePointWriter({ ceramic })
 
-  const ret = await writer.addPointTo(point_subject)
-  console.log("Wrote point! " + ret);
+  const pointInstance = await writer.addPointTo(point_subject)
+  console.log(`Wrote point: ${pointInstance.id.toString()}`);
 
   const reader = new SinglePointReader({ceramic: ceramic, issuer: ceramic.did.id})
   const total_points = await reader.countPointsFor(point_subject)
