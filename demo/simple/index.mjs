@@ -2,7 +2,7 @@
 import { fromString } from 'uint8arrays';
 import { CeramicClient } from "@ceramicnetwork/http-client";
 import { getAuthenticatedDID } from '@composexp/did-utils'
-import { SinglePointReader, SinglePointWriter } from '../../libraries/points/dist/index.js';
+import { SinglePointReader, SinglePointWriter } from '@composexp/points';
 
 // Environment variable for Ceramic URL (Ensure it's set in your environment)
 const CERAMIC_URL = process.env.CERAMIC_URL;
