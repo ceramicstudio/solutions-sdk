@@ -72,7 +72,7 @@ export class PointsWriter<
     content: Partial<AggregationContent> = {},
   ): Promise<ModelInstanceDocument<AggregationContent>> {
     const doc = await this.loadAggregationDocumentFor(did, {
-      ignoreEmpty: true,
+      ignoreEmpty: false,
       onlyIndexed: false,
     })
     const date = new Date().toISOString()
