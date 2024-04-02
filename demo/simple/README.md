@@ -3,7 +3,7 @@
 See `index.mjs` for the minimum required to publish points
 
 ## Install prerequisites
-`npm install`
+`pnpm install`
 
 ## Publish points
 
