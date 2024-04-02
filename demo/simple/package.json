@@ -4,6 +4,7 @@
   "dependencies": {
     "@ceramicnetwork/http-client": "^5.5.0",
     "@composexp/did-utils": "workspace:^",
+    "@composexp/points": "workspace:^",
     "uint8arrays": "^5.0.3"
   }
 }
