@@ -1,7 +1,7 @@
 // Import statements using ES module syntax
 import { fromString } from 'uint8arrays';
 import { CeramicClient } from "@ceramicnetwork/http-client";
-import { getAuthenticatedDID } from '../../utils/did/dist/index.js'
+import { getAuthenticatedDID } from '@composexp/did-utils'
 import { SinglePointReader, SinglePointWriter } from '../../libraries/points/dist/index.js';
 
 // Environment variable for Ceramic URL (Ensure it's set in your environment)
