@@ -6,7 +6,7 @@ import "dotenv/config.js";
 export const getContext = async () => {
   const CERAMIC_URL = process.env.CERAMIC_URL || "";
   const CERAMIC_PRIVATE_KEY = process.env.CERAMIC_PRIVATE_KEY || "";
-  const aggregationModelID = process.env.ALLOCATION_MODEL || "";
+  const aggregationModelID = process.env.AGGREGATION_ID || "";
 
   const key = fromString(CERAMIC_PRIVATE_KEY, "base16");
 
