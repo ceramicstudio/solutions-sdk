@@ -78,6 +78,11 @@ export class PointsReader<
     })
   }
 
+  async getAggregationPointsFor(did: string): Promise<number> {
+    const doc = await this.loadAggregationDocumentFor(did)
+    return doc?.content?.points ?? 0
+  }
+
   async queryAggregationDocuments(
     options?: QueryDocumentsOptions,
   ): Promise<QueryDocumentsResult<AggregationContent>> {
