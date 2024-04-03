@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
 import singleRouter from "./routes/single";
 import multiRouter from "./routes/multi";
 
