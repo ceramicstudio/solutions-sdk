@@ -79,7 +79,7 @@ export class PointsReader<
   }
 
   async getAggregationPointsFor(did: string): Promise<number> {
-    const doc = await this.loadAggregationDocumentFor(did)
+    const doc = await this.loadAggregationDocumentFor([did]) // Fix: Pass 'did' as an array
     return doc?.content?.points ?? 0
   }
 
