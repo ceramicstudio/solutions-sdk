@@ -115,217 +115,263 @@ describe('points', () => {
       await context.dispose()
     })
 
-    test('write and read with single point documents', async () => {
-      const reader = new SinglePointReader({ ceramic: context.ceramic, issuer: context.did.id })
-      const writer = new SinglePointWriter({ ceramic: context.ceramic })
-      // Sanity check no points have been allocated yet
-      await expect(reader.countTotalPoints()).resolves.toBe(0)
-      // Add points to a first recipient account
-      await writer.addPointTo('did:test:123')
-      await writer.addPointTo('did:test:123')
-      await writer.addPointTo('did:test:123')
-      await expect(reader.countTotalPoints()).resolves.toBe(3)
-      await expect(reader.countPointsFor('did:test:123')).resolves.toBe(3)
-      await expect(reader.countPointsFor('did:test:456')).resolves.toBe(0)
-      // Add points to another recipient account
-      await writer.addPointTo('did:test:456')
-      await writer.addPointTo('did:test:456')
-      await expect(reader.countTotalPoints()).resolves.toBe(5)
-      await expect(reader.countPointsFor('did:test:123')).resolves.toBe(3)
-      await expect(reader.countPointsFor('did:test:456')).resolves.toBe(2)
-    })
-
-    test('allocate points to multiple recipients', async () => {
-      const writer = new PointsWriter({ ceramic: context.ceramic })
-      // Add points to a first recipient account
-      await writer.allocatePointsTo('did:test:123', 10)
-      await writer.allocatePointsTo('did:test:123', 20)
-      await writer.allocatePointsTo('did:test:123', 5)
-      await expect(
-        writer.ceramic.index.count({ models: [writer.allocationModelID] }),
-      ).resolves.toBe(3)
-      // Add points to another recipient account
-      await writer.allocatePointsTo('did:test:456', 5)
-      await writer.allocatePointsTo('did:test:456', 10)
-      await expect(
-        writer.ceramic.index.count({ models: [writer.allocationModelID] }),
-      ).resolves.toBe(5)
-    })
-
-    test('aggregate points', async () => {
-      const writer = new PointsWriter({ ceramic: context.ceramic })
-      await expect(writer.loadAggregationDocumentFor('did:key:123')).resolves.toBeNull()
-      const doc = await writer.setPointsAggregationFor('did:key:123', 10)
-      const loadedDoc = await writer.loadAggregationDocumentFor('did:key:123')
-      expect(loadedDoc).toBeDefined()
-      expect(loadedDoc!.id.equals(doc.id)).toBe(true)
-      expect(loadedDoc.content.points).toBe(10)
-      await writer.setPointsAggregationFor('did:key:123', 20)
-      const loadedAgain = await writer.loadAggregationDocumentFor('did:key:123')
-      expect(loadedAgain.content.points).toBe(20)
-    })
-
-    test('multiple single point writers', async () => {
-      const [did1, did2] = await Promise.all([
-        getAuthenticatedDID(generatePrivateKey()),
-        getAuthenticatedDID(generatePrivateKey()),
-      ])
-      expect(did1.id).not.toBe(did2.id)
-      // Write points with a first issuer account
-      context.ceramic.did = did1
-      const writer1 = new SinglePointWriter({ ceramic: context.ceramic })
-      await writer1.addPointTo('did:test:123')
-      await expect(writer1.countPointsFor('did:test:123')).resolves.toBe(1)
-      // Write points with another issuer account
-      context.ceramic.did = did2
-      const writer2 = new SinglePointWriter({ ceramic: context.ceramic })
-      await writer2.addPointTo('did:test:123')
-      await writer2.addPointTo('did:test:123')
-      await expect(writer2.countPointsFor('did:test:123')).resolves.toBe(2)
-      // Sanity check the first issuer points count hasn't changed
-      await expect(writer1.countPointsFor('did:test:123')).resolves.toBe(1)
-    })
-
-    test('multiple points writers', async () => {
-      const [did1, did2] = await Promise.all([
-        getAuthenticatedDID(generatePrivateKey()),
-        getAuthenticatedDID(generatePrivateKey()),
-      ])
-      expect(did1.id).not.toBe(did2.id)
-      // Write points with a first issuer account
-      context.ceramic.did = did1
-      const writer1 = new PointsWriter({ ceramic: context.ceramic })
-      await writer1.allocatePointsTo('did:test:123', 10)
-      // Write points with another issuer account
-      context.ceramic.did = did2
-      const writer2 = new PointsWriter({ ceramic: context.ceramic })
-      await writer2.allocatePointsTo('did:test:123', 10)
-      await writer2.allocatePointsTo('did:test:123', 10)
-      // Count how many documents are written by issuer
-      const modelID = definition.models.MultiplePoints!.id
-      await expect(context.ceramic.index.count({ models: [modelID] })).resolves.toBe(3)
-      await expect(
-        context.ceramic.index.count({ account: did1.id, models: [modelID] }),
-      ).resolves.toBe(1)
-      await expect(
-        context.ceramic.index.count({ account: did2.id, models: [modelID] }),
-      ).resolves.toBe(2)
-    })
-
-    test('add and remove points using single point writer', async () => {
-      const writer = new SinglePointWriter({ ceramic: context.ceramic })
-      const firstPoint = await writer.addPointTo('did:test:123')
-      const secondPoint = await writer.addPointTo('did:test:123')
-      await expect(writer.countPointsFor('did:test:123')).resolves.toBe(2)
-      // Check point removal only applies to the specified model
-      const modelID = definition.models.SinglePoint!.id
-      await expect(writer.removePoint(modelID)).rejects.toThrow(
-        `Document ${modelID} is not using the expected model ${modelID}`,
-      )
-      // Remove added points
-      await writer.removePoint(firstPoint.id.toString())
-      await expect(writer.countPointsFor('did:test:123')).resolves.toBe(1)
-      await writer.removePoint(secondPoint.id.toString())
-      await expect(writer.countPointsFor('did:test:123')).resolves.toBe(0)
-    })
-
-    test('add and remove points allocation documents', async () => {
-      const writer = new PointsWriter({ ceramic: context.ceramic })
-      const firstPoint = await writer.allocatePointsTo('did:test:123', 5)
-      const secondPoint = await writer.allocatePointsTo('did:test:123', 10)
-      await expect(
-        writer.ceramic.index.count({ models: [writer.allocationModelID] }),
-      ).resolves.toBe(2)
-      // Check point removal only applies to the specified model
-      const modelID = definition.models.MultiplePoints!.id
-      await expect(writer.removePointsAllocation(modelID)).rejects.toThrow(
-        `Document ${modelID} is not using the expected model ${modelID}`,
-      )
-      // Remove added points
-      await writer.removePointsAllocation(firstPoint.id.toString())
-      await expect(
-        writer.ceramic.index.count({ models: [writer.allocationModelID] }),
-      ).resolves.toBe(1)
-      await writer.removePointsAllocation(secondPoint.id.toString())
-      await expect(
-        writer.ceramic.index.count({ models: [writer.allocationModelID] }),
-      ).resolves.toBe(0)
-    })
-
-    test('query single point documents', async () => {
-      const writer = new SinglePointWriter({ ceramic: context.ceramic })
-      const createdDoc = await writer.addPointTo('did:test:123')
-      const loadedDoc = await writer.loader.load({ id: createdDoc.id.toString() })
-      expect(loadedDoc?.id.equals(createdDoc.id)).toBe(true)
-      const createdDoc1 = await writer.addPointTo('did:test:123')
-      const createdDoc2 = await writer.addPointTo('did:test:123')
-      const createdDoc3 = await writer.addPointTo('did:test:123')
-      const createdDoc4 = await writer.addPointTo('did:test:123')
-      // First query without cursor, returns the last documents created
-      const query1 = await writer.queryPointDocumentsFor('did:test:123', { count: 2 })
-      expect(query1.documents).toHaveLength(2)
-      expect(query1.documents.map((doc) => doc.id.toString())).toEqual([
-        createdDoc3.id.toString(),
-        createdDoc4.id.toString(),
-      ])
-      // Second query using cursor from the first query
-      const query2 = await writer.queryPointDocumentsFor('did:test:123', {
-        before: query1.startCursor,
+    describe('single point per document', () => {
+      test('write and read with single point documents', async () => {
+        const reader = new SinglePointReader({ ceramic: context.ceramic, issuer: context.did.id })
+        const writer = new SinglePointWriter({ ceramic: context.ceramic })
+        // Sanity check no points have been allocated yet
+        await expect(reader.countTotalPoints()).resolves.toBe(0)
+        // Add points to a first recipient account
+        await writer.addPointTo('did:test:123')
+        await writer.addPointTo('did:test:123')
+        await writer.addPointTo('did:test:123')
+        await expect(reader.countTotalPoints()).resolves.toBe(3)
+        await expect(reader.countPointsFor('did:test:123')).resolves.toBe(3)
+        await expect(reader.countPointsFor('did:test:456')).resolves.toBe(0)
+        // Add points to another recipient account
+        await writer.addPointTo('did:test:456')
+        await writer.addPointTo('did:test:456')
+        await expect(reader.countTotalPoints()).resolves.toBe(5)
+        await expect(reader.countPointsFor('did:test:123')).resolves.toBe(3)
+        await expect(reader.countPointsFor('did:test:456')).resolves.toBe(2)
       })
-      expect(query2.documents).toHaveLength(3)
-      expect(query2.documents.map((doc) => doc.id.toString())).toEqual([
-        createdDoc.id.toString(),
-        createdDoc1.id.toString(),
-        createdDoc2.id.toString(),
-      ])
-      // Third query for a specific slice in chronological order
-      const query3 = await writer.queryPointDocumentsFor('did:test:123', {
-        count: 2,
-        after: query2.startCursor,
+
+      test('multiple single point writers', async () => {
+        const [did1, did2] = await Promise.all([
+          getAuthenticatedDID(generatePrivateKey()),
+          getAuthenticatedDID(generatePrivateKey()),
+        ])
+        expect(did1.id).not.toBe(did2.id)
+        // Write points with a first issuer account
+        context.ceramic.did = did1
+        const writer1 = new SinglePointWriter({ ceramic: context.ceramic })
+        await writer1.addPointTo('did:test:123')
+        await expect(writer1.countPointsFor('did:test:123')).resolves.toBe(1)
+        // Write points with another issuer account
+        context.ceramic.did = did2
+        const writer2 = new SinglePointWriter({ ceramic: context.ceramic })
+        await writer2.addPointTo('did:test:123')
+        await writer2.addPointTo('did:test:123')
+        await expect(writer2.countPointsFor('did:test:123')).resolves.toBe(2)
+        // Sanity check the first issuer points count hasn't changed
+        await expect(writer1.countPointsFor('did:test:123')).resolves.toBe(1)
       })
-      expect(query3.documents).toHaveLength(2)
-      expect(query3.documents.map((doc) => doc.id.toString())).toEqual([
-        createdDoc1.id.toString(),
-        createdDoc2.id.toString(),
-      ])
+
+      test('add and remove points using single point writer', async () => {
+        const writer = new SinglePointWriter({ ceramic: context.ceramic })
+        const firstPoint = await writer.addPointTo('did:test:123')
+        const secondPoint = await writer.addPointTo('did:test:123')
+        await expect(writer.countPointsFor('did:test:123')).resolves.toBe(2)
+        // Check point removal only applies to the specified model
+        const modelID = definition.models.SinglePoint!.id
+        await expect(writer.removePoint(modelID)).rejects.toThrow(
+          `Document ${modelID} is not using the expected model ${modelID}`,
+        )
+        // Remove added points
+        await writer.removePoint(firstPoint.id.toString())
+        await expect(writer.countPointsFor('did:test:123')).resolves.toBe(1)
+        await writer.removePoint(secondPoint.id.toString())
+        await expect(writer.countPointsFor('did:test:123')).resolves.toBe(0)
+      })
+
+      test('query single point documents', async () => {
+        const writer = new SinglePointWriter({ ceramic: context.ceramic })
+        const createdDoc = await writer.addPointTo('did:test:123')
+        const loadedDoc = await writer.loader.load({ id: createdDoc.id.toString() })
+        expect(loadedDoc?.id.equals(createdDoc.id)).toBe(true)
+        const createdDoc1 = await writer.addPointTo('did:test:123')
+        const createdDoc2 = await writer.addPointTo('did:test:123')
+        const createdDoc3 = await writer.addPointTo('did:test:123')
+        const createdDoc4 = await writer.addPointTo('did:test:123')
+        // First query without cursor, returns the last documents created
+        const query1 = await writer.queryPointDocumentsFor('did:test:123', { count: 2 })
+        expect(query1.documents).toHaveLength(2)
+        expect(query1.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc3.id.toString(),
+          createdDoc4.id.toString(),
+        ])
+        // Second query using cursor from the first query
+        const query2 = await writer.queryPointDocumentsFor('did:test:123', {
+          before: query1.startCursor,
+        })
+        expect(query2.documents).toHaveLength(3)
+        expect(query2.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc.id.toString(),
+          createdDoc1.id.toString(),
+          createdDoc2.id.toString(),
+        ])
+        // Third query for a specific slice in chronological order
+        const query3 = await writer.queryPointDocumentsFor('did:test:123', {
+          count: 2,
+          after: query2.startCursor,
+        })
+        expect(query3.documents).toHaveLength(2)
+        expect(query3.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc1.id.toString(),
+          createdDoc2.id.toString(),
+        ])
+      })
     })
 
-    test('query points allocation documents', async () => {
-      const writer = new PointsWriter({ ceramic: context.ceramic })
-      const createdDoc = await writer.allocatePointsTo('did:test:123', 5)
-      const loadedDoc = await writer.loader.load({ id: createdDoc.id.toString() })
-      expect(loadedDoc?.id.equals(createdDoc.id)).toBe(true)
-      const createdDoc1 = await writer.allocatePointsTo('did:test:123', 10)
-      const createdDoc2 = await writer.allocatePointsTo('did:test:123', 15)
-      const createdDoc3 = await writer.allocatePointsTo('did:test:123', 5)
-      const createdDoc4 = await writer.allocatePointsTo('did:test:123', -10)
-      // First query without cursor, returns the last documents created
-      const query1 = await writer.queryAllocationDocumentsFor('did:test:123', { count: 2 })
-      expect(query1.documents).toHaveLength(2)
-      expect(query1.documents.map((doc) => doc.id.toString())).toEqual([
-        createdDoc3.id.toString(),
-        createdDoc4.id.toString(),
-      ])
-      // Second query using cursor from the first query
-      const query2 = await writer.queryAllocationDocumentsFor('did:test:123', {
-        before: query1.startCursor,
+    describe('multiple points allocation documents', () => {
+      test('allocate points to multiple recipients', async () => {
+        const writer = new PointsWriter({ ceramic: context.ceramic })
+        // Add points to a first recipient account
+        await writer.allocatePointsTo('did:test:123', 10)
+        await writer.allocatePointsTo('did:test:123', 20)
+        await writer.allocatePointsTo('did:test:123', 5)
+        await expect(
+          writer.ceramic.index.count({ models: [writer.allocationModelID] }),
+        ).resolves.toBe(3)
+        // Add points to another recipient account
+        await writer.allocatePointsTo('did:test:456', 5)
+        await writer.allocatePointsTo('did:test:456', 10)
+        await expect(
+          writer.ceramic.index.count({ models: [writer.allocationModelID] }),
+        ).resolves.toBe(5)
       })
-      expect(query2.documents).toHaveLength(3)
-      expect(query2.documents.map((doc) => doc.id.toString())).toEqual([
-        createdDoc.id.toString(),
-        createdDoc1.id.toString(),
-        createdDoc2.id.toString(),
-      ])
-      // Third query for a specific slice in chronological order
-      const query3 = await writer.queryAllocationDocumentsFor('did:test:123', {
-        count: 2,
-        after: query2.startCursor,
+
+      test('multiple points writers', async () => {
+        const [did1, did2] = await Promise.all([
+          getAuthenticatedDID(generatePrivateKey()),
+          getAuthenticatedDID(generatePrivateKey()),
+        ])
+        expect(did1.id).not.toBe(did2.id)
+        // Write points with a first issuer account
+        context.ceramic.did = did1
+        const writer1 = new PointsWriter({ ceramic: context.ceramic })
+        await writer1.allocatePointsTo('did:test:123', 10)
+        // Write points with another issuer account
+        context.ceramic.did = did2
+        const writer2 = new PointsWriter({ ceramic: context.ceramic })
+        await writer2.allocatePointsTo('did:test:123', 10)
+        await writer2.allocatePointsTo('did:test:123', 10)
+        // Count how many documents are written by issuer
+        const modelID = definition.models.MultiplePoints!.id
+        await expect(context.ceramic.index.count({ models: [modelID] })).resolves.toBe(3)
+        await expect(
+          context.ceramic.index.count({ account: did1.id, models: [modelID] }),
+        ).resolves.toBe(1)
+        await expect(
+          context.ceramic.index.count({ account: did2.id, models: [modelID] }),
+        ).resolves.toBe(2)
       })
-      expect(query3.documents).toHaveLength(2)
-      expect(query3.documents.map((doc) => doc.id.toString())).toEqual([
-        createdDoc1.id.toString(),
-        createdDoc2.id.toString(),
-      ])
+
+      test('add and remove points allocation documents', async () => {
+        const writer = new PointsWriter({ ceramic: context.ceramic })
+        const firstPoint = await writer.allocatePointsTo('did:test:123', 5)
+        const secondPoint = await writer.allocatePointsTo('did:test:123', 10)
+        await expect(
+          writer.ceramic.index.count({ models: [writer.allocationModelID] }),
+        ).resolves.toBe(2)
+        // Check point removal only applies to the specified model
+        const modelID = definition.models.MultiplePoints!.id
+        await expect(writer.removePointsAllocation(modelID)).rejects.toThrow(
+          `Document ${modelID} is not using the expected model ${modelID}`,
+        )
+        // Remove added points
+        await writer.removePointsAllocation(firstPoint.id.toString())
+        await expect(
+          writer.ceramic.index.count({ models: [writer.allocationModelID] }),
+        ).resolves.toBe(1)
+        await writer.removePointsAllocation(secondPoint.id.toString())
+        await expect(
+          writer.ceramic.index.count({ models: [writer.allocationModelID] }),
+        ).resolves.toBe(0)
+      })
+
+      test('query points allocation documents', async () => {
+        const writer = new PointsWriter({ ceramic: context.ceramic })
+        const createdDoc = await writer.allocatePointsTo('did:test:123', 5)
+        const loadedDoc = await writer.loader.load({ id: createdDoc.id.toString() })
+        expect(loadedDoc?.id.equals(createdDoc.id)).toBe(true)
+        const createdDoc1 = await writer.allocatePointsTo('did:test:123', 10)
+        const createdDoc2 = await writer.allocatePointsTo('did:test:123', 15)
+        const createdDoc3 = await writer.allocatePointsTo('did:test:123', 5)
+        const createdDoc4 = await writer.allocatePointsTo('did:test:123', -10)
+        // First query without cursor, returns the last documents created
+        const query1 = await writer.queryAllocationDocumentsFor('did:test:123', { count: 2 })
+        expect(query1.documents).toHaveLength(2)
+        expect(query1.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc3.id.toString(),
+          createdDoc4.id.toString(),
+        ])
+        // Second query using cursor from the first query
+        const query2 = await writer.queryAllocationDocumentsFor('did:test:123', {
+          before: query1.startCursor,
+        })
+        expect(query2.documents).toHaveLength(3)
+        expect(query2.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc.id.toString(),
+          createdDoc1.id.toString(),
+          createdDoc2.id.toString(),
+        ])
+        // Third query for a specific slice in chronological order
+        const query3 = await writer.queryAllocationDocumentsFor('did:test:123', {
+          count: 2,
+          after: query2.startCursor,
+        })
+        expect(query3.documents).toHaveLength(2)
+        expect(query3.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc1.id.toString(),
+          createdDoc2.id.toString(),
+        ])
+      })
+    })
+
+    describe('points aggregation documents', () => {
+      test('aggregate points', async () => {
+        const writer = new PointsWriter({ ceramic: context.ceramic })
+        await expect(writer.loadAggregationDocumentFor('did:key:123')).resolves.toBeNull()
+        await expect(writer.getAggregationPointsFor('did:key:123')).resolves.toBe(0)
+        const doc = await writer.setPointsAggregationFor('did:key:123', 10)
+        const loadedDoc = await writer.loadAggregationDocumentFor('did:key:123')
+        expect(loadedDoc).toBeDefined()
+        expect(loadedDoc!.id.equals(doc.id)).toBe(true)
+        expect(loadedDoc!.content!.points).toBe(10)
+        await writer.setPointsAggregationFor('did:key:123', 20)
+        await expect(writer.getAggregationPointsFor('did:key:123')).resolves.toBe(20)
+      })
+
+      test('query aggregation documents', async () => {
+        const writer = new PointsWriter({ ceramic: context.ceramic })
+        const createdDoc = await writer.setPointsAggregationFor('did:test:1', 5)
+        const loadedDoc = await writer.loader.load({ id: createdDoc.id.toString() })
+        expect(loadedDoc?.id.equals(createdDoc.id)).toBe(true)
+        const createdDoc1 = await writer.setPointsAggregationFor('did:test:2', 10)
+        const createdDoc2 = await writer.setPointsAggregationFor('did:test:3', 15)
+        const createdDoc3 = await writer.setPointsAggregationFor('did:test:4', 5)
+        const createdDoc4 = await writer.setPointsAggregationFor('did:test:5', -10)
+        const queryAll = await writer.queryAggregationDocuments()
+        expect(queryAll.documents).toHaveLength(5)
+        // First query without cursor, returns the last documents created
+        const query1 = await writer.queryAggregationDocuments({ count: 2 })
+        expect(query1.documents).toHaveLength(2)
+        expect(query1.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc3.id.toString(),
+          createdDoc4.id.toString(),
+        ])
+        // Second query using cursor from the first query
+        const query2 = await writer.queryAggregationDocuments({
+          before: query1.startCursor,
+        })
+        expect(query2.documents).toHaveLength(3)
+        expect(query2.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc.id.toString(),
+          createdDoc1.id.toString(),
+          createdDoc2.id.toString(),
+        ])
+        // Third query for a specific slice in chronological order
+        const query3 = await writer.queryAggregationDocuments({
+          count: 2,
+          after: query2.startCursor,
+        })
+        expect(query3.documents).toHaveLength(2)
+        expect(query3.documents.map((doc) => doc.id.toString())).toEqual([
+          createdDoc1.id.toString(),
+          createdDoc2.id.toString(),
+        ])
+      })
     })
   })
 })

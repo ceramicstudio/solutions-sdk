@@ -78,6 +78,21 @@ importers:
         specifier: ^4.7.1
         version: 4.7.1
 
+  demo/simple:
+    dependencies:
+      '@ceramicnetwork/http-client':
+        specifier: ^5.5.0
+        version: 5.5.0(typescript@5.4.3)
+      '@composexp/did-utils':
+        specifier: workspace:^
+        version: link:../../utils/did
+      '@composexp/points':
+        specifier: workspace:^
+        version: link:../../libraries/points
+      uint8arrays:
+        specifier: ^5.0.3
+        version: 5.0.3
+
   libraries/points:
     dependencies:
       '@ceramicnetwork/http-client':
@@ -10599,6 +10614,9 @@ packages:
   /sqlite3@5.1.7:
     resolution: {integrity: sha512-GGIyOiFaG+TUra3JIfkI/zGP8yZYLPQ0pl1bH+ODjiX57sPhrLU5sQJn1y9bDKZUFYkX1crlrPfSYt0BKKdkog==}
     requiresBuild: true
+    peerDependenciesMeta:
+      node-gyp:
+        optional: true
     dependencies:
       bindings: 1.5.0
       node-addon-api: 7.1.0
