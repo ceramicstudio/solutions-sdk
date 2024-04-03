@@ -67,16 +67,28 @@ export class PointsWriter<
   }
 
   async setPointsAggregationFor(
-    did: string,
+    value: string | Array<object>,
     points: number,
     content: Partial<AggregationContent> = {},
   ): Promise<ModelInstanceDocument<AggregationContent>> {
-    const doc = await this.loadAggregationDocumentFor(did, {
+    const normalize = Array.isArray(value) ? value : [value]
+    console.log(normalize)
+    let emptyObject = {}
+    const mapped = normalize.map((item) => {
+      if (typeof item === 'object') {
+        const value = Object.values(item).join('')
+        emptyObject = { ...emptyObject, ...item }
+        return value
+      }
+      return item
+    })
+
+    const doc = await this.loadAggregationDocumentFor(mapped, {
       ignoreEmpty: false,
       onlyIndexed: false,
     })
     const date = new Date().toISOString()
-    await doc!.replace({ date, ...content, points, recipient: did } as AggregationContent)
+    await doc!.replace({ date, ...content, points, ...emptyObject } as AggregationContent)
     return doc!
   }
 }
