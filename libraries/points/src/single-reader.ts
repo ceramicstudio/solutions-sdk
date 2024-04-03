@@ -9,6 +9,7 @@ import type { QueryDocumentsOptions, QueryDocumentsResult } from './types.js'
 
 export type SinglePointContent = {
   recipient: string
+  id: string
 }
 
 export type SinglePointReaderParams = {
