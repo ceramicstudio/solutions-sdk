@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.build.json",
-  "include": [],
+  "include": ["./composites/points/src", "./libraries/points/src"],
   "compilerOptions": {
     "jsx": "preserve",
     "lib": ["DOM", "ES2020"],
@@ -8,9 +8,11 @@
   },
   "typedocOptions": {
     "name": "Solutions SDK",
+    "plugin": ["typedoc-plugin-markdown"],
+    "out": "docs/api",
     "readme": "none",
-    "entryDocument": "index.md",
-    "entryPoints": [],
+    "githubPages": false,
+    "entryPoints": ["./composites/points/src/index.ts", "./libraries/points/src/index.ts"],
     "excludeExternals": true,
     "excludeInternal": true,
     "excludePrivate": true,

@@ -1,3 +1,7 @@
+/**
+ * @module points
+ */
+
 export { PointsReader, type PointsReaderParams } from './points-reader.js'
 export {
   type PointsWriterFromSeedParams,
