@@ -78,6 +78,14 @@ export class PointsReader<
     })
   }
 
+  async loadAggregationDocumentsFor(
+    did: string,
+    options?: QueryDocumentsOptions,
+  ): Promise<QueryDocumentsResult<AggregationContent[]>> {
+    const query = getQueryForRecipient(this.#aggregationBaseQuery, did)
+    return await queryConnection(this.#loader, query, options)
+  }
+
   async getAggregationPointsFor(did: string): Promise<number> {
     const doc = await this.loadAggregationDocumentFor([did]) // Fix: Pass 'did' as an array
     return doc?.content?.points ?? 0

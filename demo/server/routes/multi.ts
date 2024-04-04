@@ -27,4 +27,21 @@ router.get(
   }
 );
 
+router.get(
+  "/getAggregations",
+  multiplePointsController.getAllAggregations,
+  (req, res) => {
+    return res.json({ documents: res.locals.documents });
+  }
+);
+
+router.get(
+  "/getAggregationTotal",
+  multiplePointsController.getAllAggregations,
+  multiplePointsController.getPointTotal,
+  (req, res) => {
+    return res.json({ total: res.locals.total });
+  }
+);
+
 export default router;

@@ -72,7 +72,6 @@ export class PointsWriter<
     content: Partial<AggregationContent> = {},
   ): Promise<ModelInstanceDocument<AggregationContent>> {
     const normalize = Array.isArray(value) ? value : [value]
-    console.log(normalize)
     let emptyObject = {}
     const mapped = normalize.map((item) => {
       if (typeof item === 'object') {
