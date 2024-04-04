@@ -19,6 +19,15 @@ router.post(
   }
 );
 
+router.post(
+  "/aggregateIfNew",
+  multiplePointsController.getAggregation,
+  multiplePointsController.updateAggregationIfNew,
+  (req, res) => {
+    return res.json({ aggregation: res.locals.aggregation, document: res.locals.document.content });
+  }
+);
+
 router.get(
   "/getAggregation",
   multiplePointsController.getAggregation,

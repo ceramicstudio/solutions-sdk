@@ -96,6 +96,25 @@ const updateAggregation = async (req: Request, res: Response, next: NextFunction
   }
 }
 
+const updateAggregationIfNew = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { ceramic, aggregationModelID } = await getContext()
+    const writer = new PointsWriter({ ceramic, aggregationModelID })
+    const { context, recipient, amount } = req.body
+    const document = res.locals.document
+    if (document?.content?.points === amount) {
+    } else {
+      const aggregation = await writer.setPointsAggregationFor([{ recipient }, { context }], amount)
+      res.locals.aggregation = aggregation.content?.points
+      res.locals.document = aggregation
+    }
+    return next()
+  } catch (error) {
+    console.error(error)
+    return error
+  }
+}
+
 export const multiplePointsController = {
   createPoints,
   updateAggregation,
@@ -103,4 +122,5 @@ export const multiplePointsController = {
   getPoints,
   getPointTotal,
   getAllAggregations,
+  updateAggregationIfNew
 }
