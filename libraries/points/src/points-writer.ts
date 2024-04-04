@@ -88,6 +88,7 @@ export class PointsWriter<
       onlyIndexed: false,
     })
     const date = new Date().toISOString()
+    points = (doc?.content?.points || 0) + points;
     await doc!.replace({ date, ...content, points, ...emptyObject } as AggregationContent)
     return doc!
   }

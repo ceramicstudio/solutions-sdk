@@ -13,8 +13,15 @@ router.post("/create", multiplePointsController.createPoints, (req, res) => {
 
 router.post(
   "/aggregate",
-  multiplePointsController.getAggregation,
   multiplePointsController.updateAggregation,
+  (req, res) => {
+    return res.json({ aggregation: res.locals.aggregation, document: res.locals.document.content });
+  }
+);
+
+router.get(
+  "/getAggregation",
+  multiplePointsController.getAggregation,
   (req, res) => {
     return res.json({ aggregation: res.locals.aggregation, document: res.locals.document.content });
   }

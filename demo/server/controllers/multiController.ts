@@ -63,6 +63,7 @@ const getAggregation = async (
     const reader = new PointsReader({ ceramic, issuer: ceramic.did!.id, aggregationModelID });
     const document = await reader.loadAggregationDocumentFor([req.body.recipient, req.body.context]);
     res.locals.document = document || {};
+    res.locals.aggregation = document?.content?.points || 0;
     return next();
   } catch (error) {
     console.error(error);
@@ -79,10 +80,9 @@ try {
     const { ceramic, aggregationModelID } = await getContext();
     const writer = new PointsWriter({ ceramic, aggregationModelID });
     const {context, recipient, amount} = req.body;
-    const currTotal = res.locals.document?.content?.points || 0;
     const aggregation = await writer.setPointsAggregationFor(
         [{recipient}, {context}],
-        currTotal + amount
+        amount
     );
     res.locals.aggregation = aggregation.content?.points;
     res.locals.document = aggregation;
