@@ -1,4 +1,4 @@
-import { getAuthenticatedDID } from '../../../utils/did/dist/index.js';
+import { getAuthenticatedDID } from '../../../../utils/did/dist/index.js';
 import { fromString } from 'uint8arrays';
 import { CeramicClient } from "@ceramicnetwork/http-client";
 import "dotenv/config.js";

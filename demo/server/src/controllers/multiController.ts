@@ -1,6 +1,6 @@
 import { getContext } from '../utils/context.js'
 import { Request, Response, NextFunction } from 'express'
-import { PointsWriter, PointsReader } from '../../../libraries/points/dist/index.js'
+import { PointsWriter, PointsReader } from '../../../../libraries/points/dist/index.js'
 
 const getPoints = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -69,7 +69,7 @@ const getAllAggregations = async (req: Request, res: Response, next: NextFunctio
   }
 }
 
-const getPointTotal = async (req: Request, res: Response, next: NextFunction) => {
+const getPointTotal = async (_req: Request, res: Response, next: NextFunction) => {
   try {
     const docs = res.locals.documents
     const total = docs.reduce((acc: number, doc: { points: number }) => acc + doc.points, 0)

@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import {
   SinglePointReader,
   SinglePointWriter,
-} from "../../../libraries/points/dist/index.js";
+} from "../../../../libraries/points/dist/index.js";
 
 const createSinglePoint = async (
   req: Request,
@@ -24,7 +24,7 @@ const createSinglePoint = async (
 
 const removeSinglePoint = async (
   req: Request,
-  res: Response,
+  _res: Response,
   next: NextFunction
 ) => {
   try {

@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import singleRouter from "./routes/single";
-import multiRouter from "./routes/multi";
+import singleRouter from "./routes/single.js";
+import multiRouter from "./routes/multi.js";
 
 const app = express();
 const port = 8080; // default port to listen
@@ -17,7 +17,7 @@ app.use(cors(corsOptions));
 // app.use(bodyParser.json());
 
 const allowCrossDomain = (
-  req: any,
+  _req: any,
   res: { header: (arg0: string, arg1: string) => void },
   next: () => void
 ) => {

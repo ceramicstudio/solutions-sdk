@@ -1,20 +1,20 @@
 import express from "express";
-import { multiplePointsController } from "../controllers/multiController";
+import { multiplePointsController } from "../controllers/multiController.js";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
-router.get("/", multiplePointsController.getPoints, (req, res) => {
+router.get("/", multiplePointsController.getPoints, (_req, res) => {
   return res.json({ totalPoints: res.locals.totalPoints });
 });
 
-router.post("/create", multiplePointsController.createPoints, (req, res) => {
+router.post("/create", multiplePointsController.createPoints, (_req, res) => {
   return res.json({ totalPoints: res.locals.totalPoints });
 });
 
 router.post(
   "/aggregate",
   multiplePointsController.updateAggregation,
-  (req, res) => {
+  (_req, res) => {
     return res.json({ aggregation: res.locals.aggregation, document: res.locals.document.content });
   }
 );
@@ -23,7 +23,7 @@ router.post(
   "/aggregateIfNew",
   multiplePointsController.getAggregation,
   multiplePointsController.updateAggregationIfNew,
-  (req, res) => {
+  (_req, res) => {
     return res.json({ aggregation: res.locals.aggregation, document: res.locals.document.content });
   }
 );
@@ -31,7 +31,7 @@ router.post(
 router.get(
   "/getAggregation",
   multiplePointsController.getAggregation,
-  (req, res) => {
+  (_req, res) => {
     return res.json({ aggregation: res.locals.aggregation, document: res.locals.document.content });
   }
 );
@@ -39,7 +39,7 @@ router.get(
 router.get(
   "/getAggregations",
   multiplePointsController.getAllAggregations,
-  (req, res) => {
+  (_req, res) => {
     return res.json({ documents: res.locals.documents });
   }
 );
@@ -48,7 +48,7 @@ router.get(
   "/getAggregationTotal",
   multiplePointsController.getAllAggregations,
   multiplePointsController.getPointTotal,
-  (req, res) => {
+  (_req, res) => {
     return res.json({ total: res.locals.total });
   }
 );
