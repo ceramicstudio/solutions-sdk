@@ -1,6 +1,6 @@
 import { getContext } from '../utils/context.js'
 import { Request, Response, NextFunction } from 'express'
-import { PointsWriter, PointsReader } from '../../../../libraries/points/dist/index.js'
+import { PointsWriter, PointsReader } from '@composexp/points'
 
 const getPoints = async (req: Request, res: Response, next: NextFunction) => {
   try {

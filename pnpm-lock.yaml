@@ -102,6 +102,15 @@ importers:
         specifier: ^4.7.1
         version: 4.7.1
     devDependencies:
+      '@composexp/ceramic-utils':
+        specifier: workspace:^
+        version: link:../../utils/ceramic
+      '@composexp/did-utils':
+        specifier: workspace:^
+        version: link:../../utils/did
+      '@composexp/points':
+        specifier: workspace:^
+        version: link:../../libraries/points
       '@types/cors':
         specifier: ^2.8.15
         version: 2.8.15

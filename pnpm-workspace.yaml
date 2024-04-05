@@ -1,5 +1,5 @@
 packages:
   - 'composites/*'
-  - 'demo/server/*'
+  - 'demo/*'
   - 'libraries/*'
   - 'utils/*'

@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import {
   SinglePointReader,
   SinglePointWriter,
-} from "../../../../libraries/points/dist/index.js";
+} from '@composexp/points';
 
 const createSinglePoint = async (
   req: Request,
