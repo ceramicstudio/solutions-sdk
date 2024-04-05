@@ -4,7 +4,7 @@ import singleRouter from "./routes/single.js";
 import multiRouter from "./routes/multi.js";
 
 const app = express();
-const port = 8080; // default port to listen
+const port = process.env.PORT || 8080;
 
 
 const corsOptions = {
