@@ -69,10 +69,10 @@ export class PointsReader<
   }
 
   async loadAggregationDocumentFor(
-    value: Array<string>,
+    setFields: Array<string>,
     options: DeterministicLoadOptions = {},
   ): Promise<ModelInstanceDocument<AggregationContent> | null> {
-    return await this.#loader.loadSet(this.#issuer, this.#aggregationModelID, value, {
+    return await this.#loader.loadSet(this.#issuer, this.#aggregationModelID, setFields, {
       ignoreEmpty: true,
       ...options,
     })
