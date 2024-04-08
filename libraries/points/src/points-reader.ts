@@ -7,6 +7,10 @@ import { getCeramic } from './ceramic.js'
 import { getQueryForRecipient, queryConnection } from './query.js'
 import type { QueryDocumentsOptions, QueryDocumentsResult } from './types.js'
 
+export function toUniqueArg(value: string | Array<string>): Array<string> {
+  return Array.isArray(value) ? value : [value]
+}
+
 export type MultiplePointsContent = {
   recipient: string
   points: number
@@ -40,8 +44,8 @@ export class PointsReader<
 
   constructor(params: PointsReaderParams) {
     const ceramic = getCeramic(params.ceramic)
-    const aggregationModelID = params.aggregationModelID ?? definition.models.TotalPoints!.id
-    const allocationModelID = params.allocationModelID ?? definition.models.MultiplePoints!.id
+    const aggregationModelID = params.aggregationModelID ?? definition.models.TotalPoints.id
+    const allocationModelID = params.allocationModelID ?? definition.models.MultiplePoints.id
 
     this.#aggregationBaseQuery = { account: params.issuer, models: [aggregationModelID] }
     this.#aggregationModelID = aggregationModelID
@@ -69,25 +73,27 @@ export class PointsReader<
   }
 
   async loadAggregationDocumentFor(
-    setFields: Array<string>,
+    didOrValues: string | Array<string>,
     options: DeterministicLoadOptions = {},
   ): Promise<ModelInstanceDocument<AggregationContent> | null> {
-    return await this.#loader.loadSet(this.#issuer, this.#aggregationModelID, setFields, {
-      ignoreEmpty: true,
-      ...options,
-    })
+    return await this.#loader.loadSet(
+      this.#issuer,
+      this.#aggregationModelID,
+      toUniqueArg(didOrValues),
+      { ignoreEmpty: true, ...options },
+    )
   }
 
   async loadAggregationDocumentsFor(
     did: string,
     options?: QueryDocumentsOptions,
-  ): Promise<QueryDocumentsResult<AggregationContent[]>> {
+  ): Promise<QueryDocumentsResult<AggregationContent>> {
     const query = getQueryForRecipient(this.#aggregationBaseQuery, did)
     return await queryConnection(this.#loader, query, options)
   }
 
-  async getAggregationPointsFor(did: string): Promise<number> {
-    const doc = await this.loadAggregationDocumentFor([did]) // Fix: Pass 'did' as an array
+  async getAggregationPointsFor(didOrValues: string | Array<string>): Promise<number> {
+    const doc = await this.loadAggregationDocumentFor(didOrValues)
     return doc?.content?.points ?? 0
   }
 
