@@ -1,0 +1,41 @@
+# (for reference only)
+
+interface PointsAggregation @loadModel(id: "kjzl6hvfrbw6cb6393dpd8blke5w8r7pvbl4449mxetuibcav3oab8fnxmys6d6") {
+  id: ID!
+}
+
+type SandboxReadAggregation implements PointsAggregation
+  @createModel(
+    description: "Aggregation of multiple Ceramic Sandbox read points to an account"
+    accountRelation: SET
+    accountRelationFields: ["recipient"]
+  ) {
+  issuer: DID! @documentAccount
+  recipient: DID! @accountReference
+  points: Int!
+  date: DateTime!
+}
+
+type SandboxWriteAggregation implements PointsAggregation
+  @createModel(
+    description: "Aggregation of multiple Ceramic Sandbox write points to an account"
+    accountRelation: SET
+    accountRelationFields: ["recipient"]
+  ) {
+  issuer: DID! @documentAccount
+  recipient: DID! @accountReference
+  points: Int!
+  date: DateTime!
+}
+
+type SandboxComplexWriteAggregation implements PointsAggregation
+  @createModel(
+    description: "Aggregation of multiple Ceramic Sandbox complex write points to an account"
+    accountRelation: SET
+    accountRelationFields: ["recipient"]
+  ) {
+  issuer: DID! @documentAccount
+  recipient: DID! @accountReference
+  points: Int!
+  date: DateTime!
+}
