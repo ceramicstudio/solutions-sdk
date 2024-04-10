@@ -7,6 +7,7 @@ import {
   type MultiplePointsContent,
   PointsReader,
   type TotalPointsContent,
+  toUniqueArg,
 } from './points-reader.js'
 
 export type PointsWriterFromSeedParams = {
@@ -66,17 +67,31 @@ export class PointsWriter<
     await doc.shouldIndex(false)
   }
 
-  async setPointsAggregationFor(
-    did: string,
-    points: number,
-    content: Partial<AggregationContent> = {},
+  async updatePointsAggregationFor(
+    didOrValues: string | Array<string>,
+    update: (content: AggregationContent | null) => Partial<AggregationContent>,
   ): Promise<ModelInstanceDocument<AggregationContent>> {
-    const doc = await this.loadAggregationDocumentFor(did, {
+    const unique = toUniqueArg(didOrValues)
+    const doc = await this.loadAggregationDocumentFor(unique, {
       ignoreEmpty: false,
       onlyIndexed: false,
     })
-    const date = new Date().toISOString()
-    await doc!.replace({ date, ...content, points, recipient: did } as AggregationContent)
+    const content = doc!.content
+    await doc!.replace({
+      // Copy existing content or set recipient (assuming it's the first value)
+      ...(content ?? { recipient: unique[0] }),
+      // Apply content update
+      ...update(content),
+    } as AggregationContent)
     return doc!
+  }
+
+  async setPointsAggregationFor(
+    didOrValues: string | Array<string>,
+    points: number,
+    content: Partial<AggregationContent> = {},
+  ): Promise<ModelInstanceDocument<AggregationContent>> {
+    const date = new Date().toISOString()
+    return await this.updatePointsAggregationFor(didOrValues, () => ({ date, ...content, points }))
   }
 }

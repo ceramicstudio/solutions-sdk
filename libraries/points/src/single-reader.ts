@@ -26,7 +26,7 @@ export class SinglePointReader<Content extends SinglePointContent = SinglePointC
 
   constructor(params: SinglePointReaderParams) {
     const ceramic = getCeramic(params.ceramic)
-    const modelID = params.modelID ?? definition.models.SinglePoint!.id
+    const modelID = params.modelID ?? definition.models.SinglePoint.id
 
     this.#baseQuery = { account: params.issuer, models: [modelID] }
     this.#ceramic = ceramic

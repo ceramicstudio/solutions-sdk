@@ -19,7 +19,7 @@ export type WriteCompositeParams = {
 
 export async function writeComposite(params: WriteCompositeParams) {
   const ctx = await getEphemeralCeramic()
-  // @ts-ignore Ceramic type
+  // @ts-expect-error Ceramic type
   const composite = await createComposite(ctx.ceramic, params.schemaPath)
   const runtimeDefinition = composite.toRuntime()
 
@@ -39,6 +39,6 @@ export async function writeComposite(params: WriteCompositeParams) {
 }
 
 export async function deployComposite(ceramic: CeramicAPI, path: PathInput): Promise<void> {
-  // @ts-ignore ceramic type
+  // @ts-expect-error Ceramic type
   await readEncodedComposite(ceramic, path, true)
 }
