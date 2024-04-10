@@ -14,4 +14,4 @@
 
 #### Defined in
 
-composites/points/src/definition.ts:3
+[composites/points/src/definition.ts:3](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/composites/points/src/definition.ts#L3)

@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:27](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/single-reader.ts#L27)
+[libraries/points/src/single-reader.ts:27](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L27)
 
 ## Accessors
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:37](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/single-reader.ts#L37)
+[libraries/points/src/single-reader.ts:37](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L37)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:41](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/single-reader.ts#L41)
+[libraries/points/src/single-reader.ts:41](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L41)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:45](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/single-reader.ts#L45)
+[libraries/points/src/single-reader.ts:45](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L45)
 
 ## Methods
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:61](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/single-reader.ts#L61)
+[libraries/points/src/single-reader.ts:61](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L61)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:49](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/single-reader.ts#L49)
+[libraries/points/src/single-reader.ts:49](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L49)
 
 ___
 
@@ -153,4 +153,4 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:53](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/single-reader.ts#L53)
+[libraries/points/src/single-reader.ts:53](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L53)

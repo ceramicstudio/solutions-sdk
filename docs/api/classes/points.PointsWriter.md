@@ -33,10 +33,12 @@
 - [allocatePointsTo](points.PointsWriter.md#allocatepointsto)
 - [getAggregationPointsFor](points.PointsWriter.md#getaggregationpointsfor)
 - [loadAggregationDocumentFor](points.PointsWriter.md#loadaggregationdocumentfor)
+- [loadAggregationDocumentsFor](points.PointsWriter.md#loadaggregationdocumentsfor)
 - [queryAggregationDocuments](points.PointsWriter.md#queryaggregationdocuments)
 - [queryAllocationDocumentsFor](points.PointsWriter.md#queryallocationdocumentsfor)
 - [removePointsAllocation](points.PointsWriter.md#removepointsallocation)
 - [setPointsAggregationFor](points.PointsWriter.md#setpointsaggregationfor)
+- [updatePointsAggregationFor](points.PointsWriter.md#updatepointsaggregationfor)
 - [fromSeed](points.PointsWriter.md#fromseed)
 
 ## Constructors
@@ -68,7 +70,7 @@
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:42](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-writer.ts#L42)
+[libraries/points/src/points-writer.ts:43](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L43)
 
 ## Accessors
 
@@ -86,7 +88,7 @@ PointsReader.aggregationModelID
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:55](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L55)
+[libraries/points/src/points-reader.ts:59](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L59)
 
 ___
 
@@ -104,7 +106,7 @@ PointsReader.allocationModelID
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:59](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L59)
+[libraries/points/src/points-reader.ts:63](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L63)
 
 ___
 
@@ -122,7 +124,7 @@ PointsReader.ceramic
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:63](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L63)
+[libraries/points/src/points-reader.ts:67](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L67)
 
 ___
 
@@ -140,7 +142,7 @@ PointsReader.loader
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:67](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L67)
+[libraries/points/src/points-reader.ts:71](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L71)
 
 ## Methods
 
@@ -162,19 +164,19 @@ PointsReader.loader
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:49](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-writer.ts#L49)
+[libraries/points/src/points-writer.ts:50](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L50)
 
 ___
 
 ### getAggregationPointsFor
 
-▸ **getAggregationPointsFor**(`did`): `Promise`\<`number`\>
+▸ **getAggregationPointsFor**(`didOrValues`): `Promise`\<`number`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `did` | `string` |
+| `didOrValues` | `string` \| `string`[] |
 
 #### Returns
 
@@ -186,19 +188,19 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:81](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L81)
+[libraries/points/src/points-reader.ts:95](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L95)
 
 ___
 
 ### loadAggregationDocumentFor
 
-▸ **loadAggregationDocumentFor**(`did`, `options?`): `Promise`\<``null`` \| `ModelInstanceDocument`\<`AggregationContent`\>\>
+▸ **loadAggregationDocumentFor**(`didOrValues`, `options?`): `Promise`\<``null`` \| `ModelInstanceDocument`\<`AggregationContent`\>\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `did` | `string` |
+| `didOrValues` | `string` \| `string`[] |
 | `options` | `DeterministicLoadOptions` |
 
 #### Returns
@@ -211,7 +213,32 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:71](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L71)
+[libraries/points/src/points-reader.ts:75](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L75)
+
+___
+
+### loadAggregationDocumentsFor
+
+▸ **loadAggregationDocumentsFor**(`did`, `options?`): `Promise`\<[`QueryDocumentsResult`](../modules/points.md#querydocumentsresult)\<`AggregationContent`\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `did` | `string` |
+| `options?` | [`QueryDocumentsOptions`](../modules/points.md#querydocumentsoptions) |
+
+#### Returns
+
+`Promise`\<[`QueryDocumentsResult`](../modules/points.md#querydocumentsresult)\<`AggregationContent`\>\>
+
+#### Inherited from
+
+[PointsReader](points.PointsReader.md).[loadAggregationDocumentsFor](points.PointsReader.md#loadaggregationdocumentsfor)
+
+#### Defined in
+
+[libraries/points/src/points-reader.ts:87](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L87)
 
 ___
 
@@ -235,7 +262,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:86](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L86)
+[libraries/points/src/points-reader.ts:100](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L100)
 
 ___
 
@@ -260,7 +287,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:92](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-reader.ts#L92)
+[libraries/points/src/points-reader.ts:106](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L106)
 
 ___
 
@@ -280,19 +307,19 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:61](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-writer.ts#L61)
+[libraries/points/src/points-writer.ts:62](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L62)
 
 ___
 
 ### setPointsAggregationFor
 
-▸ **setPointsAggregationFor**(`did`, `points`, `content?`): `Promise`\<`ModelInstanceDocument`\<`AggregationContent`\>\>
+▸ **setPointsAggregationFor**(`didOrValues`, `points`, `content?`): `Promise`\<`ModelInstanceDocument`\<`AggregationContent`\>\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `did` | `string` |
+| `didOrValues` | `string` \| `string`[] |
 | `points` | `number` |
 | `content` | `Partial`\<`AggregationContent`\> |
 
@@ -302,7 +329,28 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:69](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-writer.ts#L69)
+[libraries/points/src/points-writer.ts:89](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L89)
+
+___
+
+### updatePointsAggregationFor
+
+▸ **updatePointsAggregationFor**(`didOrValues`, `update`): `Promise`\<`ModelInstanceDocument`\<`AggregationContent`\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `didOrValues` | `string` \| `string`[] |
+| `update` | (`content`: ``null`` \| `AggregationContent`) => `Partial`\<`AggregationContent`\> |
+
+#### Returns
+
+`Promise`\<`ModelInstanceDocument`\<`AggregationContent`\>\>
+
+#### Defined in
+
+[libraries/points/src/points-writer.ts:70](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L70)
 
 ___
 
@@ -329,4 +377,4 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:30](https://github.com/ceramicstudio/solutions/blob/a751967/libraries/points/src/points-writer.ts#L30)
+[libraries/points/src/points-writer.ts:31](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L31)
