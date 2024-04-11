@@ -1,4 +1,4 @@
-export { PointsReader, type PointsReaderParams } from './points-reader.js'
+export { PointsReader, toUniqueArg, type PointsReaderParams } from './points-reader.js'
 export {
   type PointsWriterFromSeedParams,
   PointsWriter,
