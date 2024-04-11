@@ -2,6 +2,13 @@ import { getContext } from '../utils/context.js'
 import { Request, Response, NextFunction } from 'express'
 import { PointsWriter, PointsReader } from '@composexp/points'
 
+type ContextAggregationContent = {
+  recipient: string
+  points: number
+  date: string
+  context: string
+}
+
 const getContextAggregation = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { ceramic, aggregationModelID } = await getContext()
@@ -55,7 +62,7 @@ const updateContextAggregation = async (req: Request, res: Response, next: NextF
     const { amount, recipient, context } = req.body
 
     //instantiate a writer and reader
-    const contextWriter = new PointsWriter({
+    const contextWriter = new PointsWriter<ContextAggregationContent>({
       ceramic,
       aggregationModelID,
     })
@@ -73,7 +80,6 @@ const updateContextAggregation = async (req: Request, res: Response, next: NextF
         recipient,
         points: amount,
         date: new Date().toISOString(),
-        //@ts-ignore
         context,
       })
       res.locals = {
@@ -88,7 +94,6 @@ const updateContextAggregation = async (req: Request, res: Response, next: NextF
             points: content ? content.points + amount : amount,
             date: new Date().toISOString(),
             recipient,
-            //@ts-ignore
             context,
           }
         },
