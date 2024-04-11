@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@ceramicnetwork/common": "^5.5.0",
-    "@types/node": "^20.12.5",
+    "@types/node": "^20.12.7",
     "dids": "^5.0.2"
   }
 }
