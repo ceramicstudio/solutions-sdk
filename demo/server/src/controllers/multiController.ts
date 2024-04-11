@@ -9,7 +9,39 @@ type ContextAggregationContent = {
   context: string
 }
 
-const getContextAggregation = async (req: Request, res: Response, next: NextFunction) => {
+export interface GetContextAggregationRequest extends Request {
+  body: {
+    recipient: string
+    context: string
+  }
+}
+
+export interface UpdateTotalAggregationRequest extends Request {
+  body: {
+    recipient: string
+    amount: number
+  }
+}
+
+export interface UpdateContextAggregationRequest extends Request {
+  body: {
+    recipient: string
+    context: string
+    amount: number
+  }
+}
+
+export interface GetTotalRequest extends Request {
+  body: {
+    recipient: string
+  }
+}
+
+const getContextAggregation = async (
+  req: GetContextAggregationRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
   try {
     const { ceramic, aggregationModelID } = await getContext()
     const { recipient, context } = req.body
@@ -29,11 +61,15 @@ const getContextAggregation = async (req: Request, res: Response, next: NextFunc
     return next()
   } catch (error) {
     console.error(error)
-    return error
+    next(error)
   }
 }
 
-const getTotalAggregation = async (req: Request, res: Response, next: NextFunction) => {
+const getTotalAggregation = async (
+  req: GetTotalRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
   try {
     const { ceramic } = await getContext()
     const { recipient } = req.body
@@ -52,11 +88,15 @@ const getTotalAggregation = async (req: Request, res: Response, next: NextFuncti
     return next()
   } catch (error) {
     console.error(error)
-    return error
+    next(error)
   }
 }
 
-const updateContextAggregation = async (req: Request, res: Response, next: NextFunction) => {
+const updateContextAggregation = async (
+  req: UpdateContextAggregationRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
   try {
     const { ceramic, aggregationModelID } = await getContext()
     const { amount, recipient, context } = req.body
@@ -106,11 +146,15 @@ const updateContextAggregation = async (req: Request, res: Response, next: NextF
     return next()
   } catch (error) {
     console.error(error)
-    return error
+    next(error)
   }
 }
 
-const updateTotalAggregation = async (req: Request, res: Response, next: NextFunction) => {
+const updateTotalAggregation = async (
+  req: UpdateTotalAggregationRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
   try {
     const { ceramic } = await getContext()
     const { amount, recipient } = req.body
@@ -147,7 +191,7 @@ const updateTotalAggregation = async (req: Request, res: Response, next: NextFun
     return next()
   } catch (error) {
     console.error(error)
-    return error
+    next(error)
   }
 }
 

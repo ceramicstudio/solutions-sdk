@@ -81,8 +81,8 @@ importers:
   demo/server:
     dependencies:
       '@ceramicnetwork/http-client':
-        specifier: ^5.5.0
-        version: 5.6.0(typescript@4.8.4)
+        specifier: ^5.6.0
+        version: 5.6.0(typescript@5.4.4)
       body-parser:
         specifier: ^1.20.2
         version: 1.20.2
@@ -128,15 +128,9 @@ importers:
         version: 3.1.0
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@swc/core@1.4.13)(@types/node@20.12.7)(typescript@4.8.4)
-      tslint:
-        specifier: ^6.1.3
-        version: 6.1.3(typescript@4.8.4)
-      typescript:
-        specifier: ^4.8.4
-        version: 4.8.4
+        version: 10.9.1(@swc/core@1.4.13)(@types/node@20.12.7)(typescript@5.4.4)
       uint8arrays:
-        specifier: ^5.0.1
+        specifier: ^5.0.3
         version: 5.0.3
 
   demo/simple:
@@ -853,24 +847,6 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/codecs@4.5.0(typescript@4.8.4):
-    resolution: {integrity: sha512-++PHxu6B4s7Tvk8RDOGgj2LxpZISJBAAVbzQd8bedPs/qSMufDs3EE99SR92YhHLbn5Wt/+uEZcSNGiHh8HyhQ==}
-    dependencies:
-      '@ceramicnetwork/common': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/streamid': 5.0.0
-      cartonne: 3.0.1
-      codeco: 1.2.1
-      dag-jose: 4.0.0
-      multiformats: 13.1.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /@ceramicnetwork/codecs@4.5.0(typescript@5.4.4):
     resolution: {integrity: sha512-++PHxu6B4s7Tvk8RDOGgj2LxpZISJBAAVbzQd8bedPs/qSMufDs3EE99SR92YhHLbn5Wt/+uEZcSNGiHh8HyhQ==}
     dependencies:
@@ -898,34 +874,6 @@ packages:
       '@didtools/pkh-solana': 0.2.0(typescript@5.4.4)
       '@didtools/pkh-stacks': 0.2.0(typescript@5.4.4)
       '@didtools/pkh-tezos': 0.3.0(typescript@5.4.4)
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-      flat: 5.0.2
-      it-first: 3.0.4
-      jet-logger: 1.2.2
-      lodash.clonedeep: 4.5.0
-      logfmt: 1.4.0
-      multiformats: 13.1.0
-      rxjs: 7.8.1
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
-  /@ceramicnetwork/common@5.5.0(typescript@4.8.4):
-    resolution: {integrity: sha512-zEYVVZAZ6lo0GHgtJu7uiQRPn8++32SzNFA4n8gao9jTujlFYsmQW8n7EbfZIooIPTrByqLpg/YSurr8kvQMhw==}
-    dependencies:
-      '@ceramicnetwork/streamid': 5.0.0
-      '@didtools/cacao': 3.0.1(typescript@4.8.4)
-      '@didtools/pkh-ethereum': 0.2.1
-      '@didtools/pkh-solana': 0.2.0(typescript@4.8.4)
-      '@didtools/pkh-stacks': 0.2.0(typescript@4.8.4)
-      '@didtools/pkh-tezos': 0.3.0(typescript@4.8.4)
-      '@ipld/dag-cbor': 9.2.0
       '@stablelib/random': 1.0.2
       caip: 1.1.1
       flat: 5.0.2
@@ -1104,26 +1052,6 @@ packages:
       - pg-native
       - supports-color
       - tedious
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
-  /@ceramicnetwork/http-client@5.6.0(typescript@4.8.4):
-    resolution: {integrity: sha512-IRdB4Klm3xAnUB/Tuli/vTLi1Ul275RysMxrSEEDfEBru4GA/MG7cXomk4S1MsJ0flP+PD6aag7DyRQZmiYoLA==}
-    dependencies:
-      '@ceramicnetwork/common': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/stream-caip10-link': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/stream-model': 4.5.0(typescript@4.8.4)
-      '@ceramicnetwork/stream-model-instance': 4.6.0(typescript@4.8.4)
-      '@ceramicnetwork/stream-tile': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/streamid': 5.0.0
-      '@scarf/scarf': 1.3.0
-      query-string: 7.1.3
-      rxjs: 7.8.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
       - typescript
       - utf-8-validate
       - zod
@@ -1409,22 +1337,6 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-caip10-link@5.5.0(typescript@4.8.4):
-    resolution: {integrity: sha512-X7HFHOuWlMBoZH3gSHbdXVjY8QYiDR5971uvhkNSpzxXV/Q9oqyRAULEFBuAKdH1+FUkaiaCxC2xaVh3ydC5Cg==}
-    dependencies:
-      '@ceramicnetwork/common': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/streamid': 5.0.0
-      caip: 1.1.1
-      did-resolver: 4.1.0
-      lodash.clonedeep: 4.5.0
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /@ceramicnetwork/stream-caip10-link@5.5.0(typescript@5.4.4):
     resolution: {integrity: sha512-X7HFHOuWlMBoZH3gSHbdXVjY8QYiDR5971uvhkNSpzxXV/Q9oqyRAULEFBuAKdH1+FUkaiaCxC2xaVh3ydC5Cg==}
     dependencies:
@@ -1588,24 +1500,6 @@ packages:
       - utf-8-validate
       - zod
 
-  /@ceramicnetwork/stream-model-instance@4.6.0(typescript@4.8.4):
-    resolution: {integrity: sha512-uksXGq4ytcR9bHgLm68t2unsk2QCOqEVOnGWmZH7G47XvbfV/Bm18NAO9cZagSRa5ogbCf4+N3AuZtLg/TDWKA==}
-    dependencies:
-      '@ceramicnetwork/common': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ipld/dag-cbor': 7.0.3
-      '@stablelib/random': 1.0.2
-      fast-json-patch: 3.1.1
-      object-sizeof: 2.6.4
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /@ceramicnetwork/stream-model-instance@4.6.0(typescript@5.4.4):
     resolution: {integrity: sha512-uksXGq4ytcR9bHgLm68t2unsk2QCOqEVOnGWmZH7G47XvbfV/Bm18NAO9cZagSRa5ogbCf4+N3AuZtLg/TDWKA==}
     dependencies:
@@ -1644,29 +1538,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-
-  /@ceramicnetwork/stream-model@4.5.0(typescript@4.8.4):
-    resolution: {integrity: sha512-I0jYlptr4v31T3VlSwvYMggrx2DLahsC1u5ErVRBZeW8NeY/7VWUzKVQtuOfc5Wa2XdRJ7ODINyszWKb6nIneg==}
-    dependencies:
-      '@ceramicnetwork/codecs': 4.5.0(typescript@4.8.4)
-      '@ceramicnetwork/common': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ipld/dag-cbor': 7.0.3
-      '@stablelib/random': 1.0.2
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      codeco: 1.2.1
-      fast-json-patch: 3.1.1
-      json-schema-typed: 8.0.1
-      multiformats: 13.1.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
 
   /@ceramicnetwork/stream-model@4.5.0(typescript@5.4.4):
     resolution: {integrity: sha512-I0jYlptr4v31T3VlSwvYMggrx2DLahsC1u5ErVRBZeW8NeY/7VWUzKVQtuOfc5Wa2XdRJ7ODINyszWKb6nIneg==}
@@ -1748,25 +1619,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-
-  /@ceramicnetwork/stream-tile@5.5.0(typescript@4.8.4):
-    resolution: {integrity: sha512-KhY5u553qh1Cl0R1BZbxvXpzDyW2p+lGzzDvQYO7et2D7KKqd9O0mkFSCzlsJC43xcOwY00JkbcRtHX3JhzabA==}
-    dependencies:
-      '@ceramicnetwork/common': 5.5.0(typescript@4.8.4)
-      '@ceramicnetwork/streamid': 5.0.0
-      '@ipld/dag-cbor': 7.0.3
-      '@stablelib/random': 1.0.2
-      dids: 5.0.2(typescript@4.8.4)
-      fast-json-patch: 3.1.1
-      lodash.clonedeep: 4.5.0
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
 
   /@ceramicnetwork/stream-tile@5.5.0(typescript@5.4.4):
     resolution: {integrity: sha512-KhY5u553qh1Cl0R1BZbxvXpzDyW2p+lGzzDvQYO7et2D7KKqd9O0mkFSCzlsJC43xcOwY00JkbcRtHX3JhzabA==}
@@ -2074,24 +1926,6 @@ packages:
       multiformats: 11.0.2
       uint8arrays: 4.0.10
 
-  /@didtools/cacao@3.0.1(typescript@4.8.4):
-    resolution: {integrity: sha512-vV1JirxqVsBf2dqdvoS/msNN8fabvMfseZB0kf1FG8TbosrHd81+hgDOlQMZit7zJbTk5g3CGkZg3b7iYKkynw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/codecs': 3.0.0
-      '@didtools/siwx': 2.0.0
-      '@ipld/dag-cbor': 9.2.0
-      caip: 1.1.1
-      multiformats: 13.1.0
-      uint8arrays: 5.0.3
-      viem: 1.21.4(typescript@4.8.4)
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /@didtools/cacao@3.0.1(typescript@5.4.4):
     resolution: {integrity: sha512-vV1JirxqVsBf2dqdvoS/msNN8fabvMfseZB0kf1FG8TbosrHd81+hgDOlQMZit7zJbTk5g3CGkZg3b7iYKkynw==}
     engines: {node: '>=14.14'}
@@ -2145,22 +1979,6 @@ packages:
       caip: 1.1.1
     dev: false
 
-  /@didtools/pkh-ethereum@0.5.0(typescript@4.8.4):
-    resolution: {integrity: sha512-2S+TS/I2jVTNnkgyslxQvSjCzzLsCabjXD2UWjJnVkAoxeJgPE9GvY1JhTDgvVLfxLPnYwTIP/O1WR9wJcDkFg==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1(typescript@4.8.4)
-      '@noble/curves': 1.4.0
-      '@noble/hashes': 1.4.0
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /@didtools/pkh-ethereum@0.5.0(typescript@5.4.4):
     resolution: {integrity: sha512-2S+TS/I2jVTNnkgyslxQvSjCzzLsCabjXD2UWjJnVkAoxeJgPE9GvY1JhTDgvVLfxLPnYwTIP/O1WR9wJcDkFg==}
     engines: {node: '>=14.14'}
@@ -2176,22 +1994,6 @@ packages:
       - utf-8-validate
       - zod
 
-  /@didtools/pkh-solana@0.2.0(typescript@4.8.4):
-    resolution: {integrity: sha512-wOfa+hbWo1ok8YnR8tq2mZKbcyEv9qrxtTR5jXOuhOqCkz30/qu9e2Wib/byx7Kx5/ik/2z1nd2YPL0vrA+TxQ==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1(typescript@4.8.4)
-      '@noble/curves': 1.4.0
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   /@didtools/pkh-solana@0.2.0(typescript@5.4.4):
     resolution: {integrity: sha512-wOfa+hbWo1ok8YnR8tq2mZKbcyEv9qrxtTR5jXOuhOqCkz30/qu9e2Wib/byx7Kx5/ik/2z1nd2YPL0vrA+TxQ==}
     engines: {node: '>=14.14'}
@@ -2206,25 +2008,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-
-  /@didtools/pkh-stacks@0.2.0(typescript@4.8.4):
-    resolution: {integrity: sha512-lXe8ZURCYCDQXrjaM7A4p1RCKrVsQ+NbO7bI70pRfjven82BPLDiqEJbhRGnWKbjQD1CQe9MJXLy3AuStKc7qw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1(typescript@4.8.4)
-      '@stablelib/random': 1.0.2
-      '@stacks/common': 6.13.0
-      '@stacks/encryption': 6.13.1
-      '@stacks/transactions': 6.13.1
-      caip: 1.1.1
-      jsontokens: 4.0.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
 
   /@didtools/pkh-stacks@0.2.0(typescript@5.4.4):
     resolution: {integrity: sha512-lXe8ZURCYCDQXrjaM7A4p1RCKrVsQ+NbO7bI70pRfjven82BPLDiqEJbhRGnWKbjQD1CQe9MJXLy3AuStKc7qw==}
@@ -2243,23 +2026,6 @@ packages:
       - typescript
       - utf-8-validate
       - zod
-
-  /@didtools/pkh-tezos@0.3.0(typescript@4.8.4):
-    resolution: {integrity: sha512-AB8drOnBkDSE9KolsiSShPwVOVbRXM2G5T//b+GgX9potVRTcRsD0z59x/6mU1e9g2kxpScOhjRrZsC0c+SQNw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1(typescript@4.8.4)
-      '@noble/curves': 1.4.0
-      '@noble/hashes': 1.4.0
-      '@stablelib/random': 1.0.2
-      caip: 1.1.1
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
 
   /@didtools/pkh-tezos@0.3.0(typescript@5.4.4):
     resolution: {integrity: sha512-AB8drOnBkDSE9KolsiSShPwVOVbRXM2G5T//b+GgX9potVRTcRsD0z59x/6mU1e9g2kxpScOhjRrZsC0c+SQNw==}
@@ -5094,20 +4860,6 @@ packages:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
     requiresBuild: true
 
-  /abitype@0.9.8(typescript@4.8.4):
-    resolution: {integrity: sha512-puLifILdm+8sjyss4S+fsUN09obiT1g2YW6CtcQF+QDzxR0euzgEB29MZujC6zMk2a6SVmtttq1fc6+YFA7WYQ==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-      zod: ^3 >=3.19.1
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-      zod:
-        optional: true
-    dependencies:
-      typescript: 4.8.4
-    dev: false
-
   /abitype@0.9.8(typescript@5.4.4):
     resolution: {integrity: sha512-puLifILdm+8sjyss4S+fsUN09obiT1g2YW6CtcQF+QDzxR0euzgEB29MZujC6zMk2a6SVmtttq1fc6+YFA7WYQ==}
     peerDependencies:
@@ -5838,11 +5590,6 @@ packages:
     engines: {node: '>=0.2.0'}
     dev: false
 
-  /builtin-modules@1.1.1:
-    resolution: {integrity: sha512-wxXCdllwGhI2kCC0MnvTGYTMvnVZTvqgypkiTI8Pa5tcz2i6VqsqwYGgqwXji+4RgCzms6EajE4IxiUH6HH8nQ==}
-    engines: {node: '>=0.10.0'}
-    dev: true
-
   /busboy@1.6.0:
     resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
     engines: {node: '>=10.16.0'}
@@ -6133,10 +5880,6 @@ packages:
   /commander@10.0.1:
     resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
     engines: {node: '>=14'}
-
-  /commander@2.20.3:
-    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
-    dev: true
 
   /commander@8.3.0:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
@@ -6569,28 +6312,6 @@ packages:
       multiformats: 11.0.2
       rpc-utils: 0.6.2
       uint8arrays: 4.0.10
-    dev: false
-
-  /dids@5.0.2(typescript@4.8.4):
-    resolution: {integrity: sha512-sxTgrvJtatqdm7dukGbquk23BVvbiaxf3nTKywWaY9AUqwC2IYEo6FG0En2cMl3J1fqMMQXrGg9luh2xDmYOmw==}
-    engines: {node: '>=14.14'}
-    dependencies:
-      '@didtools/cacao': 3.0.1(typescript@4.8.4)
-      '@didtools/codecs': 3.0.0
-      '@didtools/pkh-ethereum': 0.5.0(typescript@4.8.4)
-      '@stablelib/random': 1.0.2
-      codeco: 1.2.1
-      dag-jose-utils: 4.0.0
-      did-jwt: 7.4.7
-      did-resolver: 4.1.0
-      multiformats: 13.1.0
-      rpc-utils: 0.6.2
-      uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-      - zod
     dev: false
 
   /dids@5.0.2(typescript@5.4.4):
@@ -10061,6 +9782,7 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.8
+    dev: false
 
   /mkdirp@1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
@@ -11417,11 +11139,6 @@ packages:
       semver: 7.6.0
     dev: true
 
-  /semver@5.7.2:
-    resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
-    hasBin: true
-    dev: true
-
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
@@ -12097,7 +11814,7 @@ packages:
       typescript: 5.4.4
     dev: true
 
-  /ts-node@10.9.1(@swc/core@1.4.13)(@types/node@20.12.7)(typescript@4.8.4):
+  /ts-node@10.9.1(@swc/core@1.4.13)(@types/node@20.12.7)(typescript@5.4.4):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -12124,7 +11841,7 @@ packages:
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 4.8.4
+      typescript: 5.4.4
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
@@ -12144,39 +11861,6 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
-
-  /tslint@6.1.3(typescript@4.8.4):
-    resolution: {integrity: sha512-IbR4nkT96EQOvKE2PW/djGz8iGNeJ4rF2mBfiYaR/nvUWYKJhLwimoJKgjIFEIDibBtOevj7BqCRL4oHeWWUCg==}
-    engines: {node: '>=4.8.0'}
-    deprecated: TSLint has been deprecated in favor of ESLint. Please see https://github.com/palantir/tslint/issues/4534 for more information.
-    hasBin: true
-    peerDependencies:
-      typescript: '>=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >=3.0.0-dev || >= 3.1.0-dev || >= 3.2.0-dev || >= 4.0.0-dev'
-    dependencies:
-      '@babel/code-frame': 7.24.2
-      builtin-modules: 1.1.1
-      chalk: 2.4.2
-      commander: 2.20.3
-      diff: 4.0.2
-      glob: 7.2.3
-      js-yaml: 3.14.1
-      minimatch: 3.1.2
-      mkdirp: 0.5.6
-      resolve: 1.22.8
-      semver: 5.7.2
-      tslib: 1.14.1
-      tsutils: 2.29.0(typescript@4.8.4)
-      typescript: 4.8.4
-    dev: true
-
-  /tsutils@2.29.0(typescript@4.8.4):
-    resolution: {integrity: sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==}
-    peerDependencies:
-      typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev || >= 3.1.0-dev'
-    dependencies:
-      tslib: 1.14.1
-      typescript: 4.8.4
-    dev: true
 
   /tsutils@3.21.0(typescript@5.4.4):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
@@ -12399,11 +12083,6 @@ packages:
   /typeforce@1.18.0:
     resolution: {integrity: sha512-7uc1O8h1M1g0rArakJdf0uLRSSgFcYexrVoKo+bzJd32gd4gDy2L/Z+8/FjPnU9ydY3pEnVPtr9FyscYY60K1g==}
 
-  /typescript@4.8.4:
-    resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-
   /typescript@5.4.4:
     resolution: {integrity: sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==}
     engines: {node: '>=14.17'}
@@ -12597,29 +12276,6 @@ packages:
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
-    dev: false
-
-  /viem@1.21.4(typescript@4.8.4):
-    resolution: {integrity: sha512-BNVYdSaUjeS2zKQgPs+49e5JKocfo60Ib2yiXOWBT6LuVxY1I/6fFX3waEtpXvL1Xn4qu+BVitVtMh9lyThyhQ==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@adraffy/ens-normalize': 1.10.0
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.2
-      '@scure/bip32': 1.3.2
-      '@scure/bip39': 1.2.1
-      abitype: 0.9.8(typescript@4.8.4)
-      isows: 1.0.3(ws@8.13.0)
-      typescript: 4.8.4
-      ws: 8.13.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
     dev: false
 
   /viem@1.21.4(typescript@5.4.4):

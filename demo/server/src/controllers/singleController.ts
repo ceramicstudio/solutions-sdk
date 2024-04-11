@@ -1,67 +1,70 @@
-import { getContext } from "../utils/context.js";
-import { Request, Response, NextFunction } from "express";
-import {
-  SinglePointReader,
-  SinglePointWriter,
-} from '@composexp/points';
+import { getContext } from '../utils/context.js'
+import { Request, Response, NextFunction } from 'express'
+import { SinglePointReader, SinglePointWriter } from '@composexp/points'
+
+export interface CreateSinglePointRequest extends Request {
+  body: {
+    recipient: string
+  }
+}
 
 const createSinglePoint = async (
-  req: Request,
+  req: CreateSinglePointRequest,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   try {
-    const { ceramic } = await getContext();
-    const writer = new SinglePointWriter({ ceramic });
-    await writer.addPointTo(req.body.recipient);
-    res.locals.ceramic = ceramic;
-    return next();
+    const { ceramic } = await getContext()
+    const writer = new SinglePointWriter({ ceramic })
+    await writer.addPointTo(req.body.recipient)
+    res.locals.ceramic = ceramic
+    return next()
   } catch (error) {
-    console.error(error);
-    return error;
+    console.error(error)
+    return error
   }
-};
+}
 
 const removeSinglePoint = async (
-  req: Request,
+  req: CreateSinglePointRequest,
   _res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   try {
-    const { ceramic } = await getContext();
+    const { ceramic } = await getContext()
     const reader = new SinglePointReader({
       ceramic,
       issuer: ceramic.did!.id,
-    });
-    const documents = await reader.queryPointDocumentsFor(req.body.recipient);
-    const id = documents.documents[documents.documents.length - 1].id;
-    const writer = new SinglePointWriter({ ceramic });
-    await writer.removePoint(id.toString());
-    return next();
+    })
+    const documents = await reader.queryPointDocumentsFor(req.body.recipient)
+    const id = documents.documents[documents.documents.length - 1].id
+    const writer = new SinglePointWriter({ ceramic })
+    await writer.removePoint(id.toString())
+    return next()
   } catch (error) {
-    console.error(error);
-    return error;
+    console.error(error)
+    return error
   }
-};
+}
 
 const getSinglePoints = async (
-  req: Request,
+  req: CreateSinglePointRequest,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   try {
-    const ceramic = res.locals.ceramic ?? (await getContext()).ceramic;
+    const { ceramic } = await getContext()
     const reader = new SinglePointReader({
       ceramic,
       issuer: ceramic.did!.id,
-    });
-    const totalPoints = await reader.countPointsFor(req.body.recipient);
-    res.locals.totalPoints = totalPoints;
-    return next();
+    })
+    const totalPoints = await reader.countPointsFor(req.body.recipient)
+    res.locals.totalPoints = totalPoints
+    return next()
   } catch (error) {
-    console.error(error);
-    return error;
+    console.error(error)
+    return error
   }
-};
+}
 
-export const singlePointController = { createSinglePoint, getSinglePoints, removeSinglePoint };
+export const singlePointController = { createSinglePoint, getSinglePoints, removeSinglePoint }

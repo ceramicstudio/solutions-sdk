@@ -1,28 +1,38 @@
-import express from "express";
-import { singlePointController } from "../controllers/singleController.js";
+import { RequestHandler, Response, Router, Request } from 'express'
+import { singlePointController } from '../controllers/singleController.js'
 
-const router: express.Router = express.Router();
+const router: Router = Router()
 
-router.get("/", singlePointController.getSinglePoints, (_req, res) => {
-  return res.json({ totalPoints: res.locals.totalPoints });
-});
+type R = Response & {
+  locals: {
+    totalPoints: number
+  }
+}
+
+router.get(
+  '/',
+  singlePointController.getSinglePoints as RequestHandler,
+  (_req: Request, res: R): Response => {
+    return res.json({ totalPoints: res.locals.totalPoints })
+  },
+)
 
 router.post(
-  "/create",
-  singlePointController.createSinglePoint,
-  singlePointController.getSinglePoints,
-  (_req, res) => {
-    return res.json({ totalPoints: res.locals.totalPoints });
-  }
-);
+  '/create',
+  singlePointController.createSinglePoint as RequestHandler,
+  singlePointController.getSinglePoints as RequestHandler,
+  (_req: Request, res: R): Response => {
+    return res.json({ totalPoints: res.locals.totalPoints })
+  },
+)
 
 router.delete(
-  "/remove",
-  singlePointController.removeSinglePoint,
-  singlePointController.getSinglePoints,
-  (_req, res) => {
-    return res.json({ totalPoints: res.locals.totalPoints });
-  }
-);
+  '/remove',
+  singlePointController.removeSinglePoint as RequestHandler,
+  singlePointController.getSinglePoints as RequestHandler,
+  (_req: Request, res: R): Response => {
+    return res.json({ totalPoints: res.locals.totalPoints })
+  },
+)
 
-export default router;
+export default router
