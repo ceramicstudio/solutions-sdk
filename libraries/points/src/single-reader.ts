@@ -1,7 +1,7 @@
 import type { BaseQuery } from '@ceramicnetwork/common'
 import { DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI } from '@composedb/types'
-import { definition } from '@composexp/points-composite'
+import { definition } from '@ceramic-solutions/points-composite'
 
 import { getCeramic } from './ceramic.js'
 import { getQueryForRecipient, queryConnection } from './query.js'

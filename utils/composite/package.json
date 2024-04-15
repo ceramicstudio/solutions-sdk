@@ -1,12 +1,12 @@
 {
-  "name": "@composexp/composite-utils",
+  "name": "@ceramic-solutions/composite-utils",
   "version": "0.1.0",
   "private": true,
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ceramicstudio/solutions",
+    "url": "https://github.com/ceramicstudio/solutions-sdk",
     "directory": "utils/composite"
   },
   "type": "module",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@composedb/devtools-node": "^0.7.1",
-    "@composexp/ceramic-utils": "workspace:^"
+    "@ceramic-solutions/ceramic-utils": "workspace:^"
   },
   "devDependencies": {
     "@composedb/types": "^0.7.1",

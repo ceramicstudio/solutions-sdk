@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:25](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L25)
+[libraries/points/src/points-reader.ts:25](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L25)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:13](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L13)
+[libraries/points/src/points-writer.ts:13](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-writer.ts#L13)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:20](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-writer.ts#L20)
+[libraries/points/src/points-writer.ts:20](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-writer.ts#L20)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/types.ts:3](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/types.ts#L3)
+[libraries/points/src/types.ts:3](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/types.ts#L3)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/types.ts:9](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/types.ts#L9)
+[libraries/points/src/types.ts:9](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/types.ts#L9)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:14](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-reader.ts#L14)
+[libraries/points/src/single-reader.ts:14](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/single-reader.ts#L14)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-writer.ts:8](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-writer.ts#L8)
+[libraries/points/src/single-writer.ts:8](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/single-writer.ts#L8)
 
 ___
 
@@ -176,4 +176,4 @@ ___
 
 #### Defined in
 
-[libraries/points/src/single-writer.ts:15](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/single-writer.ts#L15)
+[libraries/points/src/single-writer.ts:15](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/single-writer.ts#L15)

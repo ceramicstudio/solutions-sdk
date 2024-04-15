@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:45](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L45)
+[libraries/points/src/points-reader.ts:45](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L45)
 
 ## Accessors
 
@@ -75,7 +75,7 @@
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:59](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L59)
+[libraries/points/src/points-reader.ts:59](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L59)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:63](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L63)
+[libraries/points/src/points-reader.ts:63](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L63)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:67](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L67)
+[libraries/points/src/points-reader.ts:67](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L67)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:71](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L71)
+[libraries/points/src/points-reader.ts:71](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L71)
 
 ## Methods
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:95](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L95)
+[libraries/points/src/points-reader.ts:95](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L95)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:75](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L75)
+[libraries/points/src/points-reader.ts:75](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L75)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:87](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L87)
+[libraries/points/src/points-reader.ts:87](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L87)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:100](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L100)
+[libraries/points/src/points-reader.ts:100](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L100)
 
 ___
 
@@ -220,4 +220,4 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:106](https://github.com/ceramicstudio/solutions/blob/63cb3ad5f3da236446973238558e1895a955200e/libraries/points/src/points-reader.ts#L106)
+[libraries/points/src/points-reader.ts:106](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L106)

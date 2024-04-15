@@ -7,7 +7,7 @@ import {
   writeGraphQLSchema,
 } from '@composedb/devtools-node'
 import type { CeramicAPI } from '@composedb/types'
-import { getEphemeralCeramic } from '@composexp/ceramic-utils'
+import { getEphemeralCeramic } from '@ceramic-solutions/ceramic-utils'
 
 export type WriteCompositeParams = {
   schemaPath: PathInput

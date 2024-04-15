@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "@ceramicnetwork/http-client": "^5.6.0",
-    "@composexp/did-utils": "workspace:^",
-    "@composexp/points": "workspace:^",
+    "@ceramic-solutions/did-utils": "workspace:^",
+    "@ceramic-solutions/points": "workspace:^",
     "uint8arrays": "^5.0.3"
   }
 }

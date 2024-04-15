@@ -1,11 +1,11 @@
 {
-  "name": "@composexp/points-composite",
+  "name": "@ceramic-solutions/points-composite",
   "version": "0.1.0",
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ceramicstudio/solutions",
+    "url": "https://github.com/ceramicstudio/solutions-sdk",
     "directory": "composites/points"
   },
   "type": "module",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@composedb/types": "^0.7.1",
-    "@composexp/composite-utils": "workspace:^",
+    "@ceramic-solutions/composite-utils": "workspace:^",
     "@types/node": "^20.12.7",
     "tsx": "^4.7.2"
   }
