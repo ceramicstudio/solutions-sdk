@@ -1,11 +1,11 @@
 {
-  "name": "@composexp/points",
+  "name": "@ceramic-solutions/points",
   "version": "0.1.0",
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ceramicstudio/solutions",
+    "url": "https://github.com/ceramicstudio/solutions-sdk",
     "directory": "libraries/points"
   },
   "type": "module",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@ceramicnetwork/http-client": "^5.6.0",
     "@composedb/loader": "^0.7.1",
-    "@composexp/points-composite": "workspace:^",
+    "@ceramic-solutions/points-composite": "workspace:^",
     "dids": "^5.0.2",
     "key-did-provider-ed25519": "^4.0.2",
     "key-did-resolver": "^4.0.0"
@@ -43,9 +43,9 @@
   "devDependencies": {
     "@ceramicnetwork/common": "^5.5.0",
     "@composedb/types": "^0.7.1",
-    "@composexp/ceramic-utils": "workspace:^",
-    "@composexp/composite-utils": "workspace:^",
-    "@composexp/did-utils": "workspace:^"
+    "@ceramic-solutions/ceramic-utils": "workspace:^",
+    "@ceramic-solutions/composite-utils": "workspace:^",
+    "@ceramic-solutions/did-utils": "workspace:^"
   },
   "jest": {
     "extensionsToTreatAsEsm": [

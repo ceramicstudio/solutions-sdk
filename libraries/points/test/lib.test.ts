@@ -1,16 +1,16 @@
 import { createRequire } from 'node:module'
 import { CeramicClient } from '@ceramicnetwork/http-client'
 import { DocumentLoader } from '@composedb/loader'
-import { type CeramicContext, getEphemeralCeramic } from '@composexp/ceramic-utils'
-import { generatePrivateKey, getAuthenticatedDID } from '@composexp/did-utils'
-import { deployComposite } from '@composexp/composite-utils'
-import { definition } from '@composexp/points-composite'
+import { type CeramicContext, getEphemeralCeramic } from '@ceramic-solutions/ceramic-utils'
+import { generatePrivateKey, getAuthenticatedDID } from '@ceramic-solutions/did-utils'
+import { deployComposite } from '@ceramic-solutions/composite-utils'
+import { definition } from '@ceramic-solutions/points-composite'
 import { jest } from '@jest/globals'
 
 import { PointsReader, PointsWriter, SinglePointReader, SinglePointWriter } from '../src'
 
 const require = createRequire(import.meta.url)
-const compositePath = require.resolve('@composexp/points-composite/composite.json')
+const compositePath = require.resolve('@ceramic-solutions/points-composite/composite.json')
 
 describe('points', () => {
   describe('SinglePointReader class', () => {

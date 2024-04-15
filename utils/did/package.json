@@ -1,12 +1,12 @@
 {
-  "name": "@composexp/did-utils",
+  "name": "@ceramic-solutions/did-utils",
   "version": "0.1.0",
   "private": true,
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ceramicstudio/solutions",
+    "url": "https://github.com/ceramicstudio/solutions-sdk",
     "directory": "utils/did"
   },
   "type": "module",

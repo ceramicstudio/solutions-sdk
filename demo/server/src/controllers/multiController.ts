@@ -1,6 +1,6 @@
 import { getContext } from '../utils/context.js'
 import { Request, Response, NextFunction } from 'express'
-import { PointsWriter, PointsReader } from '@composexp/points'
+import { PointsWriter, PointsReader } from '@ceramic-solutions/points'
 
 type ContextAggregationContent = {
   recipient: string

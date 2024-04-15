@@ -1,6 +1,6 @@
 import { getContext } from '../utils/context.js'
 import { Request, Response, NextFunction } from 'express'
-import { SinglePointReader, SinglePointWriter } from '@composexp/points'
+import { SinglePointReader, SinglePointWriter } from '@ceramic-solutions/points'
 
 export interface CreateSinglePointRequest extends Request {
   body: {
