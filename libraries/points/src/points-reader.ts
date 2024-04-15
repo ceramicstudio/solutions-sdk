@@ -1,7 +1,10 @@
 import type { BaseQuery } from '@ceramicnetwork/common'
 import { type DeterministicLoadOptions, DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
-import { definition } from '@ceramic-solutions/points-composite'
+import {
+  SimplePointsAggregationID,
+  SimplePointsAllocationID,
+} from '@ceramic-solutions/points-composite'
 
 import { getCeramic } from './ceramic.js'
 import { getQueryForRecipient, queryConnection } from './query.js'
@@ -44,8 +47,8 @@ export class PointsReader<
 
   constructor(params: PointsReaderParams) {
     const ceramic = getCeramic(params.ceramic)
-    const aggregationModelID = params.aggregationModelID ?? definition.models.TotalPoints.id
-    const allocationModelID = params.allocationModelID ?? definition.models.MultiplePoints.id
+    const aggregationModelID = params.aggregationModelID ?? SimplePointsAggregationID
+    const allocationModelID = params.allocationModelID ?? SimplePointsAllocationID
 
     this.#aggregationBaseQuery = { account: params.issuer, models: [aggregationModelID] }
     this.#aggregationModelID = aggregationModelID

@@ -1,6 +1,5 @@
 import express, { json, Request, Response, NextFunction } from 'express'
 import cors from 'cors'
-import singleRouter from './routes/single.js'
 import multiRouter from './routes/multi.js'
 
 const app = express()
@@ -24,7 +23,6 @@ const allowCrossDomain = (_req: Request, res: Response, next: NextFunction) => {
 
 app.use(allowCrossDomain)
 
-app.use('/single', singleRouter)
 app.use('/multi', multiRouter)
 
 app.listen(port, () => {
