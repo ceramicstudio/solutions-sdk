@@ -7,7 +7,7 @@
 | Name | Type |
 | :------ | :------ |
 | `AggregationContent` | extends `TotalPointsContent` = `TotalPointsContent` |
-| `AllocationContent` | extends `MultiplePointsContent` = `MultiplePointsContent` |
+| `AllocationContent` | extends `AllocatePointsContent` = `AllocatePointsContent` |
 
 ## Hierarchy
 
@@ -21,13 +21,6 @@
 
 - [constructor](points.PointsReader.md#constructor)
 
-### Accessors
-
-- [aggregationModelID](points.PointsReader.md#aggregationmodelid)
-- [allocationModelID](points.PointsReader.md#allocationmodelid)
-- [ceramic](points.PointsReader.md#ceramic)
-- [loader](points.PointsReader.md#loader)
-
 ### Methods
 
 - [getAggregationPointsFor](points.PointsReader.md#getaggregationpointsfor)
@@ -35,6 +28,7 @@
 - [loadAggregationDocumentsFor](points.PointsReader.md#loadaggregationdocumentsfor)
 - [queryAggregationDocuments](points.PointsReader.md#queryaggregationdocuments)
 - [queryAllocationDocumentsFor](points.PointsReader.md#queryallocationdocumentsfor)
+- [create](points.PointsReader.md#create)
 
 ## Constructors
 
@@ -47,13 +41,13 @@
 | Name | Type |
 | :------ | :------ |
 | `AggregationContent` | extends `TotalPointsContent` = `TotalPointsContent` |
-| `AllocationContent` | extends `MultiplePointsContent` = `MultiplePointsContent` |
+| `AllocationContent` | extends `PointsContent` = `PointsContent` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`PointsReaderParams`](../modules/points.md#pointsreaderparams) |
+| `params` | [`PointsReaderParams`](../modules/points.md#pointsreaderparams)\<`AggregationContent`, `AllocationContent`\> |
 
 #### Returns
 
@@ -61,63 +55,7 @@
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:45](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L45)
-
-## Accessors
-
-### aggregationModelID
-
-• `get` **aggregationModelID**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[libraries/points/src/points-reader.ts:59](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L59)
-
-___
-
-### allocationModelID
-
-• `get` **allocationModelID**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[libraries/points/src/points-reader.ts:63](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L63)
-
-___
-
-### ceramic
-
-• `get` **ceramic**(): `CeramicAPI`
-
-#### Returns
-
-`CeramicAPI`
-
-#### Defined in
-
-[libraries/points/src/points-reader.ts:67](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L67)
-
-___
-
-### loader
-
-• `get` **loader**(): `DocumentLoader`
-
-#### Returns
-
-`DocumentLoader`
-
-#### Defined in
-
-[libraries/points/src/points-reader.ts:71](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L71)
+[libraries/points/src/points-reader.ts:63](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L63)
 
 ## Methods
 
@@ -137,7 +75,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:95](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L95)
+[libraries/points/src/points-reader.ts:82](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L82)
 
 ___
 
@@ -150,7 +88,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `didOrValues` | `string` \| `string`[] |
-| `options` | `DeterministicLoadOptions` |
+| `options?` | `DeterministicLoadOptions` |
 
 #### Returns
 
@@ -158,7 +96,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:75](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L75)
+[libraries/points/src/points-reader.ts:68](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L68)
 
 ___
 
@@ -179,7 +117,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:87](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L87)
+[libraries/points/src/points-reader.ts:75](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L75)
 
 ___
 
@@ -199,7 +137,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:100](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L100)
+[libraries/points/src/points-reader.ts:86](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L86)
 
 ___
 
@@ -220,4 +158,31 @@ ___
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:106](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L106)
+[libraries/points/src/points-reader.ts:92](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L92)
+
+___
+
+### create
+
+▸ **create**\<`AggregationContent`, `AllocationContent`\>(`params`): [`PointsReader`](points.PointsReader.md)\<`AggregationContent`, `AllocationContent`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `AggregationContent` | extends `TotalPointsContent` = `TotalPointsContent` |
+| `AllocationContent` | extends `PointsContent` = `PointsContent` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | `CreatePointsReaderParams` |
+
+#### Returns
+
+[`PointsReader`](points.PointsReader.md)\<`AggregationContent`, `AllocationContent`\>
+
+#### Defined in
+
+[libraries/points/src/points-reader.ts:40](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L40)

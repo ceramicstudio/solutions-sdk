@@ -47,7 +47,7 @@ const getContextAggregation = async (
     const { recipient, context } = req.body
 
     //instantiate a reader
-    const reader = new PointsReader({
+    const reader = PointsReader.create({
       ceramic,
       issuer: ceramic.did!.id,
       aggregationModelID,
@@ -75,7 +75,7 @@ const getTotalAggregation = async (
     const { recipient } = req.body
 
     //instantiate a reader
-    const reader = new PointsReader({
+    const reader = PointsReader.create({
       ceramic,
       issuer: ceramic.did!.id,
     })
@@ -101,20 +101,14 @@ const updateContextAggregation = async (
     const { ceramic, aggregationModelID } = await getContext()
     const { amount, recipient, context } = req.body
 
-    //instantiate a writer and reader
-    const contextWriter = new PointsWriter<ContextAggregationContent>({
+    //instantiate a writer
+    const contextWriter = PointsWriter.fromAuthenticated<ContextAggregationContent>({
       ceramic,
-      aggregationModelID,
-    })
-
-    const contextReader = new PointsReader({
-      ceramic,
-      issuer: ceramic.did!.id,
       aggregationModelID,
     })
 
     // load the document for the recipient and context
-    const doc = await contextReader.loadAggregationDocumentFor([recipient, context])
+    const doc = await contextWriter.loadAggregationDocumentFor([recipient, context])
     if (!doc) {
       await contextWriter.setPointsAggregationFor([recipient, context], amount, {
         recipient,
@@ -159,12 +153,11 @@ const updateTotalAggregation = async (
     const { ceramic } = await getContext()
     const { amount, recipient } = req.body
 
-    //instantiate a writer and reader
-    const totalWriter = new PointsWriter({ ceramic })
-    const totalReader = new PointsReader({ ceramic, issuer: ceramic.did!.id })
+    //instantiate a writer
+    const totalWriter = PointsWriter.fromAuthenticated({ ceramic })
 
     // load the document for the recipient and context
-    const doc = await totalReader.loadAggregationDocumentFor([recipient])
+    const doc = await totalWriter.loadAggregationDocumentFor([recipient])
     if (!doc) {
       await totalWriter.setPointsAggregationFor([recipient], amount, {
         recipient,
