@@ -29,12 +29,17 @@ router.get(
   multiplePointsController.getContextAggregation as RequestHandler,
   multiplePointsController.getTotalAggregation as RequestHandler,
   (_req: Request, res: R) => {
-    return res.json({
-      contextTotal: res.locals.contextTotal,
-      total: res.locals.total,
-      contextDocument: res.locals.contextDocument,
-      document: res.locals.document,
-    })
+    return res.locals.contextTotal !== 0
+      ? res.json({
+          contextTotal: res.locals.contextTotal,
+          total: res.locals.total,
+          contextDocument: res.locals.contextDocument,
+          document: res.locals.document,
+        })
+      : res.json({
+          total: res.locals.total,
+          document: res.locals.document,
+        })
   },
 )
 
