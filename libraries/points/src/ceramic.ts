@@ -1,5 +1,6 @@
 import { CeramicClient } from '@ceramicnetwork/http-client'
 import type { CeramicAPI } from '@composedb/types'
+import type { DID } from 'dids'
 
 import { getAuthenticatedDID } from './did.js'
 
@@ -15,4 +16,10 @@ export async function getAuthenticatedCeramic(
   const did = await getAuthenticatedDID(seed)
   ceramic.did = did
   return ceramic
+}
+
+export function assertAuthenticated(did?: DID): asserts did {
+  if (!did?.authenticated) {
+    throw new Error(`An authenticated DID instance must be set on the Ceramic client`)
+  }
 }

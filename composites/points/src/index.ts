@@ -9,7 +9,6 @@ export const SimplePointsAggregationID = definition.models.SimplePointsAggregati
 export const SimplePointsAllocationID = definition.models.SimplePointsAllocation.id
 
 export type PointsContent = {
-  issuer: string // DID
   recipient: string // DID
   points: number
 }

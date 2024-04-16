@@ -33,19 +33,19 @@
     "prepublishOnly": "package-check"
   },
   "dependencies": {
-    "@ceramicnetwork/http-client": "^5.6.0",
-    "@composedb/loader": "^0.7.1",
     "@ceramic-solutions/points-composite": "workspace:^",
+    "@ceramicnetwork/http-client": "^5.7.0",
+    "@composedb/loader": "^0.7.1",
     "dids": "^5.0.2",
     "key-did-provider-ed25519": "^4.0.2",
     "key-did-resolver": "^4.0.0"
   },
   "devDependencies": {
-    "@ceramicnetwork/common": "^5.5.0",
-    "@composedb/types": "^0.7.1",
     "@ceramic-solutions/ceramic-utils": "workspace:^",
     "@ceramic-solutions/composite-utils": "workspace:^",
-    "@ceramic-solutions/did-utils": "workspace:^"
+    "@ceramic-solutions/did-utils": "workspace:^",
+    "@ceramicnetwork/common": "^5.6.0",
+    "@composedb/types": "^0.7.1"
   },
   "jest": {
     "extensionsToTreatAsEsm": [

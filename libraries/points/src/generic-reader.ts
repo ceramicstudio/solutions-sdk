@@ -7,21 +7,21 @@ import { getCeramic } from './ceramic.js'
 import { getQueryForRecipient, queryConnection } from './query.js'
 import type { QueryDocumentsOptions, QueryDocumentsResult } from './types.js'
 
-export type PointsBaseReaderParams = {
+export type GenericReaderParams = {
   issuer: string
   modelID: string
   ceramic?: CeramicAPI | string
   loader?: DocumentLoader
 }
 
-export class PointsBaseReader<Content extends PointsContent = PointsContent> {
+export class GenericReader<Content extends PointsContent = PointsContent> {
   #baseQuery: BaseQuery
   #issuer: string
   #ceramic: CeramicAPI
   #loader: DocumentLoader
   #modelID: string
 
-  constructor(params: PointsBaseReaderParams) {
+  constructor(params: GenericReaderParams) {
     const ceramic = getCeramic(params.ceramic)
     this.#baseQuery = { account: params.issuer, models: [params.modelID] }
     this.#modelID = params.modelID

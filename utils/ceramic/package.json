@@ -32,14 +32,14 @@
     "prepublishOnly": "package-check"
   },
   "dependencies": {
-    "@ceramicnetwork/cli": "^5.6.0",
-    "@ceramicnetwork/core": "^5.6.0",
-    "@ceramicnetwork/ipfs-daemon": "^5.6.0",
     "@ceramic-solutions/did-utils": "workspace:^",
+    "@ceramicnetwork/cli": "^5.7.0",
+    "@ceramicnetwork/core": "^5.7.0",
+    "@ceramicnetwork/ipfs-daemon": "^5.7.0",
     "tmp-promise": "^3.0.3"
   },
   "devDependencies": {
-    "@ceramicnetwork/common": "^5.5.0",
+    "@ceramicnetwork/common": "^5.6.0",
     "@types/node": "^20.12.7",
     "dids": "^5.0.2"
   }

@@ -1,31 +1,35 @@
+import type { DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
 import type { PointsContent } from '@ceramic-solutions/points-composite'
 
-import { getAuthenticatedCeramic } from './ceramic.js'
-import { PointsBaseReader, type PointsBaseReaderParams } from './base-reader.js'
+import { assertAuthenticated, getAuthenticatedCeramic } from './ceramic.js'
+import { GenericReader } from './generic-reader.js'
 
-export type PointsListWriterFromSeedParams = PointsBaseReaderParams & {
+export type ListWriterFromSeedParams = {
+  ceramic?: CeramicAPI | string
+  loader?: DocumentLoader
+  modelID: string
   seed: Uint8Array
 }
 
-export type PointsListWriterParams = Omit<PointsBaseReaderParams, 'ceramic'> & {
+export type ListWriterParams = {
   ceramic: CeramicAPI
+  loader?: DocumentLoader
+  modelID: string
 }
 
-export class PointsListWriter<
+export class ListWriter<
   Content extends PointsContent = PointsContent,
-> extends PointsBaseReader<Content> {
+> extends GenericReader<Content> {
   static async fromSeed<Content extends PointsContent = PointsContent>(
-    params: PointsListWriterFromSeedParams,
-  ): Promise<PointsListWriter<Content>> {
+    params: ListWriterFromSeedParams,
+  ): Promise<ListWriter<Content>> {
     const ceramic = await getAuthenticatedCeramic(params.seed, params.ceramic)
-    return new PointsListWriter({ ...params, ceramic })
+    return new ListWriter({ ...params, ceramic })
   }
 
-  constructor(params: PointsListWriterParams) {
-    if (!params.ceramic.did?.authenticated) {
-      throw new Error(`An authenticated DID instance must be set on the Ceramic client`)
-    }
+  constructor(params: ListWriterParams) {
+    assertAuthenticated(params.ceramic.did)
     super({ ...params, issuer: params.ceramic.did.id })
   }
 

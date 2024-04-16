@@ -2,17 +2,17 @@ import type { DeterministicLoadOptions } from '@composedb/loader'
 import type { ModelInstanceDocument } from '@composedb/types'
 import type { PointsContent } from '@ceramic-solutions/points-composite'
 
-import { PointsBaseReader, type PointsBaseReaderParams } from './base-reader.js'
+import { GenericReader, type GenericReaderParams } from './generic-reader.js'
 
 export function toUniqueArg(value: string | Array<string>): Array<string> {
   return Array.isArray(value) ? value : [value]
 }
 
-export type PointsSetReaderParams = PointsBaseReaderParams
+export type SetReaderParams = GenericReaderParams
 
-export class PointsSetReader<
+export class SetReader<
   Content extends PointsContent = PointsContent,
-> extends PointsBaseReader<Content> {
+> extends GenericReader<Content> {
   async loadDocumentFor(
     didOrValues: string | Array<string>,
     options: DeterministicLoadOptions = {},
@@ -23,7 +23,7 @@ export class PointsSetReader<
     })
   }
 
-  async loadPointsFor(
+  async getPointsFor(
     didOrValues: string | Array<string>,
     options?: DeterministicLoadOptions,
   ): Promise<number> {
