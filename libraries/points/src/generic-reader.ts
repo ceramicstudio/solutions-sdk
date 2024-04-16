@@ -1,37 +1,41 @@
 import type { BaseQuery } from '@ceramicnetwork/common'
 import { DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI } from '@composedb/types'
-import { definition } from '@ceramic-solutions/points-composite'
+import type { PointsContent } from '@ceramic-solutions/points-composite'
 
 import { getCeramic } from './ceramic.js'
 import { getQueryForRecipient, queryConnection } from './query.js'
 import type { QueryDocumentsOptions, QueryDocumentsResult } from './types.js'
 
-export type SinglePointContent = {
-  recipient: string
-}
-
-export type SinglePointReaderParams = {
+export type GenericReaderParams = {
   issuer: string
+  modelID: string
   ceramic?: CeramicAPI | string
   loader?: DocumentLoader
-  modelID?: string
 }
 
-export class SinglePointReader<Content extends SinglePointContent = SinglePointContent> {
+export class GenericReader<Content extends PointsContent = PointsContent> {
   #baseQuery: BaseQuery
+  #issuer: string
   #ceramic: CeramicAPI
   #loader: DocumentLoader
   #modelID: string
 
-  constructor(params: SinglePointReaderParams) {
+  constructor(params: GenericReaderParams) {
     const ceramic = getCeramic(params.ceramic)
-    const modelID = params.modelID ?? definition.models.SinglePoint.id
-
-    this.#baseQuery = { account: params.issuer, models: [modelID] }
+    this.#baseQuery = { account: params.issuer, models: [params.modelID] }
+    this.#modelID = params.modelID
     this.#ceramic = ceramic
+    this.#issuer = params.issuer
     this.#loader = params.loader ?? new DocumentLoader({ ceramic })
-    this.#modelID = modelID
+  }
+
+  get issuer(): string {
+    return this.#issuer
+  }
+
+  get modelID(): string {
+    return this.#modelID
   }
 
   get ceramic(): CeramicAPI {
@@ -42,24 +46,15 @@ export class SinglePointReader<Content extends SinglePointContent = SinglePointC
     return this.#loader
   }
 
-  get modelID(): string {
-    return this.#modelID
+  async queryDocuments(options?: QueryDocumentsOptions): Promise<QueryDocumentsResult<Content>> {
+    return await queryConnection(this.#loader, this.#baseQuery, options)
   }
 
-  async countTotalPoints(): Promise<number> {
-    return await this.#ceramic.index.count(this.#baseQuery)
-  }
-
-  async queryPointDocumentsFor(
+  async queryDocumentsFor(
     did: string,
     options?: QueryDocumentsOptions,
   ): Promise<QueryDocumentsResult<Content>> {
     const query = getQueryForRecipient(this.#baseQuery, did)
     return await queryConnection(this.#loader, query, options)
-  }
-
-  async countPointsFor(did: string): Promise<number> {
-    const query = getQueryForRecipient(this.#baseQuery, did)
-    return await this.#ceramic.index.count(query)
   }
 }

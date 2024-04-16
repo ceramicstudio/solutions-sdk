@@ -4,41 +4,106 @@
 
 ### Classes
 
+- [GenericReader](../classes/points.GenericReader.md)
+- [ListWriter](../classes/points.ListWriter.md)
 - [PointsReader](../classes/points.PointsReader.md)
 - [PointsWriter](../classes/points.PointsWriter.md)
-- [SinglePointReader](../classes/points.SinglePointReader.md)
-- [SinglePointWriter](../classes/points.SinglePointWriter.md)
+- [SetReader](../classes/points.SetReader.md)
+- [SetWriter](../classes/points.SetWriter.md)
 
 ### Type Aliases
 
+- [GenericReaderParams](points.md#genericreaderparams)
+- [ListWriterFromSeedParams](points.md#listwriterfromseedparams)
+- [ListWriterParams](points.md#listwriterparams)
 - [PointsReaderParams](points.md#pointsreaderparams)
 - [PointsWriterFromSeedParams](points.md#pointswriterfromseedparams)
 - [PointsWriterParams](points.md#pointswriterparams)
 - [QueryDocumentsOptions](points.md#querydocumentsoptions)
 - [QueryDocumentsResult](points.md#querydocumentsresult)
-- [SinglePointReaderParams](points.md#singlepointreaderparams)
-- [SinglePointWriterFromSeedParams](points.md#singlepointwriterfromseedparams)
-- [SinglePointWriterParams](points.md#singlepointwriterparams)
+- [SetReaderParams](points.md#setreaderparams)
+- [SetWriterFromSeedParams](points.md#setwriterfromseedparams)
+- [SetWriterParams](points.md#setwriterparams)
 
 ## Type Aliases
 
-### PointsReaderParams
+### GenericReaderParams
 
-Ƭ **PointsReaderParams**: `Object`
+Ƭ **GenericReaderParams**: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `aggregationModelID?` | `string` |
-| `allocationModelID?` | `string` |
 | `ceramic?` | `CeramicAPI` \| `string` |
 | `issuer` | `string` |
 | `loader?` | `DocumentLoader` |
+| `modelID` | `string` |
 
 #### Defined in
 
-[libraries/points/src/points-reader.ts:25](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-reader.ts#L25)
+[libraries/points/src/generic-reader.ts:10](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L10)
+
+___
+
+### ListWriterFromSeedParams
+
+Ƭ **ListWriterFromSeedParams**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `ceramic?` | `CeramicAPI` \| `string` |
+| `loader?` | `DocumentLoader` |
+| `modelID` | `string` |
+| `seed` | `Uint8Array` |
+
+#### Defined in
+
+[libraries/points/src/list-writer.ts:8](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/list-writer.ts#L8)
+
+___
+
+### ListWriterParams
+
+Ƭ **ListWriterParams**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `ceramic` | `CeramicAPI` |
+| `loader?` | `DocumentLoader` |
+| `modelID` | `string` |
+
+#### Defined in
+
+[libraries/points/src/list-writer.ts:15](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/list-writer.ts#L15)
+
+___
+
+### PointsReaderParams
+
+Ƭ **PointsReaderParams**\<`AggregationContent`, `AllocationContent`\>: `Object`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `AggregationContent` | extends `TotalPointsContent` = `TotalPointsContent` |
+| `AllocationContent` | extends `AllocatePointsContent` = `AllocatePointsContent` |
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `aggregationReader` | [`SetReader`](../classes/points.SetReader.md)\<`AggregationContent`\> |
+| `allocationReader` | [`GenericReader`](../classes/points.GenericReader.md)\<`AllocationContent`\> |
+
+#### Defined in
+
+[libraries/points/src/points-reader.ts:28](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L28)
 
 ___
 
@@ -50,33 +115,39 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `aggregationModelID?` | `string` |
+| `allocationModelID?` | `string` |
 | `ceramic?` | `CeramicAPI` \| `string` |
 | `loader?` | `DocumentLoader` |
-| `modelID?` | `string` |
 | `seed` | `Uint8Array` |
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:13](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-writer.ts#L13)
+[libraries/points/src/points-writer.ts:24](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L24)
 
 ___
 
 ### PointsWriterParams
 
-Ƭ **PointsWriterParams**: `Object`
+Ƭ **PointsWriterParams**\<`AggregationContent`, `AllocationContent`\>: `Object`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `AggregationContent` | extends `TotalPointsContent` = `TotalPointsContent` |
+| `AllocationContent` | extends `AllocatePointsContent` = `AllocatePointsContent` |
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `aggregationModelID?` | `string` |
-| `allocationModelID?` | `string` |
-| `ceramic` | `CeramicAPI` |
-| `loader?` | `DocumentLoader` |
+| `aggregationWriter` | [`SetWriter`](../classes/points.SetWriter.md)\<`AggregationContent`\> |
+| `allocationWriter` | [`ListWriter`](../classes/points.ListWriter.md)\<`AllocationContent`\> |
 
 #### Defined in
 
-[libraries/points/src/points-writer.ts:20](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/points-writer.ts#L20)
+[libraries/points/src/points-writer.ts:32](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L32)
 
 ___
 
@@ -94,7 +165,7 @@ ___
 
 #### Defined in
 
-[libraries/points/src/types.ts:3](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/types.ts#L3)
+[libraries/points/src/types.ts:3](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/types.ts#L3)
 
 ___
 
@@ -120,32 +191,23 @@ ___
 
 #### Defined in
 
-[libraries/points/src/types.ts:9](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/types.ts#L9)
+[libraries/points/src/types.ts:9](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/types.ts#L9)
 
 ___
 
-### SinglePointReaderParams
+### SetReaderParams
 
-Ƭ **SinglePointReaderParams**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `ceramic?` | `CeramicAPI` \| `string` |
-| `issuer` | `string` |
-| `loader?` | `DocumentLoader` |
-| `modelID?` | `string` |
+Ƭ **SetReaderParams**: [`GenericReaderParams`](points.md#genericreaderparams)
 
 #### Defined in
 
-[libraries/points/src/single-reader.ts:14](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/single-reader.ts#L14)
+[libraries/points/src/set-reader.ts:11](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-reader.ts#L11)
 
 ___
 
-### SinglePointWriterFromSeedParams
+### SetWriterFromSeedParams
 
-Ƭ **SinglePointWriterFromSeedParams**: `Object`
+Ƭ **SetWriterFromSeedParams**: `Object`
 
 #### Type declaration
 
@@ -153,18 +215,18 @@ ___
 | :------ | :------ |
 | `ceramic?` | `CeramicAPI` \| `string` |
 | `loader?` | `DocumentLoader` |
-| `modelID?` | `string` |
+| `modelID` | `string` |
 | `seed` | `Uint8Array` |
 
 #### Defined in
 
-[libraries/points/src/single-writer.ts:8](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/single-writer.ts#L8)
+[libraries/points/src/set-writer.ts:8](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-writer.ts#L8)
 
 ___
 
-### SinglePointWriterParams
+### SetWriterParams
 
-Ƭ **SinglePointWriterParams**: `Object`
+Ƭ **SetWriterParams**: `Object`
 
 #### Type declaration
 
@@ -172,8 +234,8 @@ ___
 | :------ | :------ |
 | `ceramic` | `CeramicAPI` |
 | `loader?` | `DocumentLoader` |
-| `modelID?` | `string` |
+| `modelID` | `string` |
 
 #### Defined in
 
-[libraries/points/src/single-writer.ts:15](https://github.com/ceramicstudio/solutions-sdk/blob/996989c557810301e582e300ab7215628488db96/libraries/points/src/single-writer.ts#L15)
+[libraries/points/src/set-writer.ts:15](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-writer.ts#L15)

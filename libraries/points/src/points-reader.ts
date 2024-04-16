@@ -1,28 +1,23 @@
-import type { BaseQuery } from '@ceramicnetwork/common'
 import { type DeterministicLoadOptions, DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
-import { definition } from '@ceramic-solutions/points-composite'
+import {
+  type PointsContent,
+  SimplePointsAggregationID,
+  SimplePointsAllocationID,
+} from '@ceramic-solutions/points-composite'
 
 import { getCeramic } from './ceramic.js'
-import { getQueryForRecipient, queryConnection } from './query.js'
+import { GenericReader } from './generic-reader.js'
+import { SetReader } from './set-reader.js'
 import type { QueryDocumentsOptions, QueryDocumentsResult } from './types.js'
 
-export function toUniqueArg(value: string | Array<string>): Array<string> {
-  return Array.isArray(value) ? value : [value]
-}
+export type AllocatePointsContent = PointsContent
 
-export type MultiplePointsContent = {
-  recipient: string
-  points: number
-}
-
-export type TotalPointsContent = {
-  recipient: string
-  points: number
+export type TotalPointsContent = PointsContent & {
   date: string
 }
 
-export type PointsReaderParams = {
+export type CreatePointsReaderParams = {
   issuer: string
   aggregationModelID?: string
   allocationModelID?: string
@@ -30,84 +25,74 @@ export type PointsReaderParams = {
   loader?: DocumentLoader
 }
 
+export type PointsReaderParams<
+  AggregationContent extends TotalPointsContent = TotalPointsContent,
+  AllocationContent extends AllocatePointsContent = AllocatePointsContent,
+> = {
+  aggregationReader: SetReader<AggregationContent>
+  allocationReader: GenericReader<AllocationContent>
+}
+
 export class PointsReader<
   AggregationContent extends TotalPointsContent = TotalPointsContent,
-  AllocationContent extends MultiplePointsContent = MultiplePointsContent,
+  AllocationContent extends AllocatePointsContent = AllocatePointsContent,
 > {
-  #aggregationBaseQuery: BaseQuery
-  #aggregationModelID: string
-  #allocationBaseQuery: BaseQuery
-  #allocationModelID: string
-  #issuer: string
-  #ceramic: CeramicAPI
-  #loader: DocumentLoader
-
-  constructor(params: PointsReaderParams) {
+  static create<
+    AggregationContent extends TotalPointsContent = TotalPointsContent,
+    AllocationContent extends AllocatePointsContent = AllocatePointsContent,
+  >(params: CreatePointsReaderParams): PointsReader<AggregationContent, AllocationContent> {
     const ceramic = getCeramic(params.ceramic)
-    const aggregationModelID = params.aggregationModelID ?? definition.models.TotalPoints.id
-    const allocationModelID = params.allocationModelID ?? definition.models.MultiplePoints.id
-
-    this.#aggregationBaseQuery = { account: params.issuer, models: [aggregationModelID] }
-    this.#aggregationModelID = aggregationModelID
-    this.#allocationBaseQuery = { account: params.issuer, models: [allocationModelID] }
-    this.#allocationModelID = allocationModelID
-    this.#ceramic = ceramic
-    this.#issuer = params.issuer
-    this.#loader = params.loader ?? new DocumentLoader({ ceramic })
+    const aggregationReader = new SetReader<AggregationContent>({
+      ceramic,
+      issuer: params.issuer,
+      loader: params.loader,
+      modelID: params.aggregationModelID ?? SimplePointsAggregationID,
+    })
+    const allocationReader = new GenericReader<AllocationContent>({
+      ceramic,
+      issuer: params.issuer,
+      loader: params.loader,
+      modelID: params.allocationModelID ?? SimplePointsAllocationID,
+    })
+    return new PointsReader({ aggregationReader, allocationReader })
   }
 
-  get aggregationModelID(): string {
-    return this.#aggregationModelID
-  }
+  #aggregation: SetReader<AggregationContent>
+  #allocation: GenericReader<AllocationContent>
 
-  get allocationModelID(): string {
-    return this.#allocationModelID
-  }
-
-  get ceramic(): CeramicAPI {
-    return this.#ceramic
-  }
-
-  get loader(): DocumentLoader {
-    return this.#loader
+  constructor(params: PointsReaderParams<AggregationContent, AllocationContent>) {
+    this.#aggregation = params.aggregationReader
+    this.#allocation = params.allocationReader
   }
 
   async loadAggregationDocumentFor(
     didOrValues: string | Array<string>,
-    options: DeterministicLoadOptions = {},
+    options?: DeterministicLoadOptions,
   ): Promise<ModelInstanceDocument<AggregationContent> | null> {
-    return await this.#loader.loadSet(
-      this.#issuer,
-      this.#aggregationModelID,
-      toUniqueArg(didOrValues),
-      { ignoreEmpty: true, ...options },
-    )
+    return await this.#aggregation.loadDocumentFor(didOrValues, options)
   }
 
   async loadAggregationDocumentsFor(
     did: string,
     options?: QueryDocumentsOptions,
   ): Promise<QueryDocumentsResult<AggregationContent>> {
-    const query = getQueryForRecipient(this.#aggregationBaseQuery, did)
-    return await queryConnection(this.#loader, query, options)
+    return await this.#aggregation.queryDocumentsFor(did, options)
   }
 
   async getAggregationPointsFor(didOrValues: string | Array<string>): Promise<number> {
-    const doc = await this.loadAggregationDocumentFor(didOrValues)
-    return doc?.content?.points ?? 0
+    return await this.#aggregation.getPointsFor(didOrValues)
   }
 
   async queryAggregationDocuments(
     options?: QueryDocumentsOptions,
   ): Promise<QueryDocumentsResult<AggregationContent>> {
-    return await queryConnection(this.#loader, this.#aggregationBaseQuery, options)
+    return await this.#aggregation.queryDocuments(options)
   }
 
   async queryAllocationDocumentsFor(
     did: string,
     options?: QueryDocumentsOptions,
   ): Promise<QueryDocumentsResult<AllocationContent>> {
-    const query = getQueryForRecipient(this.#allocationBaseQuery, did)
-    return await queryConnection(this.#loader, query, options)
+    return await this.#allocation.queryDocumentsFor(did, options)
   }
 }

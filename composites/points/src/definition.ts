@@ -2,128 +2,109 @@
 import type { RuntimeCompositeDefinition } from '@composedb/types'
 export const definition: RuntimeCompositeDefinition = {
   models: {
-    GenericPointAllocation: {
+    PointsAggregationInterface: {
+      interface: true,
+      implements: ['kjzl6hvfrbw6c6lxvcf8bc07wjyn29ocoxqn877uia1y86qph79axtdrcuijpeo'],
+      id: 'kjzl6hvfrbw6c5m5bxe6jl7cocyxpg9b8em5w9mo3l8ws4zl5c0tu5vgapitpvk',
+      accountRelation: { type: 'none' },
+    },
+    PointsAllocationInterface: {
+      interface: true,
+      implements: ['kjzl6hvfrbw6c6lxvcf8bc07wjyn29ocoxqn877uia1y86qph79axtdrcuijpeo'],
+      id: 'kjzl6hvfrbw6cakj74rf7d3qjnm3xoydcgx7orzw4bwdmc6kljd04uojuhpef2j',
+      accountRelation: { type: 'none' },
+    },
+    PointsInterface: {
       interface: true,
       implements: [],
-      id: 'kjzl6hvfrbw6c6m3n64vb2h4n8nxq9jjfb7sf7a9y893spm1pjd0enrsdlyphg4',
+      id: 'kjzl6hvfrbw6c6lxvcf8bc07wjyn29ocoxqn877uia1y86qph79axtdrcuijpeo',
       accountRelation: { type: 'none' },
     },
-    MultiplePoints: {
+    SimplePointsAggregation: {
       interface: false,
       implements: [
-        'kjzl6hvfrbw6ca7buvthejhv7vqr85vmpsepzj0mc6665y2zarvjbuvtm3v4kah',
-        'kjzl6hvfrbw6c6m3n64vb2h4n8nxq9jjfb7sf7a9y893spm1pjd0enrsdlyphg4',
+        'kjzl6hvfrbw6c5m5bxe6jl7cocyxpg9b8em5w9mo3l8ws4zl5c0tu5vgapitpvk',
+        'kjzl6hvfrbw6c6lxvcf8bc07wjyn29ocoxqn877uia1y86qph79axtdrcuijpeo',
       ],
-      id: 'kjzl6hvfrbw6c9fmjjdsbuxnewf0yhvco3dn5mihiogeso6i1csdbw2fq8oeijy',
-      accountRelation: { type: 'list' },
-    },
-    MultiplePointsAllocation: {
-      interface: true,
-      implements: ['kjzl6hvfrbw6c6m3n64vb2h4n8nxq9jjfb7sf7a9y893spm1pjd0enrsdlyphg4'],
-      id: 'kjzl6hvfrbw6ca7buvthejhv7vqr85vmpsepzj0mc6665y2zarvjbuvtm3v4kah',
-      accountRelation: { type: 'none' },
-    },
-    PointsAggregation: {
-      interface: true,
-      implements: [],
-      id: 'kjzl6hvfrbw6cb6393dpd8blke5w8r7pvbl4449mxetuibcav3oab8fnxmys6d6',
-      accountRelation: { type: 'none' },
-    },
-    SinglePoint: {
-      interface: false,
-      implements: [
-        'kjzl6hvfrbw6c7ilzfpjw96drd04jadb0aybiklk70ys2imxp5mjbjmgkecgddf',
-        'kjzl6hvfrbw6c6m3n64vb2h4n8nxq9jjfb7sf7a9y893spm1pjd0enrsdlyphg4',
-      ],
-      id: 'kjzl6hvfrbw6c9332q9di7qfshxczet94w2tzeubvkbkk9vtuwmya6s9f1bvx9p',
-      accountRelation: { type: 'list' },
-    },
-    SinglePointAllocation: {
-      interface: true,
-      implements: ['kjzl6hvfrbw6c6m3n64vb2h4n8nxq9jjfb7sf7a9y893spm1pjd0enrsdlyphg4'],
-      id: 'kjzl6hvfrbw6c7ilzfpjw96drd04jadb0aybiklk70ys2imxp5mjbjmgkecgddf',
-      accountRelation: { type: 'none' },
-    },
-    TotalPoints: {
-      interface: false,
-      implements: ['kjzl6hvfrbw6cb6393dpd8blke5w8r7pvbl4449mxetuibcav3oab8fnxmys6d6'],
-      id: 'kjzl6hvfrbw6c5be4exsm7nkkksnqatki8bceyvbgtmcu2bu5vign23b7x4emlb',
+      id: 'kjzl6hvfrbw6capj3or1esf65c1jbluhky3t2wupxefeuocqt5lz5u4gum07o24',
       accountRelation: { type: 'set', fields: ['recipient'] },
+    },
+    SimplePointsAllocation: {
+      interface: false,
+      implements: [
+        'kjzl6hvfrbw6cakj74rf7d3qjnm3xoydcgx7orzw4bwdmc6kljd04uojuhpef2j',
+        'kjzl6hvfrbw6c6lxvcf8bc07wjyn29ocoxqn877uia1y86qph79axtdrcuijpeo',
+      ],
+      id: 'kjzl6hvfrbw6c9rahz7aal75i0ncxkf5wmircmtpz2s34xls8ux1p08ic655oek',
+      accountRelation: { type: 'list' },
     },
   },
   objects: {
-    GenericPointAllocation: {
-      recipient: { type: 'did', required: true, immutable: false },
-      issuer: { type: 'view', viewType: 'documentAccount' },
-    },
-    MultiplePoints: {
-      points: { type: 'integer', required: true, immutable: false },
-      recipient: { type: 'did', required: true, immutable: false },
-      issuer: { type: 'view', viewType: 'documentAccount' },
-    },
-    MultiplePointsAllocation: {
-      points: { type: 'integer', required: true, immutable: false },
-      recipient: { type: 'did', required: true, immutable: false },
-      issuer: { type: 'view', viewType: 'documentAccount' },
-    },
-    PointsAggregation: {
+    PointsAggregationInterface: {
       date: { type: 'datetime', required: true, immutable: false },
       points: { type: 'integer', required: true, immutable: false },
       recipient: { type: 'did', required: true, immutable: false },
       issuer: { type: 'view', viewType: 'documentAccount' },
     },
-    SinglePoint: {
+    PointsAllocationInterface: {
+      points: { type: 'integer', required: true, immutable: false },
       recipient: { type: 'did', required: true, immutable: false },
       issuer: { type: 'view', viewType: 'documentAccount' },
     },
-    SinglePointAllocation: {
+    PointsInterface: {
+      points: { type: 'integer', required: true, immutable: false },
       recipient: { type: 'did', required: true, immutable: false },
       issuer: { type: 'view', viewType: 'documentAccount' },
     },
-    TotalPoints: {
+    SimplePointsAggregation: {
       date: { type: 'datetime', required: true, immutable: false },
       points: { type: 'integer', required: true, immutable: false },
       recipient: { type: 'did', required: true, immutable: true },
       issuer: { type: 'view', viewType: 'documentAccount' },
     },
+    SimplePointsAllocation: {
+      points: { type: 'integer', required: true, immutable: false },
+      recipient: { type: 'did', required: true, immutable: false },
+      issuer: { type: 'view', viewType: 'documentAccount' },
+    },
   },
   enums: {},
   accountData: {
-    genericPointAllocationList: { type: 'connection', name: 'GenericPointAllocation' },
-    multiplePointsAllocationList: { type: 'connection', name: 'MultiplePointsAllocation' },
-    multiplePointsList: { type: 'connection', name: 'MultiplePoints' },
-    pointsAggregationList: { type: 'connection', name: 'PointsAggregation' },
-    recipientOfGenericPointAllocationList: {
+    pointsAggregationInterfaceList: { type: 'connection', name: 'PointsAggregationInterface' },
+    pointsAllocationInterfaceList: { type: 'connection', name: 'PointsAllocationInterface' },
+    pointsInterfaceList: { type: 'connection', name: 'PointsInterface' },
+    recipientOfPointsAggregationInterfaceList: {
       type: 'account',
-      name: 'GenericPointAllocation',
+      name: 'PointsAggregationInterface',
       property: 'recipient',
     },
-    recipientOfMultiplePointsAllocationList: {
+    recipientOfPointsAllocationInterfaceList: {
       type: 'account',
-      name: 'MultiplePointsAllocation',
+      name: 'PointsAllocationInterface',
       property: 'recipient',
     },
-    recipientOfMultiplePointsList: {
+    recipientOfPointsInterfaceList: {
       type: 'account',
-      name: 'MultiplePoints',
+      name: 'PointsInterface',
       property: 'recipient',
     },
-    recipientOfPointsAggregationList: {
-      type: 'account',
-      name: 'PointsAggregation',
+    recipientOfSimplePointsAggregation: {
+      type: 'account-set',
+      name: 'SimplePointsAggregation',
       property: 'recipient',
     },
-    recipientOfSinglePointAllocationList: {
+    recipientOfSimplePointsAggregationList: {
       type: 'account',
-      name: 'SinglePointAllocation',
+      name: 'SimplePointsAggregation',
       property: 'recipient',
     },
-    recipientOfSinglePointList: { type: 'account', name: 'SinglePoint', property: 'recipient' },
-    recipientOfTotalPoints: { type: 'account-set', name: 'TotalPoints', property: 'recipient' },
-    recipientOfTotalPointsList: { type: 'account', name: 'TotalPoints', property: 'recipient' },
-    singlePointAllocationList: { type: 'connection', name: 'SinglePointAllocation' },
-    singlePointList: { type: 'connection', name: 'SinglePoint' },
-    totalPoints: { type: 'set', name: 'TotalPoints' },
-    totalPointsList: { type: 'connection', name: 'TotalPoints' },
+    recipientOfSimplePointsAllocationList: {
+      type: 'account',
+      name: 'SimplePointsAllocation',
+      property: 'recipient',
+    },
+    simplePointsAggregation: { type: 'set', name: 'SimplePointsAggregation' },
+    simplePointsAggregationList: { type: 'connection', name: 'SimplePointsAggregation' },
+    simplePointsAllocationList: { type: 'connection', name: 'SimplePointsAllocation' },
   },
 }
