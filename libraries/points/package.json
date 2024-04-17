@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
+  "keywords": [
+    "ceramic",
+    "points"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ceramicstudio/solutions-sdk",
