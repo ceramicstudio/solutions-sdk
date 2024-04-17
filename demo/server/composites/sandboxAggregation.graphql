@@ -1,10 +1,10 @@
 # (for reference only)
 
-interface PointsAggregation @loadModel(id: "kjzl6hvfrbw6cb6393dpd8blke5w8r7pvbl4449mxetuibcav3oab8fnxmys6d6") {
+interface PointsAggregationInterface @loadModel(id: "kjzl6hvfrbw6cb6393dpd8blke5w8r7pvbl4449mxetuibcav3oab8fnxmys6d6") {
   id: ID!
 }
 
-type SandboxPointsAggregation implements PointsAggregation
+type SandboxPointAggregation implements PointsAggregationInterface
   @createModel(
     description: "Aggregation of multiple Ceramic Sandbox read points to an account"
     accountRelation: SET
