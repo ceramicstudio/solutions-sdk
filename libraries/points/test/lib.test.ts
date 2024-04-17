@@ -4,13 +4,10 @@ import { DocumentLoader } from '@composedb/loader'
 import { type CeramicContext, getEphemeralCeramic } from '@ceramic-solutions/ceramic-utils'
 import { generatePrivateKey, getAuthenticatedDID } from '@ceramic-solutions/did-utils'
 import { deployComposite } from '@ceramic-solutions/composite-utils'
-import {
-  SimplePointsAggregationID,
-  SimplePointsAllocationID,
-} from '@ceramic-solutions/points-composite'
+import { SimplePointsAllocationID } from '@ceramic-solutions/points-composite'
 import { jest } from '@jest/globals'
 
-import { GenericReader, ListWriter, PointsReader, PointsWriter, SetReader, SetWriter } from '../src'
+import { GenericReader, ListWriter, PointsWriter, SetReader, SetWriter } from '../src'
 
 const require = createRequire(import.meta.url)
 const compositePath = require.resolve('@ceramic-solutions/points-composite/composite.json')
