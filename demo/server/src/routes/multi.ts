@@ -24,7 +24,7 @@ router.post(
   },
 )
 
-router.get(
+router.post(
   '/getAggregations',
   multiplePointsController.getContextAggregation as RequestHandler,
   multiplePointsController.getTotalAggregation as RequestHandler,

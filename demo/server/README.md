@@ -24,6 +24,10 @@ In order to use an extended type (like this server example uses), the following 
 2. Next, the developer would deploy the [SandboxPointAggregation](./composites/sandboxAggregation.graphql) type (which imports one of the default library interfaces already deployed above in step 1)
 3. An .env file would have been generated at the root of this directory using the same format as [.env.example](./.env.example), using your endpoint in place of `CERAMIC_URL`, the corresponding StreamID for your `SandboxPointAggregation` model you just deployed in place of `AGGREGATION_ID`, and a private key
 
+## MultiController
+
+
+
 ## License
 
 Dual licensed under MIT and Apache 2
