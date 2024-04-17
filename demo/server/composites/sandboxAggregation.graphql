@@ -8,7 +8,7 @@ type SandboxPointsAggregation implements PointsAggregation
   @createModel(
     description: "Aggregation of multiple Ceramic Sandbox read points to an account"
     accountRelation: SET
-    accountRelationFields: ["recipient"]
+    accountRelationFields: ["recipient", "context"]
   ) {
   issuer: DID! @documentAccount
   recipient: DID! @accountReference
