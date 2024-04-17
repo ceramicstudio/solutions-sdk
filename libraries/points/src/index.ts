@@ -13,4 +13,3 @@ export {
 export { SetReader, type SetReaderParams } from './set-reader.js'
 export { SetWriter, type SetWriterFromSeedParams, type SetWriterParams } from './set-writer.js'
 export type { QueryDocumentsOptions, QueryDocumentsResult } from './types.js'
-export { getAuthenticatedCeramic, getCeramic } from './ceramic.js'
