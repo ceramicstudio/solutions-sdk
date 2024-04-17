@@ -35,16 +35,15 @@
     "start": "node ."
   },
   "devDependencies": {
-    "@ceramic-solutions/ceramic-utils": "workspace:^",
-    "@ceramic-solutions/did-utils": "workspace:^",
-    "@ceramic-solutions/points": "workspace:^",
+    "@ceramic-solutions/points": "^0.1.1",
     "@types/cors": "^2.8.15",
     "@types/express": "^4.17.20",
     "key-did-provider-ed25519": "^4.0.2",
     "key-did-resolver": "^4.0.0",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.1",
-    "uint8arrays": "^5.0.3"
+    "uint8arrays": "^5.0.3",
+    "@composedb/types": "^0.7.1"
   },
   "dependencies": {
     "@ceramicnetwork/http-client": "^5.7.0",

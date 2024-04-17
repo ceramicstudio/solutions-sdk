@@ -44,6 +44,10 @@ The /multi api route exposes two APIs:
 
 You'll notice that this library does not currently make use of the `PointsAllocationInterface`. For other use cases, it may be important to have more granular visibility into the reason for each individual point distribution event, in which case this interface could also be extended to include a context (which could be used to describe why the points distribution occurred).
 
+## Hosted Node Endpoint
+
+The points library uses a default node endpoint (for test purposes only) that has both the standard types and interfaces deployed onto it, as well as the extended type explained above. If you wish to use the hosted endpoint, simply set your CERAMIC_URL="" in your .env file.
+
 ## Getting started
 
 To get up and running and start experimenting with this server:
@@ -54,15 +58,13 @@ To get up and running and start experimenting with this server:
 pnpm install
 ```
 
-2. From within the /solutions/demo/server directory, create your .env file using the instructions from the "process" section above (as well as the node instructions)
+2. From within the /solutions/demo/server directory, create your .env file using the instructions from the "process" section above (as well as the node instructions). You can copy over the default values 1:1 (for testing purposes only) from .env.example
 
 3. Run the server in developer mode:
 
 ```bash
 pnpm dev
 ```
-
-**Note:** Your [index](./src/index.ts) file currently restricts calls to only ones originating from http://localhost:3000 - you can optionally remove or alter this if you wish to test calls from Postman or other similar tools.
 
 ## License
 
