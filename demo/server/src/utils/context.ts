@@ -1,23 +1,49 @@
-import { getAuthenticatedCeramic } from '@ceramic-solutions/points'
+import { PointsWriter, PointsReader } from '@ceramic-solutions/points'
+import { getAuthenticatedDID } from '@ceramic-solutions/did-utils'
 import { fromString } from 'uint8arrays'
-import { CeramicClient } from '@ceramicnetwork/http-client'
-import type { CeramicAPI } from '@composedb/types'
 import 'dotenv/config.js'
 
 type Context = {
-  ceramic: CeramicAPI
-  aggregationModelID: string
+  contextWriter: PointsWriter
+  totalWriter: PointsWriter
+  contextReader: PointsReader
+  totalReader: PointsReader
 }
 
 export const getContext = async (): Promise<Context> => {
   const CERAMIC_URL: string | undefined = process.env.CERAMIC_URL || undefined
   const CERAMIC_PRIVATE_KEY: string = process.env.CERAMIC_PRIVATE_KEY || ''
-  const aggregationModelID: string = process.env.AGGREGATION_ID || ''
+  const aggregationModelID: string | undefined = process.env.AGGREGATION_ID || undefined
 
   //eslint-disable-next-line
   const key = fromString(CERAMIC_PRIVATE_KEY, 'base16') as Uint8Array
 
-  const client = CERAMIC_URL ? new CeramicClient(CERAMIC_URL) : undefined
-  const ceramic = await getAuthenticatedCeramic(key, client)
-  return { ceramic, aggregationModelID }
+  // generate issuer for reader context
+  const issuer = await getAuthenticatedDID(key)
+  
+
+  const contextWriter = await PointsWriter.fromSeed({
+    aggregationModelID,
+    seed: key,
+    ceramic: CERAMIC_URL,
+  })
+
+  const totalWriter = await PointsWriter.fromSeed({
+    seed: key,
+    ceramic: CERAMIC_URL,
+  })
+
+  const contextReader = PointsReader.create({
+    ceramic: CERAMIC_URL,
+    issuer: issuer.id,
+    aggregationModelID,
+  })
+
+  const totalReader = PointsReader.create({
+    ceramic: CERAMIC_URL,
+    issuer: issuer.id,
+  })
+
+ 
+  return { contextWriter, totalWriter, contextReader, totalReader }
 }

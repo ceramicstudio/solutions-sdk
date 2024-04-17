@@ -1,13 +1,11 @@
 import { getContext } from '../utils/context.js'
 import { Request, Response, NextFunction } from 'express'
-import { PointsWriter, PointsReader } from '@ceramic-solutions/points'
 
-type ContextAggregationContent = {
-  recipient: string
-  points: number
-  date: string
-  context: string
-}
+type PointsContent = {
+  recipient: string;
+  points: number;
+  date: string;
+};
 
 export interface GetContextAggregationRequest extends Request {
   body: {
@@ -43,16 +41,10 @@ const getContextAggregation = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const { ceramic, aggregationModelID } = await getContext()
+    const { contextReader } = await getContext()
     const { recipient, context } = req.body
 
-    //instantiate a reader
-    const reader = PointsReader.create({
-      ceramic,
-      issuer: ceramic.did!.id,
-      aggregationModelID,
-    })
-    const doc = await reader.loadAggregationDocumentFor([recipient, context])
+    const doc = await contextReader.loadAggregationDocumentFor([recipient, context])
     res.locals = {
       ...res.locals,
       contextTotal: doc ? (doc.content ? doc.content.points : 0) : 0,
@@ -71,15 +63,10 @@ const getTotalAggregation = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const { ceramic } = await getContext()
+    const { totalReader } = await getContext()
     const { recipient } = req.body
 
-    //instantiate a reader
-    const reader = PointsReader.create({
-      ceramic,
-      issuer: ceramic.did!.id,
-    })
-    const doc = await reader.loadAggregationDocumentFor([recipient])
+    const doc = await totalReader.loadAggregationDocumentFor([recipient])
     res.locals = {
       ...res.locals,
       total: doc ? (doc.content ? doc.content.points : 0) : 0,
@@ -98,14 +85,8 @@ const updateContextAggregation = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const { ceramic, aggregationModelID } = await getContext()
+    const { contextWriter } = await getContext()
     const { amount, recipient, context } = req.body
-
-    //instantiate a writer
-    const contextWriter = PointsWriter.fromAuthenticated<ContextAggregationContent>({
-      ceramic,
-      aggregationModelID,
-    })
 
     // load the document for the recipient and context
     const doc = await contextWriter.loadAggregationDocumentFor([recipient, context])
@@ -115,7 +96,7 @@ const updateContextAggregation = async (
         points: amount,
         date: new Date().toISOString(),
         context,
-      })
+      } as Partial<PointsContent>) 
       res.locals = {
         ...res.locals,
         contextTotal: amount,
@@ -150,11 +131,8 @@ const updateTotalAggregation = async (
   next: NextFunction,
 ): Promise<void> => {
   try {
-    const { ceramic } = await getContext()
+    const { totalWriter } = await getContext()
     const { amount, recipient } = req.body
-
-    //instantiate a writer
-    const totalWriter = PointsWriter.fromAuthenticated({ ceramic })
 
     // load the document for the recipient and context
     const doc = await totalWriter.loadAggregationDocumentFor([recipient])

@@ -102,6 +102,9 @@ importers:
         specifier: ^4.7.1
         version: 4.7.2
     devDependencies:
+      '@ceramic-solutions/did-utils':
+        specifier: workspace:^
+        version: link:../../utils/did
       '@ceramic-solutions/points':
         specifier: ^0.1.1
         version: link:../../libraries/points
