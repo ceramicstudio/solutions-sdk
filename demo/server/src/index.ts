@@ -6,7 +6,7 @@ const app = express()
 const port = process.env.PORT || 8080
 
 const corsOptions = {
-  origin: ['http://localhost:8080', 'https://developers.ceramic.network'],
+  origin: ['http://localhost:3000'],
   optionsSuccessStatus: 200, // For legacy browser support
 }
 
