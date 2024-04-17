@@ -4,8 +4,10 @@ import type { DID } from 'dids'
 
 import { getAuthenticatedDID } from './did.js'
 
-export function getCeramic(ceramic?: CeramicAPI | string): CeramicAPI {
-  return ceramic == null || typeof ceramic === 'string' ? new CeramicClient(ceramic) : ceramic
+const DEFAULT_CERAMIC_URL = 'https://experiments.ceramic.dev'
+
+export function getCeramic(ceramic: CeramicAPI | string = DEFAULT_CERAMIC_URL): CeramicAPI {
+  return typeof ceramic === 'string' ? new CeramicClient(ceramic) : ceramic
 }
 
 export async function getAuthenticatedCeramic(
