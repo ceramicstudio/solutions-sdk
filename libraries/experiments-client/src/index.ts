@@ -1,20 +1,23 @@
+/**
+ * @module experiments-client
+ */
+
+import { getAuthenticatedDID } from '@ceramic-solutions/key-did'
 import { CeramicClient } from '@ceramicnetwork/http-client'
 import type { CeramicAPI } from '@composedb/types'
 import type { DID } from 'dids'
 
-import { getAuthenticatedDID } from './did.js'
-
 const DEFAULT_CERAMIC_URL = 'https://experiments.ceramic.dev'
 
-export function getCeramic(ceramic: CeramicAPI | string = DEFAULT_CERAMIC_URL): CeramicAPI {
+export function getCeramicClient(ceramic: CeramicAPI | string = DEFAULT_CERAMIC_URL): CeramicAPI {
   return typeof ceramic === 'string' ? new CeramicClient(ceramic) : ceramic
 }
 
-export async function getAuthenticatedCeramic(
+export async function getAuthenticatedClient(
   seed: Uint8Array,
   ceramicClientOrURL?: CeramicAPI | string,
 ): Promise<CeramicAPI> {
-  const ceramic = getCeramic(ceramicClientOrURL)
+  const ceramic = getCeramicClient(ceramicClientOrURL)
   const did = await getAuthenticatedDID(seed)
   ceramic.did = did
   return ceramic

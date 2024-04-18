@@ -1,12 +1,12 @@
-import { type DeterministicLoadOptions, DocumentLoader } from '@composedb/loader'
-import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
+import { getCeramicClient } from '@ceramic-solutions/experiments-client'
 import {
   type PointsContent,
   SimplePointsAggregationID,
   SimplePointsAllocationID,
 } from '@ceramic-solutions/points-composite'
+import { type DeterministicLoadOptions, DocumentLoader } from '@composedb/loader'
+import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
 
-import { getCeramic } from './ceramic.js'
 import { GenericReader } from './generic-reader.js'
 import { SetReader } from './set-reader.js'
 import type { QueryDocumentsOptions, QueryDocumentsResult } from './types.js'
@@ -41,7 +41,7 @@ export class PointsReader<
     AggregationContent extends TotalPointsContent = TotalPointsContent,
     AllocationContent extends AllocatePointsContent = AllocatePointsContent,
   >(params: CreatePointsReaderParams): PointsReader<AggregationContent, AllocationContent> {
-    const ceramic = getCeramic(params.ceramic)
+    const ceramic = getCeramicClient(params.ceramic)
     const aggregationReader = new SetReader<AggregationContent>({
       ceramic,
       issuer: params.issuer,

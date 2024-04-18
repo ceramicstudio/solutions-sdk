@@ -64,10 +64,6 @@
 
 [SetReader](points.SetReader.md).[constructor](points.SetReader.md#constructor)
 
-#### Defined in
-
-[libraries/points/src/set-writer.ts:29](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-writer.ts#L29)
-
 ## Accessors
 
 ### ceramic
@@ -81,10 +77,6 @@
 #### Inherited from
 
 SetReader.ceramic
-
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:41](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L41)
 
 ___
 
@@ -100,10 +92,6 @@ ___
 
 SetReader.issuer
 
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:33](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L33)
-
 ___
 
 ### loader
@@ -118,10 +106,6 @@ ___
 
 SetReader.loader
 
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:45](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L45)
-
 ___
 
 ### modelID
@@ -135,10 +119,6 @@ ___
 #### Inherited from
 
 SetReader.modelID
-
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:37](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L37)
 
 ## Methods
 
@@ -161,10 +141,6 @@ SetReader.modelID
 
 [SetReader](points.SetReader.md).[getPointsFor](points.SetReader.md#getpointsfor)
 
-#### Defined in
-
-[libraries/points/src/set-reader.ts:26](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-reader.ts#L26)
-
 ___
 
 ### loadDocumentFor
@@ -186,10 +162,6 @@ ___
 
 [SetReader](points.SetReader.md).[loadDocumentFor](points.SetReader.md#loaddocumentfor)
 
-#### Defined in
-
-[libraries/points/src/set-reader.ts:16](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-reader.ts#L16)
-
 ___
 
 ### queryDocuments
@@ -209,10 +181,6 @@ ___
 #### Inherited from
 
 [SetReader](points.SetReader.md).[queryDocuments](points.SetReader.md#querydocuments)
-
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:49](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L49)
 
 ___
 
@@ -235,10 +203,6 @@ ___
 
 [SetReader](points.SetReader.md).[queryDocumentsFor](points.SetReader.md#querydocumentsfor)
 
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:53](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L53)
-
 ___
 
 ### removeDocument
@@ -254,10 +218,6 @@ ___
 #### Returns
 
 `Promise`\<`void`\>
-
-#### Defined in
-
-[libraries/points/src/set-writer.ts:57](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-writer.ts#L57)
 
 ___
 
@@ -275,10 +235,6 @@ ___
 
 `Promise`\<`void`\>
 
-#### Defined in
-
-[libraries/points/src/set-writer.ts:65](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-writer.ts#L65)
-
 ___
 
 ### setDocumentFor
@@ -295,10 +251,6 @@ ___
 #### Returns
 
 `Promise`\<`ModelInstanceDocument`\<`Content`\>\>
-
-#### Defined in
-
-[libraries/points/src/set-writer.ts:41](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-writer.ts#L41)
 
 ___
 
@@ -321,7 +273,3 @@ ___
 #### Returns
 
 `Promise`\<[`SetWriter`](points.SetWriter.md)\<`Content`\>\>
-
-#### Defined in
-
-[libraries/points/src/set-writer.ts:22](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/set-writer.ts#L22)

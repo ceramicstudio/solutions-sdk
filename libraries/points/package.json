@@ -1,6 +1,6 @@
 {
   "name": "@ceramic-solutions/points",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
   "keywords": [
@@ -37,18 +37,16 @@
     "prepublishOnly": "package-check"
   },
   "dependencies": {
+    "@ceramic-solutions/experiments-client": "workspace:^",
     "@ceramic-solutions/points-composite": "workspace:^",
-    "@ceramicnetwork/http-client": "^5.7.0",
-    "@composedb/loader": "^0.7.1",
-    "dids": "^5.0.2",
-    "key-did-provider-ed25519": "^4.0.2",
-    "key-did-resolver": "^4.0.0"
+    "@composedb/loader": "^0.7.1"
   },
   "devDependencies": {
     "@ceramic-solutions/ceramic-utils": "workspace:^",
     "@ceramic-solutions/composite-utils": "workspace:^",
-    "@ceramic-solutions/did-utils": "workspace:^",
+    "@ceramic-solutions/key-did": "workspace:^",
     "@ceramicnetwork/common": "^5.6.0",
+    "@ceramicnetwork/http-client": "^5.7.0",
     "@composedb/types": "^0.7.1"
   },
   "jest": {

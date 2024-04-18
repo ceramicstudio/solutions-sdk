@@ -35,7 +35,8 @@
     "start": "node ."
   },
   "devDependencies": {
-    "@ceramic-solutions/did-utils": "workspace:^",
+    "@ceramic-solutions/ceramic-utils": "workspace:^",
+    "@ceramic-solutions/key-did": "workspace:^",
     "@ceramic-solutions/points": "workspace:^",
     "@types/cors": "^2.8.15",
     "@types/express": "^4.17.20",

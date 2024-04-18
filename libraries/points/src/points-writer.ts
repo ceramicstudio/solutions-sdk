@@ -1,11 +1,11 @@
-import type { DocumentLoader } from '@composedb/loader'
-import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
+import { assertAuthenticated, getAuthenticatedClient } from '@ceramic-solutions/experiments-client'
 import {
   SimplePointsAggregationID,
   SimplePointsAllocationID,
 } from '@ceramic-solutions/points-composite'
+import type { DocumentLoader } from '@composedb/loader'
+import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
 
-import { assertAuthenticated, getAuthenticatedCeramic } from './ceramic.js'
 import { ListWriter } from './list-writer.js'
 import {
   type AllocatePointsContent,
@@ -68,7 +68,7 @@ export class PointsWriter<
     params: PointsWriterFromSeedParams,
   ): Promise<PointsWriter<AggregationContent, AllocationContent>> {
     const { seed, ...rest } = params
-    const ceramic = await getAuthenticatedCeramic(seed, params.ceramic)
+    const ceramic = await getAuthenticatedClient(seed, params.ceramic)
     return PointsWriter.fromAuthenticated({ ...rest, ceramic })
   }
 
