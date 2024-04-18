@@ -111,6 +111,9 @@ importers:
       '@ceramic-solutions/points':
         specifier: workspace:^
         version: link:../../libraries/points
+      '@composedb/types':
+        specifier: ^0.7.1
+        version: 0.7.1(@polkadot/util@7.9.2)(encoding@0.1.13)(typescript@5.4.5)
       '@types/cors':
         specifier: ^2.8.15
         version: 2.8.17
