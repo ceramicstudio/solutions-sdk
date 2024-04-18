@@ -1,6 +1,11 @@
 {
   "extends": "./tsconfig.build.json",
-  "include": ["./composites/points/src", "./libraries/points/src"],
+  "include": [
+    "./composites/points/src",
+    "./libraries/experiments-client/src",
+    "./libraries/key-did/src",
+    "./libraries/points/src"
+  ],
   "compilerOptions": {
     "jsx": "preserve",
     "lib": ["DOM", "ES2020"],
@@ -12,7 +17,13 @@
     "out": "docs/api",
     "readme": "none",
     "githubPages": false,
-    "entryPoints": ["./composites/points/src/index.ts", "./libraries/points/src/index.ts"],
+    "disableSources": true,
+    "entryPoints": [
+      "./composites/points/src/index.ts",
+      "./libraries/experiments-client/src/index.ts",
+      "./libraries/key-did/src/index.ts",
+      "./libraries/points/src/index.ts"
+    ],
     "excludeExternals": true,
     "excludeInternal": true,
     "excludePrivate": true,

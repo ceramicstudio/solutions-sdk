@@ -1,13 +1,17 @@
 {
-  "name": "@ceramic-solutions/ceramic-utils",
+  "name": "@ceramic-solutions/experiments-client",
   "version": "0.1.0",
   "private": true,
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
+  "keywords": [
+    "ceramic",
+    "experiments"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ceramicstudio/solutions-sdk",
-    "directory": "utils/ceramic"
+    "directory": "libraries/experiments-client"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -33,14 +37,10 @@
   },
   "dependencies": {
     "@ceramic-solutions/key-did": "workspace:^",
-    "@ceramicnetwork/cli": "^5.7.0",
-    "@ceramicnetwork/core": "^5.7.0",
-    "@ceramicnetwork/ipfs-daemon": "^5.7.0",
-    "tmp-promise": "^3.0.3"
+    "@ceramicnetwork/http-client": "^5.7.0"
   },
   "devDependencies": {
-    "@ceramicnetwork/common": "^5.6.0",
-    "@types/node": "^20.12.7",
+    "@composedb/types": "^0.7.1",
     "dids": "^5.0.2"
   }
 }

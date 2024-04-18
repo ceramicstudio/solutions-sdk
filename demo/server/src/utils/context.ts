@@ -1,4 +1,4 @@
-import { getAuthenticatedDID } from '@ceramic-solutions/did-utils'
+import { getAuthenticatedDID } from '@ceramic-solutions/key-did'
 import { fromString } from 'uint8arrays'
 import { CeramicClient } from '@ceramicnetwork/http-client'
 import 'dotenv/config.js'

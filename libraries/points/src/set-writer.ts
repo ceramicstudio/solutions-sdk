@@ -1,8 +1,8 @@
+import { assertAuthenticated, getAuthenticatedClient } from '@ceramic-solutions/experiments-client'
+import type { PointsContent } from '@ceramic-solutions/points-composite'
 import type { DocumentLoader } from '@composedb/loader'
 import type { CeramicAPI, ModelInstanceDocument } from '@composedb/types'
-import type { PointsContent } from '@ceramic-solutions/points-composite'
 
-import { assertAuthenticated, getAuthenticatedCeramic } from './ceramic.js'
 import { SetReader, toUniqueArg } from './set-reader.js'
 
 export type SetWriterFromSeedParams = {
@@ -22,7 +22,7 @@ export class SetWriter<Content extends PointsContent = PointsContent> extends Se
   static async fromSeed<Content extends PointsContent = PointsContent>(
     params: SetWriterFromSeedParams,
   ): Promise<SetWriter<Content>> {
-    const ceramic = await getAuthenticatedCeramic(params.seed, params.ceramic)
+    const ceramic = await getAuthenticatedClient(params.seed, params.ceramic)
     return new SetWriter({ ...params, ceramic })
   }
 
