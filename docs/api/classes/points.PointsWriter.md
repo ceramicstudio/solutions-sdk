@@ -63,10 +63,6 @@
 
 [PointsReader](points.PointsReader.md).[constructor](points.PointsReader.md#constructor)
 
-#### Defined in
-
-[libraries/points/src/points-writer.ts:78](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L78)
-
 ## Methods
 
 ### allocatePointsTo
@@ -84,10 +80,6 @@
 #### Returns
 
 `Promise`\<`ModelInstanceDocument`\<`AllocationContent`\>\>
-
-#### Defined in
-
-[libraries/points/src/points-writer.ts:87](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L87)
 
 ___
 
@@ -108,10 +100,6 @@ ___
 #### Inherited from
 
 [PointsReader](points.PointsReader.md).[getAggregationPointsFor](points.PointsReader.md#getaggregationpointsfor)
-
-#### Defined in
-
-[libraries/points/src/points-reader.ts:82](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L82)
 
 ___
 
@@ -134,10 +122,6 @@ ___
 
 [PointsReader](points.PointsReader.md).[loadAggregationDocumentFor](points.PointsReader.md#loadaggregationdocumentfor)
 
-#### Defined in
-
-[libraries/points/src/points-reader.ts:68](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L68)
-
 ___
 
 ### loadAggregationDocumentsFor
@@ -159,10 +143,6 @@ ___
 
 [PointsReader](points.PointsReader.md).[loadAggregationDocumentsFor](points.PointsReader.md#loadaggregationdocumentsfor)
 
-#### Defined in
-
-[libraries/points/src/points-reader.ts:75](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L75)
-
 ___
 
 ### queryAggregationDocuments
@@ -182,10 +162,6 @@ ___
 #### Inherited from
 
 [PointsReader](points.PointsReader.md).[queryAggregationDocuments](points.PointsReader.md#queryaggregationdocuments)
-
-#### Defined in
-
-[libraries/points/src/points-reader.ts:86](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L86)
 
 ___
 
@@ -208,10 +184,6 @@ ___
 
 [PointsReader](points.PointsReader.md).[queryAllocationDocumentsFor](points.PointsReader.md#queryallocationdocumentsfor)
 
-#### Defined in
-
-[libraries/points/src/points-reader.ts:92](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L92)
-
 ___
 
 ### removePointsAllocation
@@ -227,10 +199,6 @@ ___
 #### Returns
 
 `Promise`\<`void`\>
-
-#### Defined in
-
-[libraries/points/src/points-writer.ts:99](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L99)
 
 ___
 
@@ -250,10 +218,6 @@ ___
 
 `Promise`\<`ModelInstanceDocument`\<`AggregationContent`\>\>
 
-#### Defined in
-
-[libraries/points/src/points-writer.ts:110](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L110)
-
 ___
 
 ### updatePointsAggregationFor
@@ -270,10 +234,6 @@ ___
 #### Returns
 
 `Promise`\<`ModelInstanceDocument`\<`AggregationContent`\>\>
-
-#### Defined in
-
-[libraries/points/src/points-writer.ts:103](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L103)
 
 ___
 
@@ -302,10 +262,6 @@ ___
 
 [PointsReader](points.PointsReader.md).[create](points.PointsReader.md#create)
 
-#### Defined in
-
-[libraries/points/src/points-reader.ts:40](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-reader.ts#L40)
-
 ___
 
 ### fromAuthenticated
@@ -329,10 +285,6 @@ ___
 
 [`PointsWriter`](points.PointsWriter.md)\<`AggregationContent`, `AllocationContent`\>
 
-#### Defined in
-
-[libraries/points/src/points-writer.ts:44](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L44)
-
 ___
 
 ### fromSeed
@@ -355,7 +307,3 @@ ___
 #### Returns
 
 `Promise`\<[`PointsWriter`](points.PointsWriter.md)\<`AggregationContent`, `AllocationContent`\>\>
-
-#### Defined in
-
-[libraries/points/src/points-writer.ts:64](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/points-writer.ts#L64)

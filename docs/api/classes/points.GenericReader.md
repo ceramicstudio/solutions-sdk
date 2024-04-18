@@ -56,10 +56,6 @@
 
 [`GenericReader`](points.GenericReader.md)\<`Content`\>
 
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:24](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L24)
-
 ## Accessors
 
 ### ceramic
@@ -69,10 +65,6 @@
 #### Returns
 
 `CeramicAPI`
-
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:41](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L41)
 
 ___
 
@@ -84,10 +76,6 @@ ___
 
 `string`
 
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:33](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L33)
-
 ___
 
 ### loader
@@ -98,10 +86,6 @@ ___
 
 `DocumentLoader`
 
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:45](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L45)
-
 ___
 
 ### modelID
@@ -111,10 +95,6 @@ ___
 #### Returns
 
 `string`
-
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:37](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L37)
 
 ## Methods
 
@@ -132,10 +112,6 @@ ___
 
 `Promise`\<[`QueryDocumentsResult`](../modules/points.md#querydocumentsresult)\<`Content`\>\>
 
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:49](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L49)
-
 ___
 
 ### queryDocumentsFor
@@ -152,7 +128,3 @@ ___
 #### Returns
 
 `Promise`\<[`QueryDocumentsResult`](../modules/points.md#querydocumentsresult)\<`Content`\>\>
-
-#### Defined in
-
-[libraries/points/src/generic-reader.ts:53](https://github.com/ceramicstudio/solutions-sdk/blob/410a332e8e4d42d225b25ac7932f63038da217ad/libraries/points/src/generic-reader.ts#L53)

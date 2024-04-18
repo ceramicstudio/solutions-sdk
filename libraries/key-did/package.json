@@ -1,13 +1,17 @@
 {
-  "name": "@ceramic-solutions/did-utils",
+  "name": "@ceramic-solutions/key-did",
   "version": "0.1.0",
   "private": true,
   "author": "3Box Labs",
   "license": "(Apache-2.0 OR MIT)",
+  "keywords": [
+    "did",
+    "ed25519"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ceramicstudio/solutions-sdk",
-    "directory": "utils/did"
+    "directory": "libraries/key-did"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -32,11 +36,8 @@
     "prepublishOnly": "package-check"
   },
   "dependencies": {
-    "dids": "^5.0.2",
     "key-did-provider-ed25519": "^4.0.2",
-    "key-did-resolver": "^4.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.12.7"
+    "key-did-resolver": "^4.0.0",
+    "dids": "^5.0.2"
   }
 }

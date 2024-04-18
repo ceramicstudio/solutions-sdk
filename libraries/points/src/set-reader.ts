@@ -1,6 +1,6 @@
+import type { PointsContent } from '@ceramic-solutions/points-composite'
 import type { DeterministicLoadOptions } from '@composedb/loader'
 import type { ModelInstanceDocument } from '@composedb/types'
-import type { PointsContent } from '@ceramic-solutions/points-composite'
 
 import { GenericReader, type GenericReaderParams } from './generic-reader.js'
 
