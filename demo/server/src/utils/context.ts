@@ -1,4 +1,5 @@
 import { getAuthenticatedDID } from '@ceramic-solutions/key-did'
+import { PointsReader, PointsWriter } from '@ceramic-solutions/points'
 import { fromString } from 'uint8arrays'
 import 'dotenv/config.js'
 
