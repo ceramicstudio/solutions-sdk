@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@ceramic-solutions/did-utils": "workspace:^",
-    "@ceramic-solutions/points": "^0.1.1",
+    "@ceramic-solutions/points": "workspace:^",
     "@types/cors": "^2.8.15",
     "@types/express": "^4.17.20",
     "key-did-provider-ed25519": "^4.0.2",
