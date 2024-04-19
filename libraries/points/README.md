@@ -183,6 +183,14 @@ await writer.allocatePointsTo(recipient, amount, {
 
 Note: developers who wish to use the allocation and aggregation functionality together must control for keeping the totals for each in sync within their application logic - this is not automatically accounted for in the library.
 
+## Accessing the Library Composite
+
+If you wish to bypass the library's core functions or use it in conjunction with the standard ComposeDB libraries, here is where you can find the corresponding [JavaScript composite runtime definition](https://github.com/ceramicstudio/solutions-sdk/blob/main/composites/points/src/definition.ts). 
+
+Additionally, if you wish to use this library in production (and therefore need to deploy the library composite onto your own node), here is where you can find the canonical [JSON Composite](https://github.com/ceramicstudio/solutions-sdk/blob/main/composites/points/composite.json). 
+
+For information on how to deploy composites, visit our [ComposeDB Composites](https://developers.ceramic.network/docs/composedb/guides/data-modeling/composites) page in our docs.
+
 ## License
 
 Dual licensed under MIT and Apache 2
