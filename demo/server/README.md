@@ -44,6 +44,8 @@ The /multi api route exposes two APIs:
 
 You'll notice that this library does not currently make use of the `PointsAllocationInterface`. For other use cases, it may be important to have more granular visibility into the reason for each individual point distribution event, in which case this interface could also be extended to include a context (which could be used to describe why the points distribution occurred).
 
+For an example application that uses Allocations to record point distributions and enforce idempotent re-runs when pulling points from an external API, see [pullToPoints](https://github.com/ceramicstudio/pullToPoints).
+
 ## Hosted Node Endpoint
 
 The points library uses a default node endpoint (for test purposes only) that has both the standard types and interfaces deployed onto it, as well as the extended type explained above. If you wish to use the hosted endpoint, simply set your CERAMIC_URL="" in your .env file.
