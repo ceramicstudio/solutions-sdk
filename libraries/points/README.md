@@ -1,6 +1,8 @@
 # Points library
 
-A simple library to interact with points on Ceramic using ComposeDB, making it easy for developers to use out-of-the-box for straightforward use cases, or extend for more nuanced environments
+A points library that enables developers to easily award points to participants in their respective communities. Designed to be flexible across a myriad of use cases, developers can use this library to award points for participant contributions such as recognizing individuals for their active engagement on community forums, following a project on social media, interacting with an on-chain protocol, and other common behaviors communities may choose to incentivize.
+
+Points are stored on the Ceramic Network where they can then be queried and are (by default) composable.  Get started quickly with this out of the box code or easily extend the code to fit custom use cases.
 
 ## Installation
 
