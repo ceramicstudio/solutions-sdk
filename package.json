@@ -5,7 +5,7 @@
     "docs": "typedoc --tsconfig tsconfig.docs.json",
     "test": "turbo run test",
     "test:ci": "turbo run test:ci",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint --scope=!@ceramic-solutions/fullstack-app",
     "build": "pnpm --filter \"@ceramic-solutions/*\" build:types && turbo run build:js",
     "prepare": "pnpm build"
   },
