@@ -1,13 +1,14 @@
 {
   "extends": "../../tsconfig.build.json",
   "include": [
-    ".eslintrc.cjs",
+    ".eslintrc.json",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src"
   ],
   "compilerOptions": {
     "skipLibCheck": true,
