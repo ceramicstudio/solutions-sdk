@@ -1,11 +1,7 @@
-import { type GetServerSidePropsContext } from "next";
-import {
-  getServerSession,
-  type DefaultSession,
-  type NextAuthOptions,
-} from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
-import { env } from "@/env";
+import { type GetServerSidePropsContext } from 'next'
+import { getServerSession, type DefaultSession, type NextAuthOptions } from 'next-auth'
+import DiscordProvider from 'next-auth/providers/discord'
+import { env } from '@/env'
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -14,13 +10,18 @@ import { env } from "@/env";
  * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
  */
 
-declare module "next-auth" {
+const { DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET } = env as {
+  DISCORD_CLIENT_ID: string
+  DISCORD_CLIENT_SECRET: string
+}
+
+declare module 'next-auth' {
   interface Session extends DefaultSession {
-    user: DefaultSession["user"] & {
-      id: string;
-      token: string;
-    };
-    accessToken: string;
+    user: DefaultSession['user'] & {
+      id: string
+      token: string
+    }
+    accessToken: string
   }
 }
 
@@ -31,14 +32,14 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    async jwt({ token, account }) {
+    jwt({ token, account }) {
       // Persist the OAuth access_token and or the user id to the token right after signin
       if (account) {
-        token.accessToken = account.access_token;
+        token.accessToken = account.access_token
       }
-      return token;
+      return token
     },
-    session: async ({ session, token }) => {
+    session: ({ session, token }) => {
       return {
         ...session,
         user: {
@@ -46,15 +47,14 @@ export const authOptions: NextAuthOptions = {
           id: token.sub,
         },
         ...token,
-      };
+      }
     },
   },
   providers: [
     DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
-      authorization:
-        "https://discord.com/api/oauth2/authorize?scope=identify+email+guilds",
+      clientId: DISCORD_CLIENT_ID,
+      clientSecret: DISCORD_CLIENT_SECRET,
+      authorization: 'https://discord.com/api/oauth2/authorize?scope=identify+email+guilds',
     }),
     /**
      * ...add more providers here.
@@ -66,7 +66,7 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
-};
+}
 
 /**
  * Wrapper for `getServerSession` so that you don't need to import the `authOptions` in every file.
@@ -74,11 +74,11 @@ export const authOptions: NextAuthOptions = {
  * @see https://next-auth.js.org/configuration/nextjs
  */
 export const getServerAuthSession = async (ctx: {
-  req: GetServerSidePropsContext["req"];
-  res: GetServerSidePropsContext["res"];
+  req: GetServerSidePropsContext['req']
+  res: GetServerSidePropsContext['res']
 }) => {
-  const session = await getServerSession(ctx.req, ctx.res, authOptions);
-  return session;
-};
+  const session = await getServerSession(ctx.req, ctx.res, authOptions)
+  return session
+}
 
-export { authOptions as default };
+export { authOptions as default }
