@@ -1,11 +1,7 @@
 import { type NextApiRequest, type NextApiResponse } from 'next'
-import { PointsWriter } from '@ceramic-solutions/points'
+import { contextWriter, writer } from '@/utils/context'
 import type { ModelInstanceDocument } from '@composedb/types'
 import { PointsContent, type AggregationContent } from '@/utils/types'
-import { fromString } from 'uint8arrays'
-
-const CERAMIC_PRIVATE_KEY: string = process.env.CERAMIC_PRIVATE_KEY ?? ''
-const aggregationModelID: string | undefined = process.env.AGGREGATION_ID ?? undefined
 
 interface Request extends NextApiRequest {
   body: {
@@ -23,19 +19,6 @@ interface Response extends NextApiResponse {
 export default async function handler(req: Request, res: Response) {
   try {
     const { recipient, amount, context } = req.body
-    //eslint-disable-next-line
-    const seed = fromString(CERAMIC_PRIVATE_KEY, "base16") as Uint8Array;
-
-    // create a context writer
-    const contextWriter = await PointsWriter.fromSeed({
-      aggregationModelID,
-      seed,
-    })
-
-    // create a total writer
-    const writer = await PointsWriter.fromSeed({
-      seed,
-    })
 
     // get context aggregation doc if exists
     const aggregationDoc: ModelInstanceDocument<AggregationContent> | null =

@@ -1,12 +1,7 @@
 import { type NextApiRequest, type NextApiResponse } from 'next'
-import { getAuthenticatedDID } from '@ceramic-solutions/key-did'
-import { PointsReader } from '@ceramic-solutions/points'
+import { contextReader, reader } from '@/utils/context'
 import type { ModelInstanceDocument } from '@composedb/types'
 import { type AggregationContent } from '@/utils/types'
-import { fromString } from 'uint8arrays'
-
-const CERAMIC_PRIVATE_KEY: string = process.env.CERAMIC_PRIVATE_KEY ?? ''
-const aggregationModelID: string | undefined = process.env.AGGREGATION_ID ?? undefined
 
 interface Request extends NextApiRequest {
   body: {
@@ -23,22 +18,6 @@ interface Response extends NextApiResponse {
 export default async function handler(req: Request, res: Response) {
   try {
     const { recipient, context } = req.body
-    //eslint-disable-next-line
-    const seed = fromString(CERAMIC_PRIVATE_KEY, "base16") as Uint8Array;
-
-    // generate issuer for reader context
-    const issuer = await getAuthenticatedDID(seed)
-
-    //create a context reader
-    const contextReader = PointsReader.create({
-      issuer: issuer.id,
-      aggregationModelID,
-    })
-
-    //create a total reader
-    const reader = PointsReader.create({
-      issuer: issuer.id,
-    })
 
     // get context aggregation doc if exists
     const contextAggregationDoc: ModelInstanceDocument<AggregationContent> | null =
