@@ -1,0 +1,44 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "include": [
+    ".eslintrc.json",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.js",
+    ".next/types/**/*.ts",
+    "src"
+  ],
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
+    "moduleDetection": "force",
+    "moduleResolution": "Bundler",
+    "lib": ["dom", "dom.iterable", "ES2022"],
+    "isolatedModules": true,
+    /* Strictness */
+    "noUncheckedIndexedAccess": true,
+    "checkJs": true,
+    /* Bundled projects */
+    "noEmit": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "incremental": true,
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
